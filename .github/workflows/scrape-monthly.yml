@@ -1,0 +1,38 @@
+name: Monthly scrape
+
+on:
+  schedule:
+    - cron: '0 5 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run scraper
+        run: python scripts/scrape_hospitals.py
+      - name: Set PR metadata
+        id: meta
+        run: echo "today=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore: monthly hospitals data refresh"
+          title: "Monthly hospitals data update (${{ steps.meta.outputs.today }})"
+          branch: "auto/scrape-${{ steps.meta.outputs.today }}"
+          body: |
+            Automated scrape run on ${{ steps.meta.outputs.today }}.
+          add-paths: |
+            data/hospitals.json
