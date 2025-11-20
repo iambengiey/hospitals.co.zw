@@ -1,0 +1,267 @@
+[
+  {
+    "name": "Baines Imaging Group",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "88 Baines Ave, Harare",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": null,
+    "specialists": [
+      "radiology",
+      "imaging"
+    ],
+    "tier": "T3",
+    "phone": "+263-24-274-8471",
+    "website": "https://www.bainesimaginggroup.com",
+    "latitude": -17.8267,
+    "longitude": 31.0526,
+    "id": "baines-imaging-group-harare",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "name": "Borrowdale Trauma Centre",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Borrowdale Rd, Harare",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 80,
+    "specialists": [
+      "trauma",
+      "icu"
+    ],
+    "tier": "T3",
+    "phone": "+263-4-870-000",
+    "website": "https://www.traumacentre.co.zw",
+    "latitude": -17.7645,
+    "longitude": 31.0987,
+    "id": "borrowdale-trauma-centre-harare",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "id": "chinoyi-provincial-hospital",
+    "name": "Chinhoyi Provincial Hospital",
+    "province": "Mashonaland West",
+    "city": "Chinhoyi",
+    "address": "Hospital Road, Chinhoyi",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "+263-67-212-3456",
+    "website": "",
+    "latitude": -17.3669,
+    "longitude": 30.2007,
+    "last_verified": "2025-11-20"
+  },
+  {
+    "name": "Gweru Provincial Hospital",
+    "province": "Midlands",
+    "city": "Gweru",
+    "address": "Hospital Rd, Gweru",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 320,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T1",
+    "phone": "+263-54-222-333",
+    "website": "",
+    "latitude": -19.454,
+    "longitude": 29.819,
+    "id": "gweru-provincial-hospital-gweru",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "id": "harare-central-hospital",
+    "name": "Harare Central Hospital",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Mazowe Street, Harare",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 1000,
+    "specialists": [
+      "cardiology",
+      "oncology",
+      "pediatrics"
+    ],
+    "tier": "T1",
+    "phone": "+263-4-291-7000",
+    "website": "https://health.gov.zw/harare-hospital",
+    "latitude": -17.8298,
+    "longitude": 31.053,
+    "last_verified": "2024-04-01"
+  },
+  {
+    "id": "karanda-mission-hospital",
+    "name": "Karanda Mission Hospital",
+    "province": "Mashonaland Central",
+    "city": "Mount Darwin",
+    "address": "Karanda Road, Mount Darwin",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 150,
+    "specialists": [
+      "surgery",
+      "maternity",
+      "general"
+    ],
+    "tier": "T2",
+    "phone": "+263-271-2020",
+    "website": "https://www.karanda.org",
+    "latitude": -16.7586,
+    "longitude": 31.5686,
+    "last_verified": "2024-04-01"
+  },
+  {
+    "name": "Makumbe Mission Hospital",
+    "province": "Manicaland",
+    "city": "Buhera",
+    "address": "Buhera Growth Point",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 150,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": -19.325,
+    "longitude": 31.427,
+    "id": "makumbe-mission-hospital-buhera",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "name": "Makumbi Mission Hospital",
+    "province": "Mashonaland Central",
+    "city": "Domboshava",
+    "address": "Domboshava Rd",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 90,
+    "specialists": [
+      "general",
+      "outpatient"
+    ],
+    "tier": "T3",
+    "phone": "",
+    "website": "",
+    "latitude": -17.603,
+    "longitude": 31.17,
+    "id": "makumbi-mission-hospital-domboshava",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "id": "mater-dei-hospital",
+    "name": "Mater Dei Hospital",
+    "province": "Bulawayo",
+    "city": "Bulawayo",
+    "address": "43 Lobengula Street, Bulawayo",
+    "type": "private",
+    "ownership": "church",
+    "bed_count": 200,
+    "specialists": [
+      "maternity",
+      "orthopedics"
+    ],
+    "tier": "T2",
+    "phone": "+263-9-202-940",
+    "website": "https://www.materdei.co.zw",
+    "latitude": -20.1604,
+    "longitude": 28.5887,
+    "last_verified": "2024-04-01"
+  },
+  {
+    "name": "Mazowe District Hospital",
+    "province": "Mashonaland Central",
+    "city": "Mazowe",
+    "address": "Mazowe Town",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 110,
+    "specialists": [
+      "general"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": -17.476,
+    "longitude": 30.98,
+    "id": "mazowe-district-hospital-mazowe",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "id": "mutare-provincial-hospital",
+    "name": "Mutare Provincial Hospital",
+    "province": "Manicaland",
+    "city": "Mutare",
+    "address": "Hospital Road, Mutare",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 250,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "+263-20-60800",
+    "website": "https://health.gov.zw/mutare-hospital",
+    "latitude": -18.965,
+    "longitude": 32.674,
+    "last_verified": "2024-04-01"
+  },
+  {
+    "id": "parirenyatwa-group-hospitals",
+    "name": "Parirenyatwa Group of Hospitals",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Mazowe Street, Harare",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 1800,
+    "specialists": [
+      "cardiology",
+      "surgery",
+      "obstetrics",
+      "oncology"
+    ],
+    "tier": "T1",
+    "phone": "+263-4-703-000",
+    "website": "https://www.parihosp.org.zw",
+    "latitude": -17.815,
+    "longitude": 31.0534,
+    "last_verified": "2024-04-01"
+  },
+  {
+    "name": "The Avenues Clinic",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "7 Josiah Chinamano Ave, Harare",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 176,
+    "specialists": [
+      "general",
+      "maternity",
+      "icu",
+      "oncology"
+    ],
+    "tier": "T2",
+    "phone": "+263-4-707-861",
+    "website": "https://www.avenuesclinic.co.zw",
+    "latitude": -17.8213,
+    "longitude": 31.0445,
+    "id": "the-avenues-clinic-harare",
+    "last_verified": "2025-11-20"
+  }
+]
