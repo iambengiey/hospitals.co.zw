@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Keep the JSON data crawlable for search and indexing.
+Disallow:
+
