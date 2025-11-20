@@ -1,0 +1,44 @@
+name: Monthly scrape
+
+on:
+  schedule:
+    - cron: '0 5 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run scraper
+        run: python scripts/scrape_hospitals.py
+      - name: Set run metadata
+        id: meta
+        run: echo "today=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+      - name: Commit and push updates
+        env:
+          BRANCH: auto/scrape-${{ steps.meta.outputs.today }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git checkout -B "$BRANCH"
+          git add data/hospitals.json
+          git commit -m "chore: monthly hospitals data refresh"
+          git push origin "$BRANCH"
+          echo "Updates pushed to $BRANCH; open a PR manually if needed."
