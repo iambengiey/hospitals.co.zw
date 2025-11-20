@@ -115,6 +115,8 @@ For the latest policy circulars, emergency guidance, and referral pathways, chec
 
 This keeps the directory fresh while respecting environments where GitHub Actions cannot create pull requests automatically.
 
+The scraper includes stubs for ministry portals, private networks, known gaps, and a lightweight Google Places/manual seed step that currently refreshes Hwange and Victoria Falls coordinates. Extend `scraper_google_places_stub` with new sources or a real API integration when keys are available.
+
 ### How the data reaches the UI
 
 - `data/hospitals.json` is the canonical catalogue. Running `npm run prepare:data` mirrors it into `src/hospitalsData.js` (ES module) and `src/data/hospitals.json` (direct download copy).
@@ -135,3 +137,7 @@ A stubbed `trackEvent(eventName, payload)` in `src/app.js` centralises analytics
 2. Run `npm run prepare:data` to regenerate `src/hospitalsData.js` (and refresh `src/data/hospitals.json`).
 3. Optionally run `npm run build` to refresh bundled/minified assets.
 4. Commit and push; the deployment workflow will publish the latest files automatically.
+
+Additional guidance:
+
+- Use `accepted_payments` to list supported methods (e.g., `local medical aid`, `international medical aid`, `cash`, `mobile money`). The scraper defaults to these values when missing so the UI can surface payment options automatically.

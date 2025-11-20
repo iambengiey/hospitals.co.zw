@@ -192,6 +192,9 @@ const renderList = (filtered) => {
       `Facility: ${hospital.category || 'hospital'}`,
       `Type: ${hospital.type || 'Unknown'}${hospital.ownership ? ` (${hospital.ownership})` : ''}`,
       `Beds: ${hospital.bed_count ?? 'Unknown'}`,
+      hospital.accepted_payments
+        ? `Payments: ${(hospital.accepted_payments || []).join(', ')}`
+        : '',
       hospital.manager ? `Manager: ${hospital.manager}` : '',
       hospital.website ? `Website: <a href="${hospital.website}" target="_blank" rel="noopener">${hospital.website}</a>` : '',
       state.location && hospital.distance !== null ? `Distance from you: ${hospital.distance.toFixed(1)} km` : '',

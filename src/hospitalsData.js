@@ -22,7 +22,13 @@ export const hospitalsData = [
     "operating_hours": "Mon-Sat 08:00-21:00; Sun 09:00-18:00",
     "manager": "Pharmacy manager: L. Chikandiwa",
     "last_verified": "2025-11-20",
-    "id": "avondale-pharmacy-harare"
+    "id": "avondale-pharmacy-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Baines Imaging Group",
@@ -45,7 +51,13 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "imaging_centre",
     "operating_hours": "Mon-Fri 07:30-17:00; Sat 08:00-12:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Operations manager: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Beatrice Road Infectious Diseases Hospital",
@@ -67,7 +79,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "beatrice-road-infectious-diseases-hospital-harare"
+    "id": "beatrice-road-infectious-diseases-hospital-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Bindura Provincial Hospital",
@@ -90,7 +108,13 @@ export const hospitalsData = [
     "operating_hours": "Open 24 hours",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "bindura-provincial-hospital-bindura"
+    "id": "bindura-provincial-hospital-bindura",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Borrowdale Trauma Centre",
@@ -104,7 +128,7 @@ export const hospitalsData = [
       "trauma",
       "icu"
     ],
-    "tier": "T3",
+    "tier": "T1",
     "phone": "+263-4-870-000",
     "website": "https://www.traumacentre.co.zw",
     "latitude": -17.7645,
@@ -112,8 +136,14 @@ export const hospitalsData = [
     "id": "borrowdale-trauma-centre-harare",
     "last_verified": "2025-11-20",
     "category": "hospital",
-    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "operating_hours": "24/7",
+    "manager": "Medical director: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "id": "chinoyi-provincial-hospital",
@@ -136,7 +166,13 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Hospital superintendent: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Chiredzi District Hospital",
@@ -159,7 +195,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "chiredzi-district-hospital-chiredzi"
+    "id": "chiredzi-district-hospital-chiredzi",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Chitungwiza Central Hospital",
@@ -184,7 +226,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "chitungwiza-central-hospital-chitungwiza"
+    "id": "chitungwiza-central-hospital-chitungwiza",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "City Dental Clinic",
@@ -207,7 +255,13 @@ export const hospitalsData = [
     "operating_hours": "Mon-Fri 08:00-17:30; Sat 08:00-13:00",
     "manager": "Clinic manager: Dr. T. Moyo",
     "last_verified": "2025-11-20",
-    "id": "city-dental-clinic-harare"
+    "id": "city-dental-clinic-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Claybank Private Hospital",
@@ -230,7 +284,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "claybank-private-hospital-gweru"
+    "id": "claybank-private-hospital-gweru",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Concession District Hospital",
@@ -253,7 +313,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "concession-district-hospital-concession"
+    "id": "concession-district-hospital-concession",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Ekusileni Medical Centre",
@@ -277,7 +343,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "ekusileni-medical-centre-bulawayo"
+    "id": "ekusileni-medical-centre-bulawayo",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Gwanda Provincial Hospital",
@@ -300,7 +372,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "gwanda-provincial-hospital-gwanda"
+    "id": "gwanda-provincial-hospital-gwanda",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Gweru Provincial Hospital",
@@ -314,7 +392,7 @@ export const hospitalsData = [
       "general",
       "maternity"
     ],
-    "tier": "T1",
+    "tier": "T2",
     "phone": "+263-54-222-333",
     "website": "",
     "latitude": -19.454,
@@ -323,7 +401,13 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Provincial medical director: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "id": "harare-central-hospital",
@@ -347,13 +431,19 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Operations manager: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Hwange Colliery Hospital",
     "province": "Matabeleland North",
     "city": "Hwange",
-    "address": "",
+    "address": "Railway Ave, Hwange",
     "type": "private",
     "ownership": "corporate",
     "bed_count": 200,
@@ -362,15 +452,21 @@ export const hospitalsData = [
       "occupational_health"
     ],
     "tier": "T2",
-    "phone": "",
+    "phone": "+263 281 550 11",
     "website": "",
-    "latitude": null,
-    "longitude": null,
+    "latitude": -18.3668,
+    "longitude": 26.4983,
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD",
+    "manager": "Hospital superintendent: TBD",
     "last_verified": "2025-11-20",
-    "id": "hwange-colliery-hospital-hwange"
+    "id": "hwange-colliery-hospital-hwange",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Kadoma General Hospital",
@@ -393,7 +489,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "kadoma-general-hospital-kadoma"
+    "id": "kadoma-general-hospital-kadoma",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "id": "karanda-mission-hospital",
@@ -417,7 +519,13 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Operations manager: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Kariba District Hospital",
@@ -440,7 +548,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "kariba-district-hospital-kariba"
+    "id": "kariba-district-hospital-kariba",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Karoi District Hospital",
@@ -463,7 +577,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "karoi-district-hospital-karoi"
+    "id": "karoi-district-hospital-karoi",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Kwekwe General Hospital",
@@ -486,7 +606,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "kwekwe-general-hospital-kwekwe"
+    "id": "kwekwe-general-hospital-kwekwe",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Makumbe Mission Hospital",
@@ -509,7 +635,13 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Mission administrator: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Makumbi Mission Hospital",
@@ -523,7 +655,7 @@ export const hospitalsData = [
       "general",
       "outpatient"
     ],
-    "tier": "T3",
+    "tier": "T2",
     "phone": "",
     "website": "",
     "latitude": -17.603,
@@ -532,7 +664,13 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Mission administrator: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Marondera Provincial Hospital",
@@ -555,7 +693,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "marondera-provincial-hospital-marondera"
+    "id": "marondera-provincial-hospital-marondera",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Masvingo Provincial Hospital",
@@ -578,7 +722,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "masvingo-provincial-hospital-masvingo"
+    "id": "masvingo-provincial-hospital-masvingo",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "id": "mater-dei-hospital",
@@ -601,7 +751,13 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Operations manager: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Mazowe District Hospital",
@@ -614,7 +770,7 @@ export const hospitalsData = [
     "specialists": [
       "general"
     ],
-    "tier": "T2",
+    "tier": "T3",
     "phone": "",
     "website": "",
     "latitude": -17.476,
@@ -623,7 +779,13 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Hospital superintendent: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Morgenster Mission Hospital",
@@ -646,7 +808,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "morgenster-mission-hospital-masvingo"
+    "id": "morgenster-mission-hospital-masvingo",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Mpilo Central Hospital",
@@ -671,7 +839,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "mpilo-central-hospital-bulawayo"
+    "id": "mpilo-central-hospital-bulawayo",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Murambinda Mission Hospital",
@@ -694,7 +868,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "murambinda-mission-hospital-buhera"
+    "id": "murambinda-mission-hospital-buhera",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Murewa District Hospital",
@@ -717,7 +897,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "murewa-district-hospital-murewa"
+    "id": "murewa-district-hospital-murewa",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "id": "mutare-provincial-hospital",
@@ -740,7 +926,13 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Operations manager: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Mutoko District Hospital",
@@ -763,7 +955,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "mutoko-district-hospital-mutoko"
+    "id": "mutoko-district-hospital-mutoko",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Mvurwi Hospital",
@@ -785,7 +983,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "mvurwi-hospital-mvurwi"
+    "id": "mvurwi-hospital-mvurwi",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Ndanga District Hospital",
@@ -808,7 +1012,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "ndanga-district-hospital-ndanga"
+    "id": "ndanga-district-hospital-ndanga",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Opticare Opticians Bulawayo",
@@ -831,7 +1041,13 @@ export const hospitalsData = [
     "operating_hours": "Mon-Sat 08:00-17:00",
     "manager": "Store manager: S. Ndlovu",
     "last_verified": "2025-11-20",
-    "id": "opticare-opticians-bulawayo-bulawayo"
+    "id": "opticare-opticians-bulawayo-bulawayo",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "id": "parirenyatwa-group-hospitals",
@@ -856,7 +1072,13 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD"
+    "manager": "Operations manager: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Plumtree District Hospital",
@@ -879,7 +1101,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "plumtree-district-hospital-plumtree"
+    "id": "plumtree-district-hospital-plumtree",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Rusape General Hospital",
@@ -902,7 +1130,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "rusape-general-hospital-rusape"
+    "id": "rusape-general-hospital-rusape",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "St Anne's Hospital",
@@ -926,7 +1160,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "st-annes-hospital-harare"
+    "id": "st-annes-hospital-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "St Joseph's Mission Hospital",
@@ -949,7 +1189,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "st-josephs-mission-hospital-mutasa"
+    "id": "st-josephs-mission-hospital-mutasa",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "St Luke's Hospital",
@@ -972,33 +1218,43 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "st-lukes-hospital-lupane"
+    "id": "st-lukes-hospital-lupane",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "The Avenues Clinic",
     "province": "Harare",
     "city": "Harare",
-    "address": "Corner Baines and Mazowe St, Harare, Zimbabwe",
+    "address": "7 Josiah Chinamano Ave, Harare",
     "type": "private",
     "ownership": "corporate",
     "bed_count": 176,
     "specialists": [
-      "emergency",
-      "surgery",
+      "general",
       "maternity",
-      "icu",
-      "oncology"
+      "icu"
     ],
-    "tier": "T2",
-    "phone": "+263 8677 006175",
-    "website": "https://avenuesclinic.co.zw/",
+    "tier": "T1",
+    "phone": "+263-4-707-861",
+    "website": "https://www.avenuesclinic.co.zw",
     "latitude": -17.8212,
     "longitude": 31.0459,
     "id": "the-avenues-clinic-harare",
     "last_verified": "2025-11-20",
     "category": "hospital",
-    "operating_hours": "Open 24 hours",
-    "manager": "Operations manager: TBD"
+    "operating_hours": "24/7",
+    "manager": "Hospital administrator: TBD",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "United Bulawayo Hospitals",
@@ -1023,30 +1279,42 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "united-bulawayo-hospitals-bulawayo"
+    "id": "united-bulawayo-hospitals-bulawayo",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Victoria Falls Hospital",
     "province": "Matabeleland North",
     "city": "Victoria Falls",
-    "address": "",
+    "address": "Park Way, Victoria Falls",
     "type": "public",
     "ownership": "government",
-    "bed_count": 100,
+    "bed_count": 120,
     "specialists": [
       "general",
       "maternity"
     ],
     "tier": "T2",
-    "phone": "",
+    "phone": "+263 213 2843215",
     "website": "",
-    "latitude": null,
-    "longitude": null,
+    "latitude": -17.9315,
+    "longitude": 25.8282,
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD",
+    "manager": "District medical officer: TBD",
     "last_verified": "2025-11-20",
-    "id": "victoria-falls-hospital-victoria-falls"
+    "id": "victoria-falls-hospital-victoria-falls",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "West End Hospital",
@@ -1069,7 +1337,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "west-end-hospital-harare"
+    "id": "west-end-hospital-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Westend Clinic",
@@ -1093,7 +1367,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Clinic administrator: P. Nyathi",
     "last_verified": "2025-11-20",
-    "id": "westend-clinic-harare"
+    "id": "westend-clinic-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Wilkins Infectious Diseases Hospital",
@@ -1117,7 +1397,13 @@ export const hospitalsData = [
     "operating_hours": "Open 24 hours",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "wilkins-infectious-diseases-hospital-harare"
+    "id": "wilkins-infectious-diseases-hospital-harare",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   },
   {
     "name": "Zvishavane District Hospital",
@@ -1140,7 +1426,13 @@ export const hospitalsData = [
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
-    "id": "zvishavane-district-hospital-zvishavane"
+    "id": "zvishavane-district-hospital-zvishavane",
+    "accepted_payments": [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money"
+    ]
   }
 ];
 export default hospitalsData;

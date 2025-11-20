@@ -35,6 +35,15 @@ def apply_defaults(record: Hospital) -> Hospital:
   record.setdefault("category", "hospital")
   record.setdefault("operating_hours", "24/7 for emergencies; outpatient 08:00-17:00")
   record.setdefault("manager", "Operations manager: TBD")
+  record.setdefault(
+    "accepted_payments",
+    [
+      "local medical aid",
+      "international medical aid",
+      "cash",
+      "mobile money",
+    ],
+  )
   return record
 
 
@@ -197,7 +206,54 @@ def scraper_gap_filler() -> List[Hospital]:
   ]
 
 
-SCRAPERS = [scraper_ministry_portal, scraper_private_networks, scraper_gap_filler]
+def scraper_google_places_stub() -> List[Hospital]:
+  """Placeholder for a Google search/places ingest (manual seed for now)."""
+  return [
+    {
+      "name": "Hwange Colliery Hospital",
+      "province": "Matabeleland North",
+      "city": "Hwange",
+      "address": "Railway Ave, Hwange",
+      "type": "private",
+      "ownership": "corporate",
+      "bed_count": 200,
+      "specialists": ["general", "occupational_health"],
+      "tier": None,
+      "phone": "+263 281 550 11",
+      "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "Hospital superintendent: TBD",
+      "latitude": -18.3668,
+      "longitude": 26.4983,
+    },
+    {
+      "name": "Victoria Falls Hospital",
+      "province": "Matabeleland North",
+      "city": "Victoria Falls",
+      "address": "Park Way, Victoria Falls",
+      "type": "public",
+      "ownership": "government",
+      "bed_count": 120,
+      "specialists": ["general", "maternity"],
+      "tier": None,
+      "phone": "+263 213 2843215",
+      "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "District medical officer: TBD",
+      "latitude": -17.9315,
+      "longitude": 25.8282,
+    },
+  ]
+
+
+SCRAPERS = [
+  scraper_ministry_portal,
+  scraper_private_networks,
+  scraper_gap_filler,
+  scraper_google_places_stub,
+]
 
 
 def tier_from_record(record: Hospital) -> str:
@@ -266,7 +322,10 @@ def merge_records(existing: Dict[str, Hospital], new_records: List[Hospital]) ->
 
 
 def save_records(records: Dict[str, Hospital]) -> None:
-  ordered = sorted(records.values(), key=lambda h: h["name"])
+  ordered = []
+  for record in records.values():
+    ordered.append(apply_defaults(record))
+  ordered.sort(key=lambda h: h["name"])
   DATA_PATH.write_text(json.dumps(ordered, indent=2, ensure_ascii=False) + "\n")
 
 
