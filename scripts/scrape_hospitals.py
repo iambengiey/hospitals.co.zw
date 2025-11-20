@@ -28,7 +28,6 @@ TRUSTED_SOURCES = {
   "hpa_registered_facilities",
   "mcaz_pharmacies_2024",
   "mohcc_official",
-  "zach_mission_hospitals",
 }
 
 Hospital = Dict[str, object]

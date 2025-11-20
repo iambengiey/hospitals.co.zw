@@ -1094,42 +1094,6 @@ export const hospitalsData = [
     "website": ""
   },
   {
-    "id": "howard-mission-hospital-chiweshe",
-    "name": "Howard Mission Hospital",
-    "aliases": [],
-    "facility_type": "Mission Hospital",
-    "ownership": "Mission",
-    "rural_urban": "Rural",
-    "province": "Mashonaland Central",
-    "district": "Chiweshe",
-    "ward": "",
-    "city": "Chiweshe",
-    "address": "",
-    "services": [
-      "ER",
-      "Maternity",
-      "Lab",
-      "Inpatient"
-    ],
-    "open_24h": true,
-    "emergency_level": "Full",
-    "cost_band": null,
-    "medical_aids": [],
-    "phone": null,
-    "whatsapp": null,
-    "email": null,
-    "lat": null,
-    "lon": null,
-    "tier": "Tier 3",
-    "last_verified": "2025-11-20",
-    "source": [
-      "zach_mission_hospitals"
-    ],
-    "confidence": "medium",
-    "verified": true,
-    "website": ""
-  },
-  {
     "id": "concession-district-hospital-concession",
     "name": "Concession District Hospital",
     "aliases": [],
@@ -1278,42 +1242,6 @@ export const hospitalsData = [
     "website": "https://www.karanda.org"
   },
   {
-    "id": "st-albert-s-mission-hospital-mt-darwin",
-    "name": "St Albert's Mission Hospital",
-    "aliases": [],
-    "facility_type": "Mission Hospital",
-    "ownership": "Mission",
-    "rural_urban": "Rural",
-    "province": "Mashonaland Central",
-    "district": "Mt Darwin",
-    "ward": "",
-    "city": "Mt Darwin",
-    "address": "",
-    "services": [
-      "ER",
-      "Maternity",
-      "Lab",
-      "Inpatient"
-    ],
-    "open_24h": true,
-    "emergency_level": "Full",
-    "cost_band": null,
-    "medical_aids": [],
-    "phone": null,
-    "whatsapp": null,
-    "email": null,
-    "lat": null,
-    "lon": null,
-    "tier": "Tier 3",
-    "last_verified": "2025-11-20",
-    "source": [
-      "zach_mission_hospitals"
-    ],
-    "confidence": "medium",
-    "verified": true,
-    "website": ""
-  },
-  {
     "id": "mvurwi-hospital-mvurwi",
     "name": "Mvurwi Hospital",
     "aliases": [],
@@ -1421,42 +1349,6 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
-  },
-  {
-    "id": "all-souls-mission-hospital-mutoko",
-    "name": "All Souls Mission Hospital",
-    "aliases": [],
-    "facility_type": "Mission Hospital",
-    "ownership": "Mission",
-    "rural_urban": "Rural",
-    "province": "Mashonaland East",
-    "district": "Mutoko",
-    "ward": "",
-    "city": "Mutoko",
-    "address": "",
-    "services": [
-      "ER",
-      "Maternity",
-      "Lab",
-      "Inpatient"
-    ],
-    "open_24h": true,
-    "emergency_level": "Full",
-    "cost_band": null,
-    "medical_aids": [],
-    "phone": null,
-    "whatsapp": null,
-    "email": null,
-    "lat": null,
-    "lon": null,
-    "tier": "Tier 3",
-    "last_verified": "2025-11-20",
-    "source": [
-      "zach_mission_hospitals"
-    ],
-    "confidence": "medium",
-    "verified": true,
     "website": ""
   },
   {
@@ -1647,42 +1539,6 @@ export const hospitalsData = [
     "website": ""
   },
   {
-    "id": "st-theresa-s-mission-hospital-chiredzi",
-    "name": "St Theresa's Mission Hospital",
-    "aliases": [],
-    "facility_type": "Mission Hospital",
-    "ownership": "Mission",
-    "rural_urban": "Rural",
-    "province": "Masvingo",
-    "district": "Chiredzi",
-    "ward": "",
-    "city": "Chiredzi",
-    "address": "",
-    "services": [
-      "ER",
-      "Maternity",
-      "Lab",
-      "Inpatient"
-    ],
-    "open_24h": true,
-    "emergency_level": "Full",
-    "cost_band": null,
-    "medical_aids": [],
-    "phone": null,
-    "whatsapp": null,
-    "email": null,
-    "lat": null,
-    "lon": null,
-    "tier": "Tier 3",
-    "last_verified": "2025-11-20",
-    "source": [
-      "zach_mission_hospitals"
-    ],
-    "confidence": "medium",
-    "verified": true,
-    "website": ""
-  },
-  {
     "id": "masvingo-provincial-hospital-masvingo",
     "name": "Masvingo Provincial Hospital",
     "aliases": [],
@@ -1851,9 +1707,7 @@ export const hospitalsData = [
   {
     "id": "st-lukes-hospital-lupane",
     "name": "St Luke's Hospital",
-    "aliases": [
-      "St Luke's Hospital"
-    ],
+    "aliases": [],
     "facility_type": "Mission Hospital",
     "ownership": "Church",
     "rural_urban": "Urban",
@@ -1863,10 +1717,6 @@ export const hospitalsData = [
     "city": "Lupane",
     "address": "",
     "services": [
-      "ER",
-      "Inpatient",
-      "Lab",
-      "Maternity",
       "general",
       "maternity"
     ],
@@ -1874,9 +1724,9 @@ export const hospitalsData = [
     "emergency_level": "Full",
     "cost_band": null,
     "medical_aids": [
-      "cash",
-      "international medical aid",
       "local medical aid",
+      "international medical aid",
+      "cash",
       "mobile money"
     ],
     "phone": null,
@@ -1886,11 +1736,9 @@ export const hospitalsData = [
     "lon": null,
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
-    "source": [
-      "zach_mission_hospitals"
-    ],
-    "confidence": "high",
-    "verified": true,
+    "source": [],
+    "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
