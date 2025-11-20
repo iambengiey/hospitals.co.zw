@@ -1,6 +1,30 @@
 // Auto-generated fallback copy of data/hospitals.json. Keep in sync when data updates.
 export const EMBEDDED_HOSPITALS = [
   {
+    "name": "Avenues Clinic",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 176,
+    "specialists": [
+      "emergency",
+      "surgery",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "avenues-clinic-harare"
+  },
+  {
     "name": "Avondale Pharmacy",
     "province": "Harare",
     "city": "Harare",
@@ -45,6 +69,51 @@ export const EMBEDDED_HOSPITALS = [
     "category": "imaging_centre",
     "operating_hours": "Mon-Fri 07:30-17:00; Sat 08:00-12:00",
     "manager": "Operations manager: TBD"
+  },
+  {
+    "name": "Beatrice Road Infectious Diseases Hospital",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "",
+    "type": "public referral",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "infectious_diseases"
+    ],
+    "tier": "T1",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "beatrice-road-infectious-diseases-hospital-harare"
+  },
+  {
+    "name": "Bindura Provincial Hospital",
+    "province": "Mashonaland Central",
+    "city": "Bindura",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 250,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "bindura-provincial-hospital-bindura"
   },
   {
     "name": "Borrowdale Trauma Centre",
@@ -93,6 +162,54 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Operations manager: TBD"
   },
   {
+    "name": "Chiredzi District Hospital",
+    "province": "Masvingo",
+    "city": "Chiredzi",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 200,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "chiredzi-district-hospital-chiredzi"
+  },
+  {
+    "name": "Chitungwiza Central Hospital",
+    "province": "Harare",
+    "city": "Chitungwiza",
+    "address": "",
+    "type": "public referral",
+    "ownership": "government",
+    "bed_count": 500,
+    "specialists": [
+      "general",
+      "maternity",
+      "surgery",
+      "teaching"
+    ],
+    "tier": "T1",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "chitungwiza-central-hospital-chitungwiza"
+  },
+  {
     "name": "City Dental Clinic",
     "province": "Harare",
     "city": "Harare",
@@ -114,6 +231,99 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Clinic manager: Dr. T. Moyo",
     "last_verified": "2025-11-20",
     "id": "city-dental-clinic-harare"
+  },
+  {
+    "name": "Claybank Private Hospital",
+    "province": "Midlands",
+    "city": "Gweru",
+    "address": "",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 100,
+    "specialists": [
+      "general",
+      "surgery"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "claybank-private-hospital-gweru"
+  },
+  {
+    "name": "Concession District Hospital",
+    "province": "Mashonaland Central",
+    "city": "Concession",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 80,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T3",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "concession-district-hospital-concession"
+  },
+  {
+    "name": "Ekusileni Medical Centre",
+    "province": "Bulawayo",
+    "city": "Bulawayo",
+    "address": "",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 200,
+    "specialists": [
+      "specialist",
+      "orthopedics",
+      "cardiology"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "ekusileni-medical-centre-bulawayo"
+  },
+  {
+    "name": "Gwanda Provincial Hospital",
+    "province": "Matabeleland South",
+    "city": "Gwanda",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 250,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "gwanda-provincial-hospital-gwanda"
   },
   {
     "name": "Gweru Provincial Hospital",
@@ -163,6 +373,52 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Operations manager: TBD"
   },
   {
+    "name": "Hwange Colliery Hospital",
+    "province": "Matabeleland North",
+    "city": "Hwange",
+    "address": "",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 200,
+    "specialists": [
+      "general",
+      "occupational_health"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "hwange-colliery-hospital-hwange"
+  },
+  {
+    "name": "Kadoma General Hospital",
+    "province": "Mashonaland West",
+    "city": "Kadoma",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 200,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "kadoma-general-hospital-kadoma"
+  },
+  {
     "id": "karanda-mission-hospital",
     "name": "Karanda Mission Hospital",
     "province": "Mashonaland Central",
@@ -185,6 +441,75 @@ export const EMBEDDED_HOSPITALS = [
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD"
+  },
+  {
+    "name": "Kariba District Hospital",
+    "province": "Mashonaland West",
+    "city": "Kariba",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "kariba-district-hospital-kariba"
+  },
+  {
+    "name": "Karoi District Hospital",
+    "province": "Mashonaland West",
+    "city": "Karoi",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 150,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "karoi-district-hospital-karoi"
+  },
+  {
+    "name": "Kwekwe General Hospital",
+    "province": "Midlands",
+    "city": "Kwekwe",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 150,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "kwekwe-general-hospital-kwekwe"
   },
   {
     "name": "Makumbe Mission Hospital",
@@ -233,6 +558,52 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Operations manager: TBD"
   },
   {
+    "name": "Marondera Provincial Hospital",
+    "province": "Mashonaland East",
+    "city": "Marondera",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 200,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "marondera-provincial-hospital-marondera"
+  },
+  {
+    "name": "Masvingo Provincial Hospital",
+    "province": "Masvingo",
+    "city": "Masvingo",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 250,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "masvingo-provincial-hospital-masvingo"
+  },
+  {
     "id": "mater-dei-hospital",
     "name": "Mater Dei Hospital",
     "province": "Bulawayo",
@@ -278,6 +649,100 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Operations manager: TBD"
   },
   {
+    "name": "Morgenster Mission Hospital",
+    "province": "Masvingo",
+    "city": "Masvingo",
+    "address": "",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 150,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "morgenster-mission-hospital-masvingo"
+  },
+  {
+    "name": "Mpilo Central Hospital",
+    "province": "Bulawayo",
+    "city": "Bulawayo",
+    "address": "",
+    "type": "public referral",
+    "ownership": "government",
+    "bed_count": 1000,
+    "specialists": [
+      "general",
+      "maternity",
+      "surgery",
+      "teaching"
+    ],
+    "tier": "T1",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "mpilo-central-hospital-bulawayo"
+  },
+  {
+    "name": "Murambinda Mission Hospital",
+    "province": "Manicaland",
+    "city": "Buhera",
+    "address": "",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 200,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "murambinda-mission-hospital-buhera"
+  },
+  {
+    "name": "Murewa District Hospital",
+    "province": "Mashonaland East",
+    "city": "Murewa",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "murewa-district-hospital-murewa"
+  },
+  {
     "id": "mutare-provincial-hospital",
     "name": "Mutare Provincial Hospital",
     "province": "Manicaland",
@@ -299,6 +764,74 @@ export const EMBEDDED_HOSPITALS = [
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD"
+  },
+  {
+    "name": "Mutoko District Hospital",
+    "province": "Mashonaland East",
+    "city": "Mutoko",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "mutoko-district-hospital-mutoko"
+  },
+  {
+    "name": "Mvurwi Hospital",
+    "province": "Mashonaland Central",
+    "city": "Mvurwi",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 60,
+    "specialists": [
+      "general"
+    ],
+    "tier": "T3",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "mvurwi-hospital-mvurwi"
+  },
+  {
+    "name": "Ndanga District Hospital",
+    "province": "Masvingo",
+    "city": "Ndanga",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "ndanga-district-hospital-ndanga"
   },
   {
     "name": "Opticare Opticians Bulawayo",
@@ -349,6 +882,122 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Operations manager: TBD"
   },
   {
+    "name": "Plumtree District Hospital",
+    "province": "Matabeleland South",
+    "city": "Plumtree",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 80,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T3",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "plumtree-district-hospital-plumtree"
+  },
+  {
+    "name": "Rusape General Hospital",
+    "province": "Manicaland",
+    "city": "Rusape",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 200,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "rusape-general-hospital-rusape"
+  },
+  {
+    "name": "St Anne's Hospital",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "",
+    "type": "private",
+    "ownership": "church",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity",
+      "surgery"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "st-annes-hospital-harare"
+  },
+  {
+    "name": "St Joseph's Mission Hospital",
+    "province": "Manicaland",
+    "city": "Mutasa",
+    "address": "",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 150,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "st-josephs-mission-hospital-mutasa"
+  },
+  {
+    "name": "St Luke's Hospital",
+    "province": "Matabeleland North",
+    "city": "Lupane",
+    "address": "",
+    "type": "public mission",
+    "ownership": "church",
+    "bed_count": 100,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "st-lukes-hospital-lupane"
+  },
+  {
     "name": "The Avenues Clinic",
     "province": "Harare",
     "city": "Harare",
@@ -374,6 +1023,77 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Operations manager: TBD"
   },
   {
+    "name": "United Bulawayo Hospitals",
+    "province": "Bulawayo",
+    "city": "Bulawayo",
+    "address": "",
+    "type": "public referral",
+    "ownership": "government",
+    "bed_count": 650,
+    "specialists": [
+      "general",
+      "maternity",
+      "surgery",
+      "teaching"
+    ],
+    "tier": "T1",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "united-bulawayo-hospitals-bulawayo"
+  },
+  {
+    "name": "Victoria Falls Hospital",
+    "province": "Matabeleland North",
+    "city": "Victoria Falls",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 100,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "victoria-falls-hospital-victoria-falls"
+  },
+  {
+    "name": "West End Hospital",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 80,
+    "specialists": [
+      "general",
+      "surgery"
+    ],
+    "tier": "T3",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "west-end-hospital-harare"
+  },
+  {
     "name": "Westend Clinic",
     "province": "Harare",
     "city": "Harare",
@@ -396,5 +1116,28 @@ export const EMBEDDED_HOSPITALS = [
     "manager": "Clinic administrator: P. Nyathi",
     "last_verified": "2025-11-20",
     "id": "westend-clinic-harare"
+  },
+  {
+    "name": "Zvishavane District Hospital",
+    "province": "Midlands",
+    "city": "Zvishavane",
+    "address": "",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 120,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T2",
+    "phone": "",
+    "website": "",
+    "latitude": null,
+    "longitude": null,
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "zvishavane-district-hospital-zvishavane"
   }
 ];

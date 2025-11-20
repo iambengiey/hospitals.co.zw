@@ -61,6 +61,8 @@ Each record in `data/hospitals.json` includes:
 - `operating_hours` and `manager`
 - optional `latitude`/`longitude` (unused by the current UI but kept for data completeness)
 
+The current catalogue mirrors 49 facilities, including 32 hospitals pulled from the public Wikipedia list (Harare, Bulawayo, Midlands, Manicaland, Mashonaland, Matabeleland, and Masvingo provinces) so dropdowns stay populated even before fresh scrapes land.
+
 ### Tiering rules
 
 Tiering automatically categorises each facility by capacity and role (aligned with MoHCC 2025 planning notes such as the “Overview of Zim Healthcare System 2025” brief):
