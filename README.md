@@ -50,6 +50,7 @@ New raw drop points have been added for vetted sources:
 - `data/raw/provincial_district_hospitals.json` — bulk provincial/district lists (e.g., the Scribd PDF).
 - `data/raw/doctor4africa_rural_clinics.json` — rural clinic lists pulled from public directories.
 - `data/raw/mcaz_pharmacies.json` (or `.xlsx`) — pharmacies from the MCAZ renewal list; tagged as a trusted source and flagged as verified in the export.
+- `data/raw/zach_mission_hospitals.json` — mission hospitals/clinics sourced from the ZACH overview; treated as trusted/verified entries.
 
 Place the downloaded JSON/CSV in those filenames (or drop additional files into `data/raw/`), then rerun `python scripts/scrape_hospitals.py && node scripts/prepare-data.js` to propagate the updates into the bundled site data.
 
