@@ -12,8 +12,9 @@ const DATA_SOURCES = (() => {
 })();
 
 const state = {
-  hospitals: [],
-  usedFallback: false,
+  // Seed with embedded data so filters/cards populate even if fetch fails or hangs.
+  hospitals: [...EMBEDDED_HOSPITALS],
+  usedFallback: true,
   filters: {
     province: '',
     type: '',
@@ -215,8 +216,14 @@ const toggleFallbackNotice = (usedFallback, lastError) => {
 };
 
 const init = async () => {
+  // Render immediately with the embedded copy while fetching the canonical file.
+  renderFilters();
+  renderHospitals();
+  toggleFallbackNotice(true, null);
+
   try {
     const { data, fromFallback, lastError } = await loadHospitals();
+    if (!data?.length) return;
     state.hospitals = data;
     state.usedFallback = fromFallback;
     toggleFallbackNotice(fromFallback, lastError);
@@ -229,5 +236,4 @@ const init = async () => {
 };
 
 attachListeners();
-renderHospitals();
 init();
