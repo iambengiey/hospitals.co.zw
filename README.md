@@ -47,7 +47,7 @@ Each record in `data/hospitals.json` includes:
 - `specialists` (array of strings like `oncology`, `trauma`, `optometry`)
 - `tier` (T1/T2/T3), `phone`, `website`
 - `operating_hours` and `manager`
-- optional `latitude`/`longitude` to enable nearest-to-me sorting
+- optional `latitude`/`longitude` (unused by the current UI but kept for data completeness)
 
 ### Tiering rules
 
@@ -68,11 +68,10 @@ The homepage also repeats these definitions in a short “How tiers work” sect
 - An empty `<script>` tag where the official AdSense script should be pasted.
 - An `<ins class="adsbygoogle">` element with `data-ad-client` and `data-ad-slot` attributes set to `TODO-*`. Replace both with your real AdSense IDs during production deployment.
 
-## Filters, facility coverage, and location sorting
+## Filters and facility coverage
 
-- The frontend provides facility and specialist dropdowns sourced from the dataset so users can quickly filter for hospitals, pharmacies, clinics, dentists, opticians, or disciplines like oncology and trauma.
-- If visitors enable geolocation, they can sort results by “Nearest to me.” Hospitals without coordinates will remain in the list but are placed after those with distances.
-- Records can include optional `latitude` and `longitude` fields; the sample catalogue demonstrates this so the nearest-sort works out of the box.
+- The frontend provides facility, specialist, tier, province, and type dropdowns sourced from the dataset so users can quickly filter for hospitals, pharmacies, clinics, dentists, opticians, or disciplines like oncology and trauma.
+- The homepage shows a compact “How tiers work” pill directly under the filters to keep the rules visible without adding clutter.
 
 ## Automation
 

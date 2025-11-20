@@ -56,25 +56,15 @@ body {
   font-size: 1rem;
 }
 
-.control--location {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.control--location button {
-  background: var(--primary);
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 0.75rem;
-  cursor: pointer;
-}
-
-.location-status {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #444;
+.tier-chip {
+  background: #e8f3f1;
+  border: 1px solid #b8d6d0;
+  color: #0b3e3b;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0 auto 1.5rem;
 }
 
 .adsense {
@@ -142,20 +132,8 @@ body {
   margin-top: 2rem;
 }
 
-.tiers {
-  margin-top: 2rem;
-  background: var(--secondary);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-}
-
-.tiers h2 {
-  margin-top: 0;
-}
-
 @media (max-width: 600px) {
-  .control--search {
-    grid-column: span 2;
+  .tier-chip {
+    border-radius: 0.75rem;
   }
 }

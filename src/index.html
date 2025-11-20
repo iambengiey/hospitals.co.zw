@@ -12,22 +12,14 @@
         <h1>Zimbabwe Hospital Directory</h1>
         <p>
           Discover public, private, and mission hospitals across Zimbabwe &mdash; plus
-          clinics, pharmacies, opticians, and dental practices. Filter by location, size
-          tier, specialist coverage, or facility type to find the care you need.
+          clinics, pharmacies, opticians, and dental practices. Filter by province,
+          type, tier, specialist coverage, or facility category to find the care you need.
         </p>
       </div>
     </header>
 
     <main class="container">
       <section class="controls">
-        <div class="control control--search">
-          <label for="search">Search</label>
-          <input
-            type="search"
-            id="search"
-            placeholder="Search by name, city, or specialist"
-          />
-        </div>
         <div class="control">
           <label for="province-filter">Province</label>
           <select id="province-filter">
@@ -66,15 +58,13 @@
           <select id="sort">
             <option value="name">Name (A-Z)</option>
             <option value="bed_desc">Bed count (high-low)</option>
-            <option value="nearest">Nearest to me</option>
           </select>
         </div>
-        <div class="control control--location">
-          <label for="location-button">Find nearby</label>
-          <button id="location-button" type="button">Enable location</button>
-          <p id="location-status" class="location-status"></p>
-        </div>
       </section>
+
+      <p class="tier-chip" aria-label="Tier definitions">
+        How tiers work: <strong>T1</strong> teaching/referral or 300+ beds • <strong>T2</strong> 100-299 beds • <strong>T3</strong> smaller or unknown.
+      </p>
 
       <section class="adsense">
         <!-- TODO: Replace with real AdSense script -->
@@ -86,14 +76,6 @@
 
       <section id="results" class="results" aria-live="polite"></section>
 
-      <section class="tiers" aria-label="Tier definitions">
-        <h2>How tiers work</h2>
-        <ul>
-          <li><strong>T1</strong>: Teaching/referral hospitals or facilities with 300+ beds.</li>
-          <li><strong>T2</strong>: Regional and district hospitals with 100–299 beds.</li>
-          <li><strong>T3</strong>: Smaller or unverified facilities below 100 beds.</li>
-        </ul>
-      </section>
     </main>
 
     <template id="hospital-card">
