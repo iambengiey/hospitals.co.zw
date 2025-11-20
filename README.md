@@ -42,39 +42,44 @@ python scripts/scrape_hospitals.py
 ```
 
 The script loads the existing catalogue, normalises names/cities for resilient matching, runs each configured scraper stub (including a "gap filler" list for hard-to-source facilities such as Makumbe, Makumbi, Avenues, Baines, Mazowe, and Chinhoyi), merges results by `(name, city)`, recalculates tiers via the helper, stamps `last_verified` with the current date, and rewrites `data/hospitals.json` in a stable order.
+The ETL pipeline loads the canonical dataset, any JSON/CSV files under `data/raw/`, and the stub scrapers (ministry, private networks, Google seed). It normalises facility fields, deduplicates near-matches with fuzzy logic, infers facility type, rural/urban, default services, and tiers, then writes `data/hospitals.json` plus a debug copy. Core helpers (`classify_facility_type`, `infer_rural_urban`, `infer_default_services`, `deduplicate_facilities`) are covered by `python -m unittest tests/test_pipeline.py`.
 
 ## Data shape and tiering rules
 
-Each record in `data/hospitals.json` includes:
+Each record in `data/hospitals.json` is exported in a compact, structured format:
 
-- `id`, `name`, `province`, `city`, `address`
-- `type` (public/private/mission/etc) and `ownership`
-- `category` (hospital, clinic, pharmacy, optician, dental_clinic, etc.)
-- `bed_count` (integer or null)
-- `specialists` (array of strings like `oncology`, `trauma`, `optometry`)
-- `tier` (T1/T2/T3), `phone`, `website`
-- `operating_hours` and `manager`
-- optional `latitude`/`longitude` (used for the "Nearest to me" sort once location is enabled)
+- `id`, `name`, `aliases`
+- `facility_type` (Central Hospital, Provincial Hospital, District Hospital, Mission Hospital, Clinic, Pharmacy, Dental Clinic, etc.)
+- `ownership` (Government, Mission, Council, Private, NGO)
+- `rural_urban` (Rural, Urban, Peri-urban)
+- `province`, `district`, `ward`, `city`, `address`
+- `services` (array such as `ER`, `Maternity`, `ICU`, `Lab`, `HIV`, `MCH`)
+- `open_24h`, `emergency_level` (None/Basic/Full)
+- `cost_band` (`$`, `$$`, `$$$` when known) and `medical_aids` (list of accepted aids/payments)
+- `phone`, `whatsapp`, `email`, `website`
+- `lat`, `lon` (optional coordinates for mapping)
+- `tier` (`Tier 1`, `Tier 2`, `Tier 3` where applicable)
+- `last_verified`, `source`, `confidence`
 
-The current catalogue mirrors 49 facilities, including 32 hospitals pulled from the public Wikipedia list (Harare, Bulawayo, Midlands, Manicaland, Mashonaland, Matabeleland, and Masvingo provinces) so dropdowns stay populated even before fresh scrapes land.
+The catalogue currently mirrors 48 facilities, including the public Wikipedia list plus Hwange and Victoria Falls additions, and pharmacy/clinic/optician/dental entries to keep filters populated on first load.
 
 ### Tiering rules
 
 Tiering now follows the “Overview of Zim Healthcare System 2025” thresholds used by MoHCC planning teams:
 
-- **T1 (Central / Teaching / Referral):** Central, referral, or teaching/university hospitals; any facility with `bed_count >= 350`; or those providing critical disciplines such as oncology, cardiology, ICU/critical care, trauma, neurosurgery, hematology, or neonatology.
-- **T2 (Provincial / High-Volume District):** Provincial or district general hospitals and multi-specialty facilities with `bed_count` roughly `120–349` or at least two distinct specialist services.
-- **T3 (Primary / Community):** Rural, mission, primary clinics, pharmacies, and small facilities under 120 beds or with unknown capacity.
+- **Tier 1:** Central, referral, or teaching/university hospitals; any facility with `bed_count >= 350`; or those providing critical disciplines such as oncology, cardiology, ICU/critical care, trauma, neurosurgery, hematology, or neonatology.
+- **Tier 2:** Provincial or district general hospitals and multi-specialty facilities with `bed_count` roughly `120–349` or at least two distinct specialist services.
+- **Tier 3:** Rural, mission, primary clinics, pharmacies, and small facilities under 120 beds or with unknown capacity.
 
-These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent. The homepage also repeats these definitions in a short “How tiers work” section for visitors at the bottom of the listing.
+These rules are implemented in both the frontend (`src/app.js`) and the scraper (`scripts/scrape_hospitals.py`). The homepage repeats the definitions in the “How tiers work” chip near the listing.
 
 ## Search, filters, map view, and accessibility
 
-- **Search:** Instant client-side search bar covers hospital name and city/town.
-- **Filters:** Province, ownership/type, facility category, tier, and specialist dropdowns combine with search to narrow results. Distance-aware sorting unlocks after enabling location.
-- **Map view:** A view toggle switches between list and map. Facilities with `latitude`/`longitude` plot via Leaflet; clicking a marker highlights the corresponding card. Map assets are lazy-loaded to keep the default payload small.
-- **Accessibility:** High-contrast palette, large tap targets on mobile, focus-visible outlines, and ARIA labels on filters, toggles, and map region.
-- **Performance:** JS/CSS are bundled/minified by `npm run build`; rendering is scheduled via `requestAnimationFrame` and DOM diffing to avoid unnecessary reflows when filters change. GitHub Pages will serve `src/assets/*` with ETags—append a simple query string (e.g., `?v=DATE`) in `index.html` if you ever need to force cache-busting between releases.
+- **Search:** Instant client-side search bar covers facility name and city/district.
+- **Filters:** Province, ownership, facility type, services, rural/urban, tier, 24-hour toggle, and quick buttons (emergency, maternity, dentist, pharmacy, rural/urban clinic, mission/district/provincial hospital, 24h) combine to narrow results.
+- **Cards:** Text-only, compact badges for tier/ownership/rural-urban, service flags, cost/medical aid line, distance when location is enabled, and action links for call/WhatsApp/share/suggest-correction. Last verified dates render in a friendly month/year format.
+- **Map view:** A view toggle switches between list and map. Facilities with `lat`/`lon` plot via Leaflet; clicking a marker highlights the corresponding card. Map assets are lazy-loaded to keep the default payload small.
+- **Accessibility & performance:** High-contrast palette, large tap targets on mobile, focus-visible outlines, and ARIA labels on filters, toggles, and map region. JS/CSS can be bundled/minified by `npm run build`; rendering is scheduled via `requestAnimationFrame` to avoid unnecessary reflows.
 
 ### Official MoHCC reference
 
@@ -133,11 +138,11 @@ A stubbed `trackEvent(eventName, payload)` in `src/app.js` centralises analytics
 
 ## Adding hospitals or fields
 
-1. Edit `data/hospitals.json` to add or update records (include `latitude`/`longitude` to show on the map).
+1. Edit `data/hospitals.json` (or drop JSON/CSV files into `data/raw/`) to add or update records. Include `lat`/`lon` to show facilities on the map.
 2. Run `npm run prepare:data` to regenerate `src/hospitalsData.js` (and refresh `src/data/hospitals.json`).
 3. Optionally run `npm run build` to refresh bundled/minified assets.
 4. Commit and push; the deployment workflow will publish the latest files automatically.
 
 Additional guidance:
 
-- Use `accepted_payments` to list supported methods (e.g., `local medical aid`, `international medical aid`, `cash`, `mobile money`). The scraper defaults to these values when missing so the UI can surface payment options automatically.
+- Use `medical_aids` (and `cost_band`, `open_24h`, `emergency_level`, `services`) to describe affordability and coverage. The scraper infers defaults for missing services and 24h flags so cards remain readable even with sparse source data.

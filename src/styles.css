@@ -130,6 +130,27 @@ input:focus-visible {
   margin-bottom: 1.5rem;
 }
 
+.quick-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.quick-button {
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.quick-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
 .control label {
   display: block;
   font-weight: 700;
@@ -241,10 +262,12 @@ input:focus-visible {
   margin: 0;
 }
 
-.card__address,
-.card__specialists,
 .card__contact,
-.card__hours {
+.card__services,
+.card__flags,
+.card__hours,
+.card__verified,
+.card__actions {
   margin: 0;
   font-size: 0.95rem;
 }

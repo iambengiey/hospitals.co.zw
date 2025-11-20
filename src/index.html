@@ -41,9 +41,8 @@
       <div class="hero__content">
         <h1>Zimbabwe Hospital Directory</h1>
         <p>
-          Discover public, private, and mission hospitals across Zimbabwe &mdash; plus
-          clinics, pharmacies, opticians, and dental practices. Filter by province,
-          type, tier, specialist coverage, or facility category to find the care you need.
+          Discover hospitals, clinics, pharmacies, opticians, and dental practices across Zimbabwe. Filter by location,
+          ownership, tier, services, and facility type to find the care you need quickly.
         </p>
       </div>
     </header>
@@ -56,7 +55,7 @@
             type="search"
             id="search"
             name="search"
-            placeholder="Search by hospital or city"
+            placeholder="Search by name or city"
             autocomplete="on"
           />
         </div>
@@ -67,31 +66,40 @@
           </select>
         </div>
         <div class="control">
-          <label for="type-filter">Type</label>
-          <select id="type-filter">
-            <option value="">All types</option>
+          <label for="ownership-filter">Ownership</label>
+          <select id="ownership-filter">
+            <option value="">All ownership</option>
           </select>
         </div>
         <div class="control">
-          <label for="category-filter">Facility</label>
-          <select id="category-filter">
+          <label for="facility-filter">Facility type</label>
+          <select id="facility-filter">
             <option value="">All facilities</option>
           </select>
         </div>
         <div class="control">
-          <label for="specialist-filter">Specialist</label>
-          <select id="specialist-filter">
-            <option value="">All specialists</option>
+          <label for="service-filter">Service</label>
+          <select id="service-filter">
+            <option value="">All services</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="rural-filter">Rural/urban</label>
+          <select id="rural-filter">
+            <option value="">Rural &amp; urban</option>
           </select>
         </div>
         <div class="control">
           <label for="tier-filter">Tier</label>
           <select id="tier-filter">
             <option value="">All tiers</option>
-            <option value="T1">Tier 1</option>
-            <option value="T2">Tier 2</option>
-            <option value="T3">Tier 3</option>
           </select>
+        </div>
+        <div class="control control--checkbox">
+          <label for="open24-filter">
+            <input type="checkbox" id="open24-filter" />
+            24-hour
+          </label>
         </div>
         <div class="control">
           <label for="sort">Sort</label>
@@ -107,6 +115,8 @@
           <p id="location-status" class="location-status">Location off</p>
         </div>
       </section>
+
+      <section class="quick-filters" id="quick-filters" aria-label="Quick filters"></section>
 
       <section class="adsense">
         <!-- TODO: Replace with real AdSense script -->
@@ -126,14 +136,16 @@
         </section>
 
         <p class="tier-chip" aria-label="Tier definitions">
-        How tiers work: <strong>T1</strong> central/referral/teaching or 350+ beds / critical disciplines • <strong>T2</strong> provincial/general/district or 120–349 beds / multi-specialty • <strong>T3</strong> smaller primary facilities.
-      </p>
+          How tiers work: <strong>Tier 1</strong> central/referral/teaching or 350+ beds / critical disciplines •
+          <strong>Tier 2</strong> provincial/general/district or 120–349 beds / multi-specialty • <strong>Tier 3</strong>
+          smaller primary facilities.
+        </p>
 
-      <p class="mohcc-note">
-        Official Ministry of Health &amp; Child Care updates are published at
-        <a href="https://www.mohcc.gov.zw/" target="_blank" rel="noopener">mohcc.gov.zw</a>.
-        Check their bulletins for policy notices, referral pathways, and emergency guidance that complement this directory.
-      </p>
+        <p class="mohcc-note">
+          Official Ministry of Health &amp; Child Care updates are published at
+          <a href="https://www.mohcc.gov.zw/" target="_blank" rel="noopener">mohcc.gov.zw</a>.
+          Check their bulletins for policy notices, referral pathways, and emergency guidance that complement this directory.
+        </p>
 
     </main>
 
@@ -144,10 +156,12 @@
             <div class="card__badges" aria-label="Facility tags"></div>
             <p class="card__meta"></p>
           </header>
-          <p class="card__address"></p>
-          <p class="card__specialists"></p>
+          <p class="card__services"></p>
+          <p class="card__flags"></p>
           <p class="card__contact"></p>
           <p class="card__hours"></p>
+          <p class="card__verified"></p>
+          <p class="card__actions"></p>
           <button class="card__toggle" type="button" aria-expanded="false">More details</button>
           <div class="card__details" hidden></div>
         </article>
