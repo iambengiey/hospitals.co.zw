@@ -42,13 +42,14 @@ python scripts/scrape_hospitals.py
 ```
 
 The script loads the existing catalogue, normalises names/cities for resilient matching, runs each configured scraper stub (including a "gap filler" list for hard-to-source facilities such as Makumbe, Makumbi, Avenues, Baines, Mazowe, and Chinhoyi), merges results by `(name, city)`, recalculates tiers via the helper, stamps `last_verified` with the current date, and rewrites `data/hospitals.json` in a stable order.
-The ETL pipeline loads the canonical dataset, any JSON/CSV files under `data/raw/`, and the stub scrapers (ministry, private networks, Google seed). It normalises facility fields, deduplicates near-matches with fuzzy logic, infers facility type, rural/urban, default services, and tiers, then writes `data/hospitals.json` plus a debug copy. Core helpers (`classify_facility_type`, `infer_rural_urban`, `infer_default_services`, `deduplicate_facilities`) are covered by `python -m unittest tests/test_pipeline.py`.
+The ETL pipeline loads the canonical dataset, any JSON/CSV/XLSX files under `data/raw/`, and the stub scrapers (ministry, private networks, Google seed). It normalises facility fields, deduplicates near-matches with fuzzy logic, infers facility type, rural/urban, default services, and tiers, then writes `data/hospitals.json` plus a debug copy. Core helpers (`classify_facility_type`, `infer_rural_urban`, `infer_default_services`, `deduplicate_facilities`) are covered by `python -m unittest tests/test_pipeline.py`.
 
 New raw drop points have been added for vetted sources:
 
 - `data/raw/hpa_registered_facilities.json` — Health Professions Authority registrations (facility-level only). Entries here bump confidence and mark sources as verified.
 - `data/raw/provincial_district_hospitals.json` — bulk provincial/district lists (e.g., the Scribd PDF).
 - `data/raw/doctor4africa_rural_clinics.json` — rural clinic lists pulled from public directories.
+- `data/raw/mcaz_pharmacies.json` (or `.xlsx`) — pharmacies from the MCAZ renewal list; tagged as a trusted source and flagged as verified in the export.
 
 Place the downloaded JSON/CSV in those filenames (or drop additional files into `data/raw/`), then rerun `python scripts/scrape_hospitals.py && node scripts/prepare-data.js` to propagate the updates into the bundled site data.
 
@@ -67,9 +68,9 @@ Each record in `data/hospitals.json` is exported in a compact, structured format
 - `phone`, `whatsapp`, `email`, `website`
 - `lat`, `lon` (optional coordinates for mapping)
 - `tier` (`Tier 1`, `Tier 2`, `Tier 3` where applicable)
-- `last_verified`, `source`, `confidence`
+- `last_verified`, `source`, `confidence`, `verified`
 
-The catalogue currently mirrors 51 facilities, including the public Wikipedia list plus Hwange and Victoria Falls additions, the new provincial/district seeds, and pharmacy/clinic/optician/dental entries to keep filters populated on first load.
+The catalogue currently mirrors hundreds of facilities drawn from the public Wikipedia list, provincial/district lists, HPA/MCAZ feeds, and manual seeds (including Hwange and Victoria Falls) so the filters stay populated on first load.
 
 ### Tiering rules
 
@@ -86,6 +87,7 @@ These rules are implemented in both the frontend (`src/app.js`) and the scraper 
 - **Search:** Instant client-side search bar covers facility name and city/district.
 - **Filters:** Province, ownership, facility type, services, rural/urban, tier, 24-hour toggle, and quick buttons (emergency, maternity, dentist, pharmacy, rural/urban clinic, mission/district/provincial hospital, 24h) combine to narrow results.
 - **Cards:** Text-only, compact badges for tier/ownership/rural-urban, service flags, cost/medical aid line, distance when location is enabled, and action links for call/WhatsApp/share/suggest-correction. Last verified dates render in a friendly month/year format.
+- **Verification cues:** A results summary shows how many visible facilities are verified. Cards sourced from trusted bodies (HPA/MCAZ/MoHCC feeds) render with a green accent and “Verified source” text.
 - **Map view:** A view toggle switches between list and map. Facilities with `lat`/`lon` plot via Leaflet; clicking a marker highlights the corresponding card. Map assets are lazy-loaded to keep the default payload small.
 - **Accessibility & performance:** High-contrast palette, large tap targets on mobile, focus-visible outlines, and ARIA labels on filters, toggles, and map region. JS/CSS can be bundled/minified by `npm run build`; rendering is scheduled via `requestAnimationFrame` to avoid unnecessary reflows.
 

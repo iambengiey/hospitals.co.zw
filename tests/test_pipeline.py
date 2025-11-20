@@ -11,6 +11,7 @@ from scripts.scrape_hospitals import (  # noqa: E402
     deduplicate_facilities,
     infer_default_services,
     infer_rural_urban,
+    map_to_schema,
     normalize_raw_record,
 )
 
@@ -56,6 +57,11 @@ class PipelineTests(unittest.TestCase):
     self.assertAlmostEqual(normalised["lat"], -17.1)
     self.assertAlmostEqual(normalised["lon"], 31.1)
     self.assertIn("example_source", normalised.get("source", []))
+
+  def test_trusted_source_sets_verified(self):
+    record = {"name": "Trusted Pharmacy", "province": "Harare", "source": ["mcaz_pharmacies_2024"]}
+    mapped = map_to_schema(record)
+    self.assertTrue(mapped.get("verified"))
 
 
 if __name__ == "__main__":

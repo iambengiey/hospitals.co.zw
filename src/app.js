@@ -69,6 +69,7 @@ const searchInput = document.getElementById('search');
 const locationButton = document.getElementById('enable-location');
 const locationStatus = document.getElementById('location-status');
 const resultsEl = document.getElementById('results');
+const resultsSummary = document.getElementById('results-summary');
 const template = document.getElementById('hospital-card');
 const listViewBtn = document.getElementById('list-view');
 const mapViewBtn = document.getElementById('map-view');
@@ -93,6 +94,11 @@ const formatDate = (value) => {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
   return `Verified ${date.toLocaleString('en-GB', { month: 'short', year: 'numeric' })}`;
+};
+
+const formatVerification = (hospital) => {
+  const base = formatDate(hospital.last_verified);
+  return hospital.verified ? `${base} • Verified source` : base;
 };
 
 const renderFilters = () => {
@@ -209,6 +215,9 @@ const renderList = (filtered) => {
     const node = template.content.cloneNode(true);
     const article = node.querySelector('article');
     article.dataset.hospitalId = hospital.id || hospital.name;
+    if (hospital.verified) {
+      article.classList.add('card--verified');
+    }
     node.querySelector('.card__title').textContent = hospital.name;
 
     const badgesEl = node.querySelector('.card__badges');
@@ -227,7 +236,7 @@ const renderList = (filtered) => {
 
     node.querySelector('.card__contact').textContent = hospital.phone ? `Phone: ${hospital.phone}` : 'Phone: N/A';
     node.querySelector('.card__hours').textContent = hospital.open_24h ? 'Open 24 hours' : 'Check operating hours with facility';
-    node.querySelector('.card__verified').textContent = formatDate(hospital.last_verified);
+    node.querySelector('.card__verified').textContent = formatVerification(hospital);
     node.querySelector('.card__actions').innerHTML = buildActionLinks(hospital);
 
     const details = [
@@ -376,6 +385,11 @@ const renderHospitals = () => {
       if (state.filters.sort === 'bed_desc') return (b.bed_count || 0) - (a.bed_count || 0);
       return a.name.localeCompare(b.name);
     });
+
+  if (resultsSummary) {
+    const verifiedCount = filtered.filter((h) => h.verified).length;
+    resultsSummary.textContent = `${filtered.length} facilities • ${verifiedCount} verified`;
+  }
 
   if (state.view === 'map') {
     resultsEl.hidden = true;

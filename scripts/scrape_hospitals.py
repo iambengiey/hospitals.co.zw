@@ -24,6 +24,11 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "hospitals.json"
 RAW_DIR = ROOT / "data" / "raw"
 TODAY = dt.date.today().isoformat()
+TRUSTED_SOURCES = {
+  "hpa_registered_facilities",
+  "mcaz_pharmacies_2024",
+  "mohcc_official",
+}
 
 Hospital = Dict[str, object]
 
@@ -187,6 +192,25 @@ def load_csv(path: pathlib.Path) -> List[Hospital]:
   return rows
 
 
+def load_xlsx(path: pathlib.Path) -> List[Hospital]:
+  """Load rows from an XLSX file when openpyxl is available."""
+
+  try:
+    import openpyxl  # type: ignore
+  except ImportError:
+    print(f"Skipping {path.name} (openpyxl not installed)")
+    return []
+
+  workbook = openpyxl.load_workbook(path)
+  sheet = workbook.active
+  headers = [str(cell.value).strip() if cell.value else "" for cell in next(sheet.iter_rows(max_row=1))]
+  facilities: List[Hospital] = []
+  for row in sheet.iter_rows(min_row=2, values_only=True):
+    record = {headers[idx]: value for idx, value in enumerate(row) if headers[idx]}
+    facilities.append(record)
+  return facilities
+
+
 def coerce_bool(value: object) -> bool:
   if isinstance(value, bool):
     return value
@@ -240,6 +264,8 @@ def load_raw_sources() -> List[Hospital]:
       raw_records = load_json(file)
     elif file.suffix.lower() == ".csv":
       raw_records = load_csv(file)
+    elif file.suffix.lower() in {".xlsx", ".xls"}:
+      raw_records = load_xlsx(file)
 
     for record in raw_records:
       facilities.append(normalize_raw_record(record, source_label))
@@ -373,14 +399,18 @@ def deduplicate_facilities(facilities: List[Hospital]) -> List[Hospital]:
       record.setdefault("aliases", [])
       record.setdefault("source", [])
       record.setdefault("confidence", "medium")
+      if not record.get("verified"):
+        record["verified"] = any(src in TRUSTED_SOURCES for src in record.get("source", []))
       record["_key"] = key
       canonical.append(record)
       continue
 
     aliases = set(matched.get("aliases", [])) | {record.get("name", "")}
     matched["aliases"] = sorted({a for a in aliases if a})
-    matched["source"] = merge_sources(matched.get("source", []), record.get("source", []))
+    matched_sources = merge_sources(matched.get("source", []), record.get("source", []))
+    matched["source"] = matched_sources
     matched["confidence"] = "high" if matched_score > 92 else matched.get("confidence", "medium")
+    matched["verified"] = matched.get("verified") or any(src in TRUSTED_SOURCES for src in matched_sources)
 
     for field in [
       "facility_type",
@@ -443,6 +473,8 @@ def map_to_schema(record: Hospital) -> Hospital:
     elif tier_raw in {"Tier 1", "Tier 2", "Tier 3"}:
       tier_value = tier_raw
 
+  sources = record.get("source") if isinstance(record.get("source"), list) else ([record.get("source")] if record.get("source") else [])
+
   export: Hospital = {
     "id": record.get("id") or slugify(record.get("name", "facility"), record.get("district") or record.get("city") or "zw"),
     "name": record.get("name", "Unnamed Facility"),
@@ -467,8 +499,9 @@ def map_to_schema(record: Hospital) -> Hospital:
     "lon": record.get("lon") or record.get("longitude"),
     "tier": tier_value or tier_from_record({"facility_type": facility_type, "bed_count": record.get("bed_count"), "services": services}),
     "last_verified": record.get("last_verified") or TODAY,
-    "source": record.get("source") if isinstance(record.get("source"), list) else ([record.get("source")] if record.get("source") else []),
+    "source": sources,
     "confidence": record.get("confidence") or "medium",
+    "verified": record.get("verified") or any(src in TRUSTED_SOURCES for src in sources),
     "website": record.get("website") or "",
   }
   return export

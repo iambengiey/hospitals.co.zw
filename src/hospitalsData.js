@@ -36,6 +36,40 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "green-cross-pharmacy-bulawayo-bulawayo",
+    "name": "Green Cross Pharmacy Bulawayo",
+    "aliases": [],
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "ward": "",
+    "city": "Bulawayo",
+    "address": "",
+    "services": [
+      "Dispensary"
+    ],
+    "open_24h": true,
+    "emergency_level": "Basic",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": "+263 29 227 111",
+    "whatsapp": "+263 29 227 111",
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "mcaz_pharmacies_2024"
+    ],
+    "confidence": "medium",
+    "verified": true,
     "website": ""
   },
   {
@@ -76,6 +110,7 @@ export const hospitalsData = [
       "hpa_registry"
     ],
     "confidence": "high",
+    "verified": false,
     "website": "https://www.materdei.co.zw"
   },
   {
@@ -114,6 +149,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -150,6 +186,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -188,6 +225,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -226,6 +264,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -262,6 +301,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -298,6 +338,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": "https://www.bainesimaginggroup.com"
   },
   {
@@ -333,6 +374,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -371,6 +413,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "high",
+    "verified": false,
     "website": "https://www.traumacentre.co.zw"
   },
   {
@@ -407,6 +450,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -444,6 +488,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": "https://health.gov.zw/harare-hospital"
   },
   {
@@ -482,7 +527,41 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": "https://www.parihosp.org.zw"
+  },
+  {
+    "id": "premier-pharmacy-harare-harare",
+    "name": "Premier Pharmacy Harare",
+    "aliases": [],
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Harare",
+    "district": "Harare",
+    "ward": "",
+    "city": "Harare",
+    "address": "",
+    "services": [
+      "Dispensary"
+    ],
+    "open_24h": false,
+    "emergency_level": "Basic",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": "+263 24 275 1234",
+    "whatsapp": "+263 24 275 1234",
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "mcaz_pharmacies_2024"
+    ],
+    "confidence": "medium",
+    "verified": true,
+    "website": ""
   },
   {
     "id": "st-annes-hospital-harare",
@@ -519,6 +598,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -560,6 +640,7 @@ export const hospitalsData = [
       "hpa_registry"
     ],
     "confidence": "high",
+    "verified": false,
     "website": "https://www.avenuesclinic.co.zw"
   },
   {
@@ -596,6 +677,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -633,6 +715,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -670,6 +753,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": "https://en.wikipedia.org/wiki/Wilkins_Infectious_Diseases_Hospital"
   },
   {
@@ -706,6 +790,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -742,12 +827,15 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
     "id": "chipinge-district-hospital-chipinge",
     "name": "Chipinge District Hospital",
-    "aliases": [],
+    "aliases": [
+      "Chipinge District Hospital"
+    ],
     "facility_type": "District Hospital",
     "ownership": "Government",
     "rural_urban": "Urban",
@@ -758,9 +846,9 @@ export const hospitalsData = [
     "address": "",
     "services": [
       "ER",
-      "Maternity",
+      "Inpatient",
       "Lab",
-      "Inpatient"
+      "Maternity"
     ],
     "open_24h": false,
     "emergency_level": "Full",
@@ -776,7 +864,41 @@ export const hospitalsData = [
     "source": [
       "scribd_provincial_district_hospitals"
     ],
+    "confidence": "high",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "mutare-central-pharmacy-mutare",
+    "name": "Mutare Central Pharmacy",
+    "aliases": [],
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Manicaland",
+    "district": "Mutare",
+    "ward": "",
+    "city": "Mutare",
+    "address": "",
+    "services": [
+      "Dispensary"
+    ],
+    "open_24h": false,
+    "emergency_level": "Basic",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "mcaz_pharmacies_2024"
+    ],
     "confidence": "medium",
+    "verified": true,
     "website": ""
   },
   {
@@ -813,6 +935,7 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": "https://health.gov.zw/mutare-hospital"
   },
   {
@@ -849,12 +972,15 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
     "id": "nyanga-district-hospital-nyanga",
     "name": "Nyanga District Hospital",
-    "aliases": [],
+    "aliases": [
+      "Nyanga District Hospital"
+    ],
     "facility_type": "District Hospital",
     "ownership": "Government",
     "rural_urban": "Urban",
@@ -865,9 +991,9 @@ export const hospitalsData = [
     "address": "",
     "services": [
       "ER",
-      "Maternity",
+      "Inpatient",
       "Lab",
-      "Inpatient"
+      "Maternity"
     ],
     "open_24h": false,
     "emergency_level": "Full",
@@ -883,7 +1009,8 @@ export const hospitalsData = [
     "source": [
       "scribd_provincial_district_hospitals"
     ],
-    "confidence": "medium",
+    "confidence": "high",
+    "verified": false,
     "website": ""
   },
   {
@@ -920,6 +1047,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -956,6 +1084,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -992,6 +1121,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1028,6 +1158,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1063,6 +1194,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1100,6 +1232,7 @@ export const hospitalsData = [
     "last_verified": "2024-04-01",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": "https://www.karanda.org"
   },
   {
@@ -1135,6 +1268,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1171,6 +1305,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1207,6 +1342,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1243,6 +1379,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1279,6 +1416,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1315,6 +1453,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1353,6 +1492,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "high",
+    "verified": false,
     "website": ""
   },
   {
@@ -1389,6 +1529,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1425,6 +1566,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1461,6 +1603,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1497,6 +1640,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1551,6 +1695,7 @@ export const hospitalsData = [
       "u"
     ],
     "confidence": "high",
+    "verified": false,
     "website": ""
   },
   {
@@ -1587,6 +1732,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1641,12 +1787,15 @@ export const hospitalsData = [
       "u"
     ],
     "confidence": "high",
+    "verified": false,
     "website": ""
   },
   {
     "id": "beitbridge-district-hospital-beitbridge",
     "name": "Beitbridge District Hospital",
-    "aliases": [],
+    "aliases": [
+      "Beitbridge District Hospital"
+    ],
     "facility_type": "District Hospital",
     "ownership": "Government",
     "rural_urban": "Urban",
@@ -1657,9 +1806,9 @@ export const hospitalsData = [
     "address": "",
     "services": [
       "ER",
-      "Maternity",
+      "Inpatient",
       "Lab",
-      "Inpatient"
+      "Maternity"
     ],
     "open_24h": false,
     "emergency_level": "Full",
@@ -1675,7 +1824,8 @@ export const hospitalsData = [
     "source": [
       "scribd_provincial_district_hospitals"
     ],
-    "confidence": "medium",
+    "confidence": "high",
+    "verified": false,
     "website": ""
   },
   {
@@ -1712,6 +1862,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1748,6 +1899,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1784,6 +1936,40 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "gweru-community-pharmacy-gweru",
+    "name": "Gweru Community Pharmacy",
+    "aliases": [],
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Midlands",
+    "district": "Gweru",
+    "ward": "",
+    "city": "Gweru",
+    "address": "",
+    "services": [
+      "Dispensary"
+    ],
+    "open_24h": true,
+    "emergency_level": "Basic",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": "+263 54 224 567",
+    "whatsapp": "+263 54 224 567",
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "mcaz_pharmacies_2024"
+    ],
+    "confidence": "medium",
+    "verified": true,
     "website": ""
   },
   {
@@ -1822,6 +2008,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "high",
+    "verified": false,
     "website": ""
   },
   {
@@ -1858,6 +2045,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -1894,6 +2082,7 @@ export const hospitalsData = [
     "last_verified": "2025-11-20",
     "source": [],
     "confidence": "medium",
+    "verified": false,
     "website": ""
   }
 ];
