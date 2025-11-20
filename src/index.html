@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hospitals.co.zw &mdash; Zimbabwe Hospital Directory</title>
+    <meta
+      name="description"
+      content="Fast, mobile-friendly directory to find hospitals in Zimbabwe by location, ownership, specialist coverage, and tier."
+    />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MS8295XMP"></script>
     <script>
@@ -14,9 +18,25 @@
       gtag('js', new Date());
       gtag('config', 'G-6MS8295XMP');
     </script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="preload" href="assets/styles.css" as="style" />
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
+    <header class="topbar" role="banner">
+      <div class="topbar__inner">
+        <div class="brand" aria-label="Hospitals.co.zw home">
+          <div class="brand__logo" aria-hidden="true">HCZ</div>
+          <div>
+            <p class="brand__title">Hospitals.co.zw</p>
+            <p class="brand__tagline">Find hospitals in Zimbabwe by location, type, and tier.</p>
+          </div>
+        </div>
+        <nav class="topbar__actions" aria-label="View mode">
+          <button id="list-view" class="toggle-button" aria-pressed="true">List view</button>
+          <button id="map-view" class="toggle-button" aria-pressed="false">Map view</button>
+        </nav>
+      </div>
+    </header>
     <header class="hero">
       <div class="hero__content">
         <h1>Zimbabwe Hospital Directory</h1>
@@ -29,7 +49,17 @@
     </header>
 
     <main class="container">
-      <section class="controls">
+      <section class="controls" aria-label="Search and filters">
+        <div class="control control--search">
+          <label for="search">Search</label>
+          <input
+            type="search"
+            id="search"
+            name="search"
+            placeholder="Search by hospital or city"
+            autocomplete="on"
+          />
+        </div>
         <div class="control">
           <label for="province-filter">Province</label>
           <select id="province-filter">
@@ -86,10 +116,23 @@
         <ins class="adsbygoogle" style="display:block" data-ad-client="TODO-CLIENT-ID" data-ad-slot="TODO-SLOT-ID" data-ad-format="auto"></ins>
       </section>
 
-      <section id="results" class="results" aria-live="polite"></section>
+        <section id="results" class="results" aria-live="polite"></section>
 
-      <p class="tier-chip" aria-label="Tier definitions">
+        <section id="map-panel" class="map-panel" hidden>
+          <div id="map" class="map" role="region" aria-label="Zimbabwe hospitals map"></div>
+          <p class="map-hint">
+            Map shows facilities with coordinates. Click a marker to highlight the matching card in the list.
+          </p>
+        </section>
+
+        <p class="tier-chip" aria-label="Tier definitions">
         How tiers work: <strong>T1</strong> central/referral/teaching or 350+ beds / critical disciplines • <strong>T2</strong> provincial/general/district or 120–349 beds / multi-specialty • <strong>T3</strong> smaller primary facilities.
+      </p>
+
+      <p class="mohcc-note">
+        Official Ministry of Health &amp; Child Care updates are published at
+        <a href="https://www.mohcc.gov.zw/" target="_blank" rel="noopener">mohcc.gov.zw</a>.
+        Check their bulletins for policy notices, referral pathways, and emergency guidance that complement this directory.
       </p>
 
       <p id="data-fallback" class="data-fallback" hidden>
@@ -98,20 +141,21 @@
 
     </main>
 
-    <template id="hospital-card">
-      <article class="card">
-        <header>
-          <h2 class="card__title"></h2>
-          <p class="card__meta"></p>
-        </header>
-        <p class="card__address"></p>
-        <p class="card__specialists"></p>
-        <p class="card__contact"></p>
-        <p class="card__hours"></p>
-        <button class="card__toggle" type="button">More details</button>
-        <div class="card__details" hidden></div>
-      </article>
-    </template>
+      <template id="hospital-card">
+        <article class="card">
+          <header>
+            <h2 class="card__title"></h2>
+            <div class="card__badges" aria-label="Facility tags"></div>
+            <p class="card__meta"></p>
+          </header>
+          <p class="card__address"></p>
+          <p class="card__specialists"></p>
+          <p class="card__contact"></p>
+          <p class="card__hours"></p>
+          <button class="card__toggle" type="button" aria-expanded="false">More details</button>
+          <div class="card__details" hidden></div>
+        </article>
+      </template>
 
     <footer class="footer">
       <p>
@@ -122,6 +166,6 @@
     </footer>
 
     <script src="embedded-data.js"></script>
-    <script src="app.js"></script>
+    <script src="assets/app.bundle.js" defer></script>
   </body>
 </html>

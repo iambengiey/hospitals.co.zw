@@ -1,6 +1,6 @@
 # hospitals-co-zw
 
-A lightweight, data-driven directory of public, private, and mission hospitals in Zimbabwe &mdash; plus nearby clinics, pharmacies, opticians, and dental practices. The site is designed for GitHub Pages and backed by a simple JSON catalogue plus a monthly scraper workflow.
+A lightweight, data-driven directory of public, private, and mission hospitals in Zimbabwe &mdash; plus nearby clinics, pharmacies, opticians, and dental practices. The site is designed for GitHub Pages and backed by a simple JSON catalogue plus a monthly scraper workflow. The UI is responsive, keyboard-friendly, and supports list and map views with client-side search + filters.
 
 ## Repository layout
 
@@ -13,12 +13,20 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
 
 ## Running the site locally
 
-1. Sync the latest data into the `src` directory (Pages only receives files in `src/`):
+1. Install the frontend toolchain (esbuild for bundling/minification):
+   ```bash
+   npm install
+   ```
+2. Bundle the JavaScript and CSS (writes to `src/assets/`):
+   ```bash
+   npm run build
+   ```
+3. Sync the latest data into the `src` directory (Pages only receives files in `src/`):
    ```bash
    cp data/hospitals.json src/data/hospitals.json
    ```
    The frontend also fetches the canonical raw file from GitHub (`https://raw.githubusercontent.com/iambengiey/hospitals.co.zw/main/data/hospitals.json`), so new data appears without redeploying the site. Copying into `src/data/` still helps the in-repo preview and the Pages artifact stay in sync.
-2. Regenerate the embedded offline fallback (used when the hosted JSON cannot be fetched):
+4. Regenerate the embedded offline fallback (used when the hosted JSON cannot be fetched):
    ```bash
    python - <<'PY'
    import json, pathlib
@@ -29,11 +37,11 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
    )
    PY
    ```
-3. Serve the site:
+5. Serve the site:
    ```bash
    python -m http.server --directory src 8000
    ```
-4. Visit [http://localhost:8000](http://localhost:8000) to interact with the directory.
+6. Visit [http://localhost:8000](http://localhost:8000) to interact with the directory (list + optional map view).
 
 > **Tip:** The deploy workflow copies `data/hospitals.json` into `src/data/` automatically. When developing locally just repeat step 1 whenever the data changes.
 
@@ -73,6 +81,18 @@ Tiering now follows the “Overview of Zim Healthcare System 2025” thresholds 
 
 These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent. The homepage also repeats these definitions in a short “How tiers work” section for visitors at the bottom of the listing.
 
+## Search, filters, map view, and accessibility
+
+- **Search:** Instant client-side search bar covers hospital name and city/town.
+- **Filters:** Province, ownership/type, facility category, tier, and specialist dropdowns combine with search to narrow results. Distance-aware sorting unlocks after enabling location.
+- **Map view:** A view toggle switches between list and map. Facilities with `latitude`/`longitude` plot via Leaflet; clicking a marker highlights the corresponding card. Map assets are lazy-loaded to keep the default payload small.
+- **Accessibility:** High-contrast palette, large tap targets on mobile, focus-visible outlines, and ARIA labels on filters, toggles, and map region.
+- **Performance:** JS/CSS are bundled/minified by `npm run build`; rendering is scheduled via `requestAnimationFrame` and DOM diffing to avoid unnecessary reflows when filters change. GitHub Pages will serve `src/assets/*` with ETags—append a simple query string (e.g., `?v=DATE`) in `index.html` if you ever need to force cache-busting between releases.
+
+### Official MoHCC reference
+
+For the latest policy circulars, emergency guidance, and referral pathways, check the Ministry of Health & Child Care site at [https://www.mohcc.gov.zw/](https://www.mohcc.gov.zw/). This repository aligns its tiering copy with the 2025 overview and links to MoHCC from the landing page so users can reach authoritative updates.
+
 ## Google AdSense placeholders
 
 `src/index.html` contains a dedicated `<section class="adsense">` that includes:
@@ -93,9 +113,10 @@ These rules are implemented both in the frontend (`src/app.js`) and in the scrap
 `.github/workflows/deploy.yml` runs on every push to `main` and performs:
 
 1. Checkout + Pages environment setup.
-2. Copies the canonical `data/hospitals.json` into `src/data/` so the static site can fetch it.
-3. Uploads the `src/` directory as the Pages artifact.
-4. Deploys via `actions/deploy-pages`.
+2. Installs Node dependencies and bundles the frontend with `npm run build` (minified assets land in `src/assets/`).
+3. Copies the canonical `data/hospitals.json` into `src/data/` so the static site can fetch it.
+4. Uploads the `src/` directory as the Pages artifact.
+5. Deploys via `actions/deploy-pages`.
 
 ### Monthly scraping workflow
 
@@ -112,3 +133,18 @@ This keeps the directory fresh while respecting environments where GitHub Action
 - The frontend now prefers the canonical raw file on the `main` branch, so once the scraper lands updated JSON the live site immediately reflects it—no Pages redeploy needed.
 - We still copy `data/hospitals.json` into `src/data/` during deployments to keep an on-site copy and offline fallback in sync.
 - GitHub Pages does not serve symlinks for security reasons, so `src/data/hospitals.json` must be a real file (or copied during build) rather than a soft link to `data/hospitals.json`.
+
+### Search indexing and robots.txt
+
+The site now ships `src/robots.txt` (copied to the Pages root) allowing all crawlers to access both the UI and `data/hospitals.json`. This helps avoid the “robots.txt fetch” failures reported by Search Console and keeps the JSON catalogue discoverable.
+
+## Analytics hook
+
+A stubbed `trackEvent(eventName, payload)` in `src/app.js` centralises analytics wiring. It currently logs to the console and is called when users search, change filters, switch views, or expand hospital details. Replace the TODO comment in that function with your preferred provider (Google Analytics, Matomo, etc.) to enable real telemetry.
+
+## Adding hospitals or fields
+
+1. Edit `data/hospitals.json` to add or update records (include `latitude`/`longitude` to show on the map).
+2. Rebuild the embedded fallback (`src/embedded-data.js`) so GitHub Pages has a baked-in copy.
+3. Run `npm run build` to refresh bundled assets.
+4. Commit and push; the deployment workflow will publish the latest JSON automatically.

@@ -519,7 +519,6 @@ const attachListeners = () => {
     state.view = 'list';
     listViewBtn.setAttribute('aria-pressed', 'true');
     mapViewBtn.setAttribute('aria-pressed', 'false');
-    trackEvent('view_change', { view: 'list' });
     scheduleRender();
   });
 
