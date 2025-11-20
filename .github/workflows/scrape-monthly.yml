@@ -24,6 +24,12 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run scraper
         run: python scripts/scrape_hospitals.py
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Refresh browser dataset module
+        run: npm run prepare:data
       - name: Set run metadata
         id: meta
         run: echo "today=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
@@ -38,7 +44,7 @@ jobs:
             exit 0
           fi
           git checkout -B "$BRANCH"
-          git add data/hospitals.json
+          git add data/hospitals.json src/hospitalsData.js src/data/hospitals.json
           git commit -m "chore: monthly hospitals data refresh"
           git push origin "$BRANCH"
           echo "Updates pushed to $BRANCH; open a PR manually if needed."

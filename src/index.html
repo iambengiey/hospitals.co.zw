@@ -18,8 +18,8 @@
       gtag('js', new Date());
       gtag('config', 'G-6MS8295XMP');
     </script>
-    <link rel="preload" href="assets/styles.css" as="style" />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="preload" href="styles.css" as="style" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar" role="banner">
@@ -135,10 +135,6 @@
         Check their bulletins for policy notices, referral pathways, and emergency guidance that complement this directory.
       </p>
 
-      <p id="data-fallback" class="data-fallback" hidden>
-        Showing the built-in catalogue because the hosted <code>data/hospitals.json</code> could not be loaded. Ensure the dataset is published with the site to keep this view fresh.
-      </p>
-
     </main>
 
       <template id="hospital-card">
@@ -165,7 +161,6 @@
       </p>
     </footer>
 
-    <script src="embedded-data.js"></script>
-    <script src="assets/app.bundle.js" defer></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>

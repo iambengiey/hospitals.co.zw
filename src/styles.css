@@ -298,16 +298,6 @@ input:focus-visible {
   margin: 0 auto 1.25rem;
 }
 
-.data-fallback {
-  margin: -1rem auto 1.5rem;
-  background: var(--warning-bg);
-  border: 1px solid #f1c27d;
-  border-radius: 0.75rem;
-  padding: 0.75rem 1rem;
-  color: var(--warning-text);
-  font-size: 0.95rem;
-}
-
 .mohcc-note {
   margin: 0.25rem auto 1.5rem;
   padding: 0.85rem 1rem;

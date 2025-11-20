@@ -26,12 +26,10 @@ jobs:
           node-version: '18'
       - name: Install frontend dependencies
         run: npm install
+      - name: Prepare dataset module
+        run: npm run prepare:data
       - name: Build assets
         run: npm run build
-      - name: Prepare data for site
-        run: |
-          mkdir -p src/data
-          cp data/hospitals.json src/data/hospitals.json
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

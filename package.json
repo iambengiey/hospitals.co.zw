@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prepare:data": "node scripts/prepare-data.js",
+    "prebuild": "npm run prepare:data",
     "build": "npm run build:js && npm run build:css",
     "build:js": "esbuild src/app.js --bundle --format=iife --minify --target=es2018 --outfile=src/assets/app.bundle.js",
     "build:css": "esbuild src/styles.css --minify --outfile=src/assets/styles.css"

@@ -17,33 +17,20 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
    ```bash
    npm install
    ```
-2. Bundle the JavaScript and CSS (writes to `src/assets/`):
+2. Generate the browser data module (mirrors `data/hospitals.json` into `src/hospitalsData.js` and refreshes `src/data/hospitals.json` for downloads):
+   ```bash
+   npm run prepare:data
+   ```
+3. Bundle the JavaScript and CSS (writes to `src/assets/` if you prefer minified assets):
    ```bash
    npm run build
    ```
-3. Sync the latest data into the `src` directory (Pages only receives files in `src/`):
-   ```bash
-   cp data/hospitals.json src/data/hospitals.json
-   ```
-   The frontend also fetches the canonical raw file from GitHub (`https://raw.githubusercontent.com/iambengiey/hospitals.co.zw/main/data/hospitals.json`), so new data appears without redeploying the site. Copying into `src/data/` still helps the in-repo preview and the Pages artifact stay in sync.
-4. Regenerate the embedded offline fallback (used when the hosted JSON cannot be fetched):
-   ```bash
-   python - <<'PY'
-   import json, pathlib
-   data=json.loads(pathlib.Path('data/hospitals.json').read_text())
-   pathlib.Path('src/embedded-data.js').write_text(
-     '// Auto-generated fallback copy of data/hospitals.json. Keep in sync when data updates.\n'
-     'window.EMBEDDED_HOSPITALS = ' + json.dumps(data, indent=2, ensure_ascii=False) + ';\n'
-   )
-   PY
-   ```
-5. Serve the site:
+   > Bundling is optional during local dev; the published `index.html` loads `src/app.js` and `src/styles.css` directly when no bundled files are present.
+4. Serve the site:
    ```bash
    python -m http.server --directory src 8000
    ```
-6. Visit [http://localhost:8000](http://localhost:8000) to interact with the directory (list + optional map view).
-
-> **Tip:** The deploy workflow copies `data/hospitals.json` into `src/data/` automatically. When developing locally just repeat step 1 whenever the data changes.
+5. Visit [http://localhost:8000](http://localhost:8000) to interact with the directory (list + optional map view).
 
 ## Running the scraper locally
 
@@ -113,10 +100,10 @@ For the latest policy circulars, emergency guidance, and referral pathways, chec
 `.github/workflows/deploy.yml` runs on every push to `main` and performs:
 
 1. Checkout + Pages environment setup.
-2. Installs Node dependencies and bundles the frontend with `npm run build` (minified assets land in `src/assets/`).
-3. Copies the canonical `data/hospitals.json` into `src/data/` so the static site can fetch it.
-4. Uploads the `src/` directory as the Pages artifact.
-5. Deploys via `actions/deploy-pages`.
+2. Installs Node dependencies.
+3. Runs `npm run prepare:data` to regenerate `src/hospitalsData.js` and refresh `src/data/hospitals.json` for direct download.
+4. Bundles the frontend with `npm run build` (minified assets land in `src/assets/`).
+5. Uploads the `src/` directory as the Pages artifact and deploys via `actions/deploy-pages`.
 
 ### Monthly scraping workflow
 
@@ -128,23 +115,23 @@ For the latest policy circulars, emergency guidance, and referral pathways, chec
 
 This keeps the directory fresh while respecting environments where GitHub Actions cannot create pull requests automatically.
 
-### Why not redeploy every time the data changes?
+### How the data reaches the UI
 
-- The frontend now prefers the canonical raw file on the `main` branch, so once the scraper lands updated JSON the live site immediately reflects it—no Pages redeploy needed.
-- We still copy `data/hospitals.json` into `src/data/` during deployments to keep an on-site copy and offline fallback in sync.
-- GitHub Pages does not serve symlinks for security reasons, so `src/data/hospitals.json` must be a real file (or copied during build) rather than a soft link to `data/hospitals.json`.
+- `data/hospitals.json` is the canonical catalogue. Running `npm run prepare:data` mirrors it into `src/hospitalsData.js` (ES module) and `src/data/hospitals.json` (direct download copy).
+- `src/app.js` imports the generated module so the browser never has to fetch a separate JSON file. If you also run `npm run build`, esbuild bundles/minifies everything into `src/assets/` for production.
+- GitHub Pages does not serve symlinks for security reasons, so the generated copies are real files committed to the repo or produced in the deploy workflow.
 
 ### Search indexing and robots.txt
 
-The site now ships `src/robots.txt` (copied to the Pages root) allowing all crawlers to access both the UI and `data/hospitals.json`. This helps avoid the “robots.txt fetch” failures reported by Search Console and keeps the JSON catalogue discoverable.
+The site ships `src/robots.txt` (copied to the Pages root) allowing crawlers to index the UI. If you want the raw JSON discoverable too, keep `src/data/hospitals.json` in sync via `npm run prepare:data`.
 
 ## Analytics hook
 
-A stubbed `trackEvent(eventName, payload)` in `src/app.js` centralises analytics wiring. It currently logs to the console and is called when users search, change filters, switch views, or expand hospital details. Replace the TODO comment in that function with your preferred provider (Google Analytics, Matomo, etc.) to enable real telemetry.
+A stubbed `trackEvent(eventName, payload)` in `src/app.js` centralises analytics wiring. It runs when users search, change filters, switch views, or expand hospital details. Replace the TODO comment in that function with your preferred provider (Google Analytics, Matomo, etc.) to enable real telemetry.
 
 ## Adding hospitals or fields
 
 1. Edit `data/hospitals.json` to add or update records (include `latitude`/`longitude` to show on the map).
-2. Rebuild the embedded fallback (`src/embedded-data.js`) so GitHub Pages has a baked-in copy.
-3. Run `npm run build` to refresh bundled assets.
-4. Commit and push; the deployment workflow will publish the latest JSON automatically.
+2. Run `npm run prepare:data` to regenerate `src/hospitalsData.js` (and refresh `src/data/hospitals.json`).
+3. Optionally run `npm run build` to refresh bundled/minified assets.
+4. Commit and push; the deployment workflow will publish the latest files automatically.

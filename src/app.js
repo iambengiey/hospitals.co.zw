@@ -1,22 +1,4 @@
-const EMBEDDED_HOSPITALS = window.EMBEDDED_HOSPITALS || [];
-
-const DATA_SOURCES = (() => {
-  const REPO_OWNER = 'iambengiey';
-  const REPO_NAME = 'hospitals.co.zw';
-  const sources = ['data/hospitals.json', './data/hospitals.json', '../data/hospitals.json'];
-
-  sources.push(`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/data/hospitals.json`);
-  sources.push(`https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@main/data/hospitals.json`);
-
-  const hostParts = window.location.hostname.split('.');
-  const owner = window.location.hostname.endsWith('github.io') ? hostParts[0] : null;
-  if (owner && owner !== REPO_OWNER) {
-    sources.push(`https://raw.githubusercontent.com/${owner}/${REPO_NAME}/main/data/hospitals.json`);
-    sources.push(`https://cdn.jsdelivr.net/gh/${owner}/${REPO_NAME}@main/data/hospitals.json`);
-  }
-
-  return sources;
-})();
+import hospitalsData from './hospitalsData.js';
 
 const TIER1_SPECIALISTS = [
   'oncology',
@@ -30,8 +12,7 @@ const TIER1_SPECIALISTS = [
 ];
 
 const state = {
-  hospitals: [...EMBEDDED_HOSPITALS],
-  usedFallback: true,
+  hospitals: [...hospitalsData],
   filters: {
     search: '',
     province: '',
@@ -83,9 +64,8 @@ const tierHelper = (hospital) => {
 const trackEvent = (eventName, payload = {}) => {
   // TODO: Wire this function to a real analytics provider (Google Analytics, Matomo, etc.).
   // Keep one integration point so telemetry stays consistent.
-  if (window?.console) {
-    console.debug('[trackEvent]', eventName, payload);
-  }
+  void eventName;
+  void payload;
 };
 
 const provinceFilter = document.getElementById('province-filter');
@@ -98,7 +78,6 @@ const searchInput = document.getElementById('search');
 const locationButton = document.getElementById('enable-location');
 const locationStatus = document.getElementById('location-status');
 const resultsEl = document.getElementById('results');
-const fallbackEl = document.getElementById('data-fallback');
 const template = document.getElementById('hospital-card');
 const listViewBtn = document.getElementById('list-view');
 const mapViewBtn = document.getElementById('map-view');
@@ -401,17 +380,6 @@ const updateLocationUI = () => {
   }
 };
 
-const toggleFallbackNotice = (usedFallback, lastError) => {
-  if (!fallbackEl) return;
-  if (usedFallback) {
-    fallbackEl.removeAttribute('hidden');
-    fallbackEl.dataset.error = lastError?.message || '';
-  } else {
-    fallbackEl.setAttribute('hidden', '');
-    delete fallbackEl.dataset.error;
-  }
-};
-
 const injectStructuredData = (hospitals) => {
   const graph = hospitals.slice(0, 80).map((hospital) => {
     const address = {
@@ -534,41 +502,11 @@ const attachListeners = () => {
   updateLocationUI();
 };
 
-const loadHospitals = async () => {
-  let lastError = null;
-  for (const url of DATA_SOURCES) {
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const data = await response.json();
-      return { data, fromFallback: false, lastError: null };
-    } catch (error) {
-      lastError = error;
-    }
-  }
-  console.warn('Falling back to embedded hospital catalogue', lastError);
-  return { data: EMBEDDED_HOSPITALS, fromFallback: true, lastError };
-};
-
 const init = async () => {
   renderFilters();
   renderHospitals();
-  toggleFallbackNotice(true, null);
-
-  try {
-    const { data, fromFallback, lastError } = await loadHospitals();
-    if (!data?.length) return;
-    state.hospitals = data;
-    state.usedFallback = fromFallback;
-    toggleFallbackNotice(fromFallback, lastError);
-    renderFilters();
-    scheduleRender();
-    if (!structuredDataInjected) {
-      injectStructuredData(state.hospitals);
-    }
-  } catch (error) {
-    resultsEl.innerHTML = `<p class="error">${error.message}. Please try again later.</p>`;
-    console.error(error);
+  if (!structuredDataInjected) {
+    injectStructuredData(state.hospitals);
   }
 };
 
