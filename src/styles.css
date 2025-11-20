@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --primary: #0b5f5b;
+  --secondary: #f4f6f8;
+  --border: #dbe1e8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0b5f5b, #158f88);
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.hero__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.control input,
+.control select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+.tier-chip {
+  background: #e8f3f1;
+  border: 1px solid #b8d6d0;
+  color: #0b3e3b;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  text-align: center;
+  margin: 0 auto 1.5rem;
+}
+
+.data-fallback {
+  margin: -1rem auto 1.5rem;
+  background: #fff7e6;
+  border: 1px solid #f1c27d;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #8a6100;
+  font-size: 0.95rem;
+}
+
+.adsense {
+  border: 1px dashed var(--border);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: var(--secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 6px 24px rgba(9, 45, 62, 0.08);
+}
+
+.card__meta {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.card__address,
+.card__specialists,
+.card__contact,
+.card__hours {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.card__toggle {
+  margin-top: auto;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.card__details {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.footer {
+  background: #0b5f5b;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .tier-chip {
+    border-radius: 0.75rem;
+  }
+}
