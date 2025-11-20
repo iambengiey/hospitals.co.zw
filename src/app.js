@@ -1,4 +1,4 @@
-import { EMBEDDED_HOSPITALS } from './embedded-data.js';
+const EMBEDDED_HOSPITALS = window.EMBEDDED_HOSPITALS || [];
 
 const DATA_SOURCES = (() => {
   const sources = ['data/hospitals.json', './data/hospitals.json', '../data/hospitals.json'];

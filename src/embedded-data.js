@@ -1,5 +1,5 @@
 // Auto-generated fallback copy of data/hospitals.json. Keep in sync when data updates.
-export const EMBEDDED_HOSPITALS = [
+window.EMBEDDED_HOSPITALS = [
   {
     "name": "Avenues Clinic",
     "province": "Harare",
@@ -1140,4 +1140,4 @@ export const EMBEDDED_HOSPITALS = [
     "last_verified": "2025-11-20",
     "id": "zvishavane-district-hospital-zvishavane"
   }
-];
+]
