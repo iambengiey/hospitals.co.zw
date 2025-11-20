@@ -17,6 +17,7 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
    ```bash
    cp data/hospitals.json src/data/hospitals.json
    ```
+   The frontend will try a couple of fallback URLs for `data/hospitals.json`, but copying the file into `src/data/` keeps the primary path healthy and prevents missing-data errors on GitHub Pages.
 2. Serve the site:
    ```bash
    python -m http.server --directory src 8000

@@ -1,4 +1,8 @@
-const DATA_URL = 'data/hospitals.json';
+const DATA_SOURCES = [
+  'data/hospitals.json',
+  './data/hospitals.json',
+  '../data/hospitals.json',
+];
 
 const state = {
   hospitals: [],
@@ -174,11 +178,25 @@ const attachListeners = () => {
   });
 };
 
+const loadHospitals = async () => {
+  let lastError = null;
+  for (const url of DATA_SOURCES) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      lastError = error;
+    }
+  }
+  throw new Error(
+    `Unable to load hospitals data. Please ensure data/hospitals.json is published with the site. (${lastError?.message})`,
+  );
+};
+
 const init = async () => {
   try {
-    const response = await fetch(DATA_URL);
-    if (!response.ok) throw new Error('Failed to load hospitals');
-    const hospitals = await response.json();
+    const hospitals = await loadHospitals();
     state.hospitals = hospitals;
     renderFilters();
     renderHospitals();
