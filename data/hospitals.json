@@ -1,5 +1,59 @@
 [
   {
+    "name": "Borrowdale Trauma Centre",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Borrowdale Rd, Harare",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 80,
+    "specialists": [
+      "trauma",
+      "icu"
+    ],
+    "tier": "T3",
+    "phone": "+263-4-870-000",
+    "website": "https://www.traumacentre.co.zw",
+    "id": "borrowdale-trauma-centre-harare",
+    "last_verified": "2025-11-20"
+  },
+  {
+    "id": "chinoyi-provincial-hospital",
+    "name": "Chinhoyi Provincial Hospital",
+    "province": "Mashonaland West",
+    "city": "Chinhoyi",
+    "address": "Hospital Road, Chinhoyi",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 90,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T3",
+    "phone": "+263-67-212-3456",
+    "website": "",
+    "last_verified": "2024-04-01"
+  },
+  {
+    "name": "Gweru Provincial Hospital",
+    "province": "Midlands",
+    "city": "Gweru",
+    "address": "Hospital Rd, Gweru",
+    "type": "public",
+    "ownership": "government",
+    "bed_count": 320,
+    "specialists": [
+      "general",
+      "maternity"
+    ],
+    "tier": "T1",
+    "phone": "+263-54-222-333",
+    "website": "",
+    "id": "gweru-provincial-hospital-gweru",
+    "last_verified": "2025-11-20"
+  },
+  {
     "id": "harare-central-hospital",
     "name": "Harare Central Hospital",
     "province": "Harare",
@@ -8,25 +62,33 @@
     "type": "public",
     "ownership": "government",
     "bed_count": 1000,
-    "specialists": ["cardiology", "oncology", "pediatrics"],
+    "specialists": [
+      "cardiology",
+      "oncology",
+      "pediatrics"
+    ],
     "tier": "T1",
     "phone": "+263-4-291-7000",
     "website": "https://health.gov.zw/harare-hospital",
     "last_verified": "2024-04-01"
   },
   {
-    "id": "parirenyatwa-group-hospitals",
-    "name": "Parirenyatwa Group of Hospitals",
-    "province": "Harare",
-    "city": "Harare",
-    "address": "Mazowe Street, Harare",
-    "type": "public",
-    "ownership": "government",
-    "bed_count": 1800,
-    "specialists": ["cardiology", "surgery", "obstetrics"],
-    "tier": "T1",
-    "phone": "+263-4-703-000",
-    "website": "https://www.parihosp.org.zw",
+    "id": "karanda-mission-hospital",
+    "name": "Karanda Mission Hospital",
+    "province": "Mashonaland Central",
+    "city": "Mount Darwin",
+    "address": "Karanda Road, Mount Darwin",
+    "type": "mission",
+    "ownership": "church",
+    "bed_count": 150,
+    "specialists": [
+      "surgery",
+      "maternity",
+      "general"
+    ],
+    "tier": "T2",
+    "phone": "+263-271-2020",
+    "website": "https://www.karanda.org",
     "last_verified": "2024-04-01"
   },
   {
@@ -38,7 +100,10 @@
     "type": "private",
     "ownership": "church",
     "bed_count": 200,
-    "specialists": ["maternity", "orthopedics"],
+    "specialists": [
+      "maternity",
+      "orthopedics"
+    ],
     "tier": "T2",
     "phone": "+263-9-202-940",
     "website": "https://www.materdei.co.zw",
@@ -53,40 +118,32 @@
     "type": "public",
     "ownership": "government",
     "bed_count": 250,
-    "specialists": ["general", "maternity"],
+    "specialists": [
+      "general",
+      "maternity"
+    ],
     "tier": "T2",
     "phone": "+263-20-60800",
     "website": "https://health.gov.zw/mutare-hospital",
     "last_verified": "2024-04-01"
   },
   {
-    "id": "karanda-mission-hospital",
-    "name": "Karanda Mission Hospital",
-    "province": "Mashonaland Central",
-    "city": "Mount Darwin",
-    "address": "Karanda Road, Mount Darwin",
-    "type": "mission",
-    "ownership": "church",
-    "bed_count": 150,
-    "specialists": ["surgery", "maternity", "general"],
-    "tier": "T2",
-    "phone": "+263-271-2020",
-    "website": "https://www.karanda.org",
-    "last_verified": "2024-04-01"
-  },
-  {
-    "id": "chinoyi-provincial-hospital",
-    "name": "Chinhoyi Provincial Hospital",
-    "province": "Mashonaland West",
-    "city": "Chinhoyi",
-    "address": "Hospital Road, Chinhoyi",
+    "id": "parirenyatwa-group-hospitals",
+    "name": "Parirenyatwa Group of Hospitals",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Mazowe Street, Harare",
     "type": "public",
     "ownership": "government",
-    "bed_count": 90,
-    "specialists": ["general", "maternity"],
-    "tier": "T3",
-    "phone": "+263-67-212-3456",
-    "website": "",
+    "bed_count": 1800,
+    "specialists": [
+      "cardiology",
+      "surgery",
+      "obstetrics"
+    ],
+    "tier": "T1",
+    "phone": "+263-4-703-000",
+    "website": "https://www.parihosp.org.zw",
     "last_verified": "2024-04-01"
   }
 ]
