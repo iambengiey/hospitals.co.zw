@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hospitals.co.zw &mdash; Zimbabwe Hospital Directory</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <h1>Zimbabwe Hospital Directory</h1>
+        <p>
+          Discover public, private, and mission hospitals across Zimbabwe. Filter by
+          location, size tier, or specialist coverage to find the care you need.
+        </p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="controls">
+        <div class="control control--search">
+          <label for="search">Search</label>
+          <input
+            type="search"
+            id="search"
+            placeholder="Search by name, city, or specialist"
+          />
+        </div>
+        <div class="control">
+          <label for="province-filter">Province</label>
+          <select id="province-filter">
+            <option value="">All provinces</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="type-filter">Type</label>
+          <select id="type-filter">
+            <option value="">All types</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="tier-filter">Tier</label>
+          <select id="tier-filter">
+            <option value="">All tiers</option>
+            <option value="T1">Tier 1</option>
+            <option value="T2">Tier 2</option>
+            <option value="T3">Tier 3</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="sort">Sort</label>
+          <select id="sort">
+            <option value="name">Name (A-Z)</option>
+            <option value="bed_desc">Bed count (high-low)</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="adsense">
+        <!-- TODO: Replace with real AdSense script -->
+        <script>
+          // TODO: Paste Google AdSense script here when approved.
+        </script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="TODO-CLIENT-ID" data-ad-slot="TODO-SLOT-ID" data-ad-format="auto"></ins>
+      </section>
+
+      <section id="results" class="results" aria-live="polite"></section>
+    </main>
+
+    <template id="hospital-card">
+      <article class="card">
+        <header>
+          <h2 class="card__title"></h2>
+          <p class="card__meta"></p>
+        </header>
+        <p class="card__address"></p>
+        <p class="card__specialists"></p>
+        <p class="card__contact"></p>
+        <button class="card__toggle" type="button">More details</button>
+        <div class="card__details" hidden></div>
+      </article>
+    </template>
+
+    <footer class="footer">
+      <p>
+        Support our initiative by donating to
+        <a href="https://paypal.me/globalpayload" target="_blank" rel="noopener">paypal.me/globalpayload</a>
+        so we can pay for GitHub Enterprise.
+      </p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
