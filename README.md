@@ -44,6 +44,14 @@ python scripts/scrape_hospitals.py
 The script loads the existing catalogue, normalises names/cities for resilient matching, runs each configured scraper stub (including a "gap filler" list for hard-to-source facilities such as Makumbe, Makumbi, Avenues, Baines, Mazowe, and Chinhoyi), merges results by `(name, city)`, recalculates tiers via the helper, stamps `last_verified` with the current date, and rewrites `data/hospitals.json` in a stable order.
 The ETL pipeline loads the canonical dataset, any JSON/CSV files under `data/raw/`, and the stub scrapers (ministry, private networks, Google seed). It normalises facility fields, deduplicates near-matches with fuzzy logic, infers facility type, rural/urban, default services, and tiers, then writes `data/hospitals.json` plus a debug copy. Core helpers (`classify_facility_type`, `infer_rural_urban`, `infer_default_services`, `deduplicate_facilities`) are covered by `python -m unittest tests/test_pipeline.py`.
 
+New raw drop points have been added for vetted sources:
+
+- `data/raw/hpa_registered_facilities.json` — Health Professions Authority registrations (facility-level only). Entries here bump confidence and mark sources as verified.
+- `data/raw/provincial_district_hospitals.json` — bulk provincial/district lists (e.g., the Scribd PDF).
+- `data/raw/doctor4africa_rural_clinics.json` — rural clinic lists pulled from public directories.
+
+Place the downloaded JSON/CSV in those filenames (or drop additional files into `data/raw/`), then rerun `python scripts/scrape_hospitals.py && node scripts/prepare-data.js` to propagate the updates into the bundled site data.
+
 ## Data shape and tiering rules
 
 Each record in `data/hospitals.json` is exported in a compact, structured format:
@@ -61,7 +69,7 @@ Each record in `data/hospitals.json` is exported in a compact, structured format
 - `tier` (`Tier 1`, `Tier 2`, `Tier 3` where applicable)
 - `last_verified`, `source`, `confidence`
 
-The catalogue currently mirrors 48 facilities, including the public Wikipedia list plus Hwange and Victoria Falls additions, and pharmacy/clinic/optician/dental entries to keep filters populated on first load.
+The catalogue currently mirrors 51 facilities, including the public Wikipedia list plus Hwange and Victoria Falls additions, the new provincial/district seeds, and pharmacy/clinic/optician/dental entries to keep filters populated on first load.
 
 ### Tiering rules
 

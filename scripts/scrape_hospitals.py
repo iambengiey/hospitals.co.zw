@@ -18,7 +18,7 @@ import json
 import pathlib
 import re
 from difflib import SequenceMatcher
-from typing import Dict, Iterable, List, Optional
+from typing import Dict, Iterable, List, Optional, Tuple
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "hospitals.json"
@@ -187,16 +187,62 @@ def load_csv(path: pathlib.Path) -> List[Hospital]:
   return rows
 
 
+def coerce_bool(value: object) -> bool:
+  if isinstance(value, bool):
+    return value
+  text = normalize_text(str(value))
+  return text in {"true", "yes", "y", "1", "24", "24 7", "247", "24/7"}
+
+
+def coerce_float(value: object) -> Optional[float]:
+  try:
+    return float(value)
+  except (TypeError, ValueError):
+    return None
+
+
+def coerce_list(value: object) -> List[str]:
+  if isinstance(value, list):
+    return [str(item).strip() for item in value if str(item).strip()]
+  if isinstance(value, str):
+    parts = re.split(r"[,;/]|\s{2,}", value)
+    return [part.strip() for part in parts if part.strip()]
+  return []
+
+
+def normalize_raw_record(record: Hospital, source_label: str = "") -> Hospital:
+  """Coerce loose raw fields and tag their source label for provenance."""
+
+  normalised: Hospital = dict(record)
+  if source_label and not normalised.get("source"):
+    normalised["source"] = [source_label]
+  elif isinstance(normalised.get("source"), str):
+    normalised["source"] = [normalised["source"]]
+
+  normalised["services"] = coerce_list(normalised.get("services") or normalised.get("specialists"))
+  normalised["medical_aids"] = coerce_list(normalised.get("medical_aids") or normalised.get("accepted_payments"))
+  normalised["open_24h"] = coerce_bool(normalised.get("open_24h") or normalised.get("open_hrs"))
+  normalised["lat"] = normalised.get("lat") or coerce_float(normalised.get("latitude"))
+  normalised["lon"] = normalised.get("lon") or coerce_float(normalised.get("longitude"))
+  normalised["confidence"] = normalised.get("confidence") or "medium"
+  return normalised
+
+
 def load_raw_sources() -> List[Hospital]:
   facilities: List[Hospital] = []
   if not RAW_DIR.exists():
     return facilities
 
   for file in RAW_DIR.glob("*.*"):
+    source_label = file.stem
+    raw_records: List[Hospital] = []
     if file.suffix.lower() == ".json":
-      facilities.extend(load_json(file))
+      raw_records = load_json(file)
     elif file.suffix.lower() == ".csv":
-      facilities.extend(load_csv(file))
+      raw_records = load_csv(file)
+
+    for record in raw_records:
+      facilities.append(normalize_raw_record(record, source_label))
   return facilities
 
 

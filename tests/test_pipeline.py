@@ -11,6 +11,7 @@ from scripts.scrape_hospitals import (  # noqa: E402
     deduplicate_facilities,
     infer_default_services,
     infer_rural_urban,
+    normalize_raw_record,
 )
 
 
@@ -39,6 +40,22 @@ class PipelineTests(unittest.TestCase):
     merged = deduplicate_facilities(facilities)
     self.assertEqual(len(merged), 1)
     self.assertIn("Chitungwiza Central Hosp.", merged[0].get("aliases", []))
+
+  def test_normalize_raw_record(self):
+    record = {
+      "services": "ER; Maternity",
+      "medical_aids": "CIMAS / PSMAS",
+      "open_hrs": "24/7",
+      "latitude": "-17.1",
+      "longitude": "31.1",
+    }
+    normalised = normalize_raw_record(record, "example_source")
+    self.assertEqual(normalised["services"], ["ER", "Maternity"])
+    self.assertEqual(normalised["medical_aids"], ["CIMAS", "PSMAS"])
+    self.assertTrue(normalised["open_24h"])
+    self.assertAlmostEqual(normalised["lat"], -17.1)
+    self.assertAlmostEqual(normalised["lon"], 31.1)
+    self.assertIn("example_source", normalised.get("source", []))
 
 
 if __name__ == "__main__":

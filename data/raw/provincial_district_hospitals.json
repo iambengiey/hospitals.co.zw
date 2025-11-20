@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Beitbridge District Hospital",
+    "province": "Matabeleland South",
+    "district": "Beitbridge",
+    "facility_type": "District Hospital",
+    "ownership": "Government",
+    "source": "scribd_provincial_district_hospitals",
+    "confidence": "medium"
+  },
+  {
+    "name": "Chipinge District Hospital",
+    "province": "Manicaland",
+    "district": "Chipinge",
+    "facility_type": "District Hospital",
+    "ownership": "Government",
+    "source": "scribd_provincial_district_hospitals",
+    "confidence": "medium"
+  },
+  {
+    "name": "Nyanga District Hospital",
+    "province": "Manicaland",
+    "district": "Nyanga",
+    "facility_type": "District Hospital",
+    "ownership": "Government",
+    "source": "scribd_provincial_district_hospitals",
+    "confidence": "medium"
+  }
+]

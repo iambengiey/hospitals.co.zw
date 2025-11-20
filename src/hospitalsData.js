@@ -41,7 +41,9 @@ export const hospitalsData = [
   {
     "id": "mater-dei-hospital",
     "name": "Mater Dei Hospital",
-    "aliases": [],
+    "aliases": [
+      "Mater Dei Hospital"
+    ],
     "facility_type": "Hospital",
     "ownership": "Church",
     "rural_urban": "Urban",
@@ -58,9 +60,9 @@ export const hospitalsData = [
     "emergency_level": "Full",
     "cost_band": null,
     "medical_aids": [
-      "local medical aid",
-      "international medical aid",
       "cash",
+      "international medical aid",
+      "local medical aid",
       "mobile money"
     ],
     "phone": "+263-9-202-940",
@@ -70,8 +72,10 @@ export const hospitalsData = [
     "lon": 28.5887,
     "tier": "Tier 2",
     "last_verified": "2024-04-01",
-    "source": [],
-    "confidence": "medium",
+    "source": [
+      "hpa_registry"
+    ],
+    "confidence": "high",
     "website": "https://www.materdei.co.zw"
   },
   {
@@ -520,7 +524,9 @@ export const hospitalsData = [
   {
     "id": "the-avenues-clinic-harare",
     "name": "The Avenues Clinic",
-    "aliases": [],
+    "aliases": [
+      "The Avenues Clinic"
+    ],
     "facility_type": "Clinic",
     "ownership": "Corporate",
     "rural_urban": "Urban",
@@ -531,16 +537,16 @@ export const hospitalsData = [
     "address": "7 Josiah Chinamano Ave, Harare",
     "services": [
       "general",
-      "maternity",
-      "icu"
+      "icu",
+      "maternity"
     ],
     "open_24h": true,
     "emergency_level": "Basic",
     "cost_band": null,
     "medical_aids": [
-      "local medical aid",
-      "international medical aid",
       "cash",
+      "international medical aid",
+      "local medical aid",
       "mobile money"
     ],
     "phone": "+263-4-707-861",
@@ -550,8 +556,10 @@ export const hospitalsData = [
     "lon": 31.0459,
     "tier": "Tier 1",
     "last_verified": "2025-11-20",
-    "source": [],
-    "confidence": "medium",
+    "source": [
+      "hpa_registry"
+    ],
+    "confidence": "high",
     "website": "https://www.avenuesclinic.co.zw"
   },
   {
@@ -737,6 +745,41 @@ export const hospitalsData = [
     "website": ""
   },
   {
+    "id": "chipinge-district-hospital-chipinge",
+    "name": "Chipinge District Hospital",
+    "aliases": [],
+    "facility_type": "District Hospital",
+    "ownership": "Government",
+    "rural_urban": "Urban",
+    "province": "Manicaland",
+    "district": "Chipinge",
+    "ward": "",
+    "city": "Chipinge",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": false,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 2",
+    "last_verified": "2025-11-20",
+    "source": [
+      "scribd_provincial_district_hospitals"
+    ],
+    "confidence": "medium",
+    "website": ""
+  },
+  {
     "id": "mutare-provincial-hospital",
     "name": "Mutare Provincial Hospital",
     "aliases": [],
@@ -805,6 +848,41 @@ export const hospitalsData = [
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
     "source": [],
+    "confidence": "medium",
+    "website": ""
+  },
+  {
+    "id": "nyanga-district-hospital-nyanga",
+    "name": "Nyanga District Hospital",
+    "aliases": [],
+    "facility_type": "District Hospital",
+    "ownership": "Government",
+    "rural_urban": "Urban",
+    "province": "Manicaland",
+    "district": "Nyanga",
+    "ward": "",
+    "city": "Nyanga",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": false,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 2",
+    "last_verified": "2025-11-20",
+    "source": [
+      "scribd_provincial_district_hospitals"
+    ],
     "confidence": "medium",
     "website": ""
   },
@@ -1465,6 +1543,7 @@ export const hospitalsData = [
       "g",
       "l",
       "m",
+      "manual_seed",
       "n",
       "o",
       "s",
@@ -1554,6 +1633,7 @@ export const hospitalsData = [
       "g",
       "l",
       "m",
+      "manual_seed",
       "n",
       "o",
       "s",
@@ -1561,6 +1641,41 @@ export const hospitalsData = [
       "u"
     ],
     "confidence": "high",
+    "website": ""
+  },
+  {
+    "id": "beitbridge-district-hospital-beitbridge",
+    "name": "Beitbridge District Hospital",
+    "aliases": [],
+    "facility_type": "District Hospital",
+    "ownership": "Government",
+    "rural_urban": "Urban",
+    "province": "Matabeleland South",
+    "district": "Beitbridge",
+    "ward": "",
+    "city": "Beitbridge",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": false,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 2",
+    "last_verified": "2025-11-20",
+    "source": [
+      "scribd_provincial_district_hospitals"
+    ],
+    "confidence": "medium",
     "website": ""
   },
   {
