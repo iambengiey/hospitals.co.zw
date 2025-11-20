@@ -151,6 +151,12 @@ input:focus-visible {
   font-size: 0.95rem;
 }
 
+.quick-button.is-active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
 .quick-button:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;

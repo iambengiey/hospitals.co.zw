@@ -21,7 +21,7 @@ from difflib import SequenceMatcher
 from typing import Dict, Iterable, List, Optional, Tuple
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "data" / "hospitals.json"
+SCRAPED_OUTPUT = ROOT / "data" / "hospitals_scraped_new.json"
 RAW_DIR = ROOT / "data" / "raw"
 TODAY = dt.date.today().isoformat()
 TRUSTED_SOURCES = {
@@ -272,12 +272,6 @@ def load_raw_sources() -> List[Hospital]:
   return facilities
 
 
-def load_existing() -> List[Hospital]:
-  if not DATA_PATH.exists():
-    return []
-  return load_json(DATA_PATH)
-
-
 def scraper_ministry_portal() -> List[Hospital]:
   """TODO: real MoHCC ingestion. Currently seeds known provincial hospitals."""
   return [
@@ -518,7 +512,6 @@ def validate_facilities(facilities: List[Hospital]) -> List[Hospital]:
 
 def run_pipeline() -> List[Hospital]:
   raw_records: List[Hospital] = []
-  raw_records.extend(load_existing())
   raw_records.extend(load_raw_sources())
   for scraper in SCRAPERS:
     raw_records.extend(scraper())
@@ -538,15 +531,15 @@ def run_pipeline() -> List[Hospital]:
 
 
 def save_records(records: List[Hospital]) -> None:
-  DATA_PATH.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
-  full_path = DATA_PATH.with_name("hospitals_full.json")
+  SCRAPED_OUTPUT.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
+  full_path = SCRAPED_OUTPUT.with_name("hospitals_scraped_full.json")
   full_path.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
 
 
 def main() -> None:
   records = run_pipeline()
   save_records(records)
-  print(f"Wrote {len(records)} facilities to {DATA_PATH}")
+  print(f"Wrote {len(records)} facilities to {SCRAPED_OUTPUT}")
 
 
 if __name__ == "__main__":
