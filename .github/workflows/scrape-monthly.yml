@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   scrape:
@@ -15,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -23,16 +24,21 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run scraper
         run: python scripts/scrape_hospitals.py
-      - name: Set PR metadata
+      - name: Set run metadata
         id: meta
         run: echo "today=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          commit-message: "chore: monthly hospitals data refresh"
-          title: "Monthly hospitals data update (${{ steps.meta.outputs.today }})"
-          branch: "auto/scrape-${{ steps.meta.outputs.today }}"
-          body: |
-            Automated scrape run on ${{ steps.meta.outputs.today }}.
-          add-paths: |
-            data/hospitals.json
+      - name: Commit and push updates
+        env:
+          BRANCH: auto/scrape-${{ steps.meta.outputs.today }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git checkout -B "$BRANCH"
+          git add data/hospitals.json
+          git commit -m "chore: monthly hospitals data refresh"
+          git push origin "$BRANCH"
+          echo "Updates pushed to $BRANCH; open a PR manually if needed."

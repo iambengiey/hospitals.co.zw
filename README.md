@@ -70,6 +70,6 @@ These rules are implemented both in the frontend (`src/app.js`) and in the scrap
 
 1. Sets up Python and installs `requirements.txt`.
 2. Executes `python scripts/scrape_hospitals.py`.
-3. Uses [`peter-evans/create-pull-request`](https://github.com/peter-evans/create-pull-request) to open a PR named `Monthly hospitals data update (YYYY-MM-DD)` from a branch like `auto/scrape-YYYY-MM-DD` whenever the JSON changes.
+3. Commits any JSON changes to a dated branch such as `auto/scrape-YYYY-MM-DD` and pushes it to the repository. Open a pull request manually from that branch if review is desired.
 
-This keeps the directory fresh while giving maintainers a chance to review any diff before it lands on `main`.
+This keeps the directory fresh while respecting environments where GitHub Actions cannot create pull requests automatically.
