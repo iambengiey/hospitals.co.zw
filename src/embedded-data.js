@@ -1,29 +1,4 @@
-// Auto-generated fallback copy of data/hospitals.json. Keep in sync when data updates.
 window.EMBEDDED_HOSPITALS = [
-  {
-    "name": "Avenues Clinic",
-    "province": "Harare",
-    "city": "Harare",
-    "address": "",
-    "type": "private",
-    "ownership": "corporate",
-    "bed_count": 176,
-    "specialists": [
-      "emergency",
-      "surgery",
-      "maternity"
-    ],
-    "tier": "T2",
-    "phone": "",
-    "website": "",
-    "latitude": null,
-    "longitude": null,
-    "category": "hospital",
-    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
-    "manager": "Operations manager: TBD",
-    "last_verified": "2025-11-20",
-    "id": "avenues-clinic-harare"
-  },
   {
     "name": "Avondale Pharmacy",
     "province": "Harare",
@@ -74,18 +49,18 @@ window.EMBEDDED_HOSPITALS = [
     "name": "Beatrice Road Infectious Diseases Hospital",
     "province": "Harare",
     "city": "Harare",
-    "address": "",
-    "type": "public referral",
+    "address": "Simon Mazorodze Rd, Mbare, Harare",
+    "type": "public infectious diseases",
     "ownership": "government",
     "bed_count": 120,
     "specialists": [
       "infectious_diseases"
     ],
     "tier": "T1",
-    "phone": "",
+    "phone": "+263 4 775 824 / +263 4 752 726 / +263 4 792 761",
     "website": "",
-    "latitude": null,
-    "longitude": null,
+    "latitude": -17.861,
+    "longitude": 31.026,
     "category": "hospital",
     "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
     "manager": "Operations manager: TBD",
@@ -96,7 +71,7 @@ window.EMBEDDED_HOSPITALS = [
     "name": "Bindura Provincial Hospital",
     "province": "Mashonaland Central",
     "city": "Bindura",
-    "address": "",
+    "address": "P85H+R7P, Bindura, Zimbabwe",
     "type": "public",
     "ownership": "government",
     "bed_count": 250,
@@ -105,12 +80,12 @@ window.EMBEDDED_HOSPITALS = [
       "maternity"
     ],
     "tier": "T2",
-    "phone": "",
+    "phone": "+263 78 016 2553",
     "website": "",
-    "latitude": null,
-    "longitude": null,
+    "latitude": -17.296,
+    "longitude": 31.33,
     "category": "hospital",
-    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "operating_hours": "Open 24 hours",
     "manager": "Operations manager: TBD",
     "last_verified": "2025-11-20",
     "id": "bindura-provincial-hospital-bindura"
@@ -1001,25 +976,26 @@ window.EMBEDDED_HOSPITALS = [
     "name": "The Avenues Clinic",
     "province": "Harare",
     "city": "Harare",
-    "address": "7 Josiah Chinamano Ave, Harare",
+    "address": "Corner Baines and Mazowe St, Harare, Zimbabwe",
     "type": "private",
     "ownership": "corporate",
     "bed_count": 176,
     "specialists": [
-      "general",
+      "emergency",
+      "surgery",
       "maternity",
       "icu",
       "oncology"
     ],
     "tier": "T2",
-    "phone": "+263-4-707-861",
-    "website": "https://www.avenuesclinic.co.zw",
-    "latitude": -17.8213,
-    "longitude": 31.0445,
+    "phone": "+263 8677 006175",
+    "website": "https://avenuesclinic.co.zw/",
+    "latitude": -17.8212,
+    "longitude": 31.0459,
     "id": "the-avenues-clinic-harare",
     "last_verified": "2025-11-20",
     "category": "hospital",
-    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "operating_hours": "Open 24 hours",
     "manager": "Operations manager: TBD"
   },
   {
@@ -1118,6 +1094,30 @@ window.EMBEDDED_HOSPITALS = [
     "id": "westend-clinic-harare"
   },
   {
+    "name": "Wilkins Infectious Diseases Hospital",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Rekai Tangwena Ave & Josiah Tongogara St, Harare",
+    "type": "public infectious diseases",
+    "ownership": "government",
+    "bed_count": 80,
+    "specialists": [
+      "infectious diseases",
+      "isolation",
+      "public health"
+    ],
+    "tier": "T1",
+    "phone": "",
+    "website": "https://en.wikipedia.org/wiki/Wilkins_Infectious_Diseases_Hospital",
+    "latitude": -17.8296,
+    "longitude": 31.045,
+    "category": "hospital",
+    "operating_hours": "Open 24 hours",
+    "manager": "Operations manager: TBD",
+    "last_verified": "2025-11-20",
+    "id": "wilkins-infectious-diseases-hospital-harare"
+  },
+  {
     "name": "Zvishavane District Hospital",
     "province": "Midlands",
     "city": "Zvishavane",
@@ -1140,4 +1140,4 @@ window.EMBEDDED_HOSPITALS = [
     "last_verified": "2025-11-20",
     "id": "zvishavane-district-hospital-zvishavane"
   }
-];
+]
