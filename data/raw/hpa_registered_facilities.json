@@ -1,0 +1,24 @@
+[
+  {
+    "name": "The Avenues Clinic",
+    "province": "Harare",
+    "district": "Harare",
+    "facility_type": "Private Hospital",
+    "ownership": "Private",
+    "phone": "+263 24 2250956",
+    "website": "https://avenuesclinic.co.zw/",
+    "source": "hpa_registry",
+    "confidence": "high"
+  },
+  {
+    "name": "Mater Dei Hospital",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "facility_type": "Private Hospital",
+    "ownership": "Church",
+    "phone": "+263 29 2243211",
+    "website": "https://www.materdei.co.zw",
+    "source": "hpa_registry",
+    "confidence": "high"
+  }
+]
