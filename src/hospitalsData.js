@@ -42,7 +42,9 @@ export const hospitalsData = [
   {
     "id": "green-cross-pharmacy-bulawayo-bulawayo",
     "name": "Green Cross Pharmacy Bulawayo",
-    "aliases": [],
+    "aliases": [
+      "Green Cross Pharmacy Bulawayo"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -68,7 +70,7 @@ export const hospitalsData = [
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
     "website": ""
   },
@@ -533,7 +535,9 @@ export const hospitalsData = [
   {
     "id": "premier-pharmacy-harare-harare",
     "name": "Premier Pharmacy Harare",
-    "aliases": [],
+    "aliases": [
+      "Premier Pharmacy Harare"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -559,7 +563,7 @@ export const hospitalsData = [
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
     "website": ""
   },
@@ -871,7 +875,9 @@ export const hospitalsData = [
   {
     "id": "mutare-central-pharmacy-mutare",
     "name": "Mutare Central Pharmacy",
-    "aliases": [],
+    "aliases": [
+      "Mutare Central Pharmacy"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -897,7 +903,7 @@ export const hospitalsData = [
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
     "website": ""
   },
@@ -1942,7 +1948,9 @@ export const hospitalsData = [
   {
     "id": "gweru-community-pharmacy-gweru",
     "name": "Gweru Community Pharmacy",
-    "aliases": [],
+    "aliases": [
+      "Gweru Community Pharmacy"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -1968,7 +1976,7 @@ export const hospitalsData = [
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
     "website": ""
   },
