@@ -59,7 +59,7 @@ Each record in `data/hospitals.json` includes:
 - `specialists` (array of strings like `oncology`, `trauma`, `optometry`)
 - `tier` (T1/T2/T3), `phone`, `website`
 - `operating_hours` and `manager`
-- optional `latitude`/`longitude` (unused by the current UI but kept for data completeness)
+- optional `latitude`/`longitude` (used for the "Nearest to me" sort once location is enabled)
 
 The current catalogue mirrors 49 facilities, including 32 hospitals pulled from the public Wikipedia list (Harare, Bulawayo, Midlands, Manicaland, Mashonaland, Matabeleland, and Masvingo provinces) so dropdowns stay populated even before fresh scrapes land.
 
@@ -83,6 +83,7 @@ These rules are implemented both in the frontend (`src/app.js`) and in the scrap
 ## Filters and facility coverage
 
 - The frontend provides facility, specialist, tier, province, and type dropdowns sourced from the dataset so users can quickly filter for hospitals, pharmacies, clinics, dentists, opticians, or disciplines like oncology and trauma.
+- A "Nearest to me" sort becomes available after clicking **Enable location**, ordering facilities with coordinates by proximity.
 - The homepage shows a compact “How tiers work” pill near the bottom of the listing to keep the rules visible without adding clutter.
 
 ## Automation

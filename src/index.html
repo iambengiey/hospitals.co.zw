@@ -68,7 +68,13 @@
           <select id="sort">
             <option value="name">Name (A-Z)</option>
             <option value="bed_desc">Bed count (high-low)</option>
+            <option value="nearest" disabled>Nearest to me</option>
           </select>
+        </div>
+        <div class="control control--location">
+          <label for="enable-location">Nearby</label>
+          <button id="enable-location" type="button">Enable location</button>
+          <p id="location-status" class="location-status">Location off</p>
         </div>
       </section>
 
@@ -83,7 +89,7 @@
       <section id="results" class="results" aria-live="polite"></section>
 
       <p class="tier-chip" aria-label="Tier definitions">
-        How tiers work: <strong>T1</strong> teaching/referral or 300+ beds • <strong>T2</strong> 100-299 beds • <strong>T3</strong> smaller or unknown.
+        How tiers work: <strong>T1</strong> central/referral/teaching or 350+ beds / critical disciplines • <strong>T2</strong> provincial/general/district or 120–349 beds / multi-specialty • <strong>T3</strong> smaller primary facilities.
       </p>
 
       <p id="data-fallback" class="data-fallback" hidden>

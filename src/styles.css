@@ -56,6 +56,27 @@ body {
   font-size: 1rem;
 }
 
+.control--location button {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: #0b5f5b;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.location-status {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  color: #0b3e3b;
+}
+
+.location-status.error {
+  color: #9d1b1b;
+}
+
 .tier-chip {
   background: #e8f3f1;
   border: 1px solid #b8d6d0;

@@ -43,6 +43,8 @@ const state = {
     specialist: '',
     sort: 'name',
   },
+  location: null,
+  locationError: '',
 };
 
 const tierHelper = (hospital) => {
@@ -82,9 +84,24 @@ const categoryFilter = document.getElementById('category-filter');
 const tierFilter = document.getElementById('tier-filter');
 const specialistFilter = document.getElementById('specialist-filter');
 const sortSelect = document.getElementById('sort');
+const locationButton = document.getElementById('enable-location');
+const locationStatus = document.getElementById('location-status');
 const resultsEl = document.getElementById('results');
 const fallbackEl = document.getElementById('data-fallback');
 const template = document.getElementById('hospital-card');
+
+const haversineDistance = (lat1, lon1, lat2, lon2) => {
+  const toRad = (deg) => (deg * Math.PI) / 180;
+  const R = 6371; // km
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c;
+};
 
 const renderFilters = () => {
   const provinces = new Set();
@@ -127,8 +144,16 @@ const renderHospitals = () => {
     return;
   }
 
-  const filtered = state.hospitals
-    .map((hospital) => ({ ...hospital, tier: tierHelper(hospital) }))
+  const enriched = state.hospitals.map((hospital) => ({
+    ...hospital,
+    tier: tierHelper(hospital),
+    distance:
+      state.location && hospital.latitude !== null && hospital.longitude !== null
+        ? haversineDistance(state.location.lat, state.location.lon, hospital.latitude, hospital.longitude)
+        : null,
+  }));
+
+  const filtered = enriched
     .filter((hospital) => {
       const { province, type, category, tier, specialist } = state.filters;
       const matchesProvince = province ? hospital.province === province : true;
@@ -141,6 +166,12 @@ const renderHospitals = () => {
       return matchesProvince && matchesType && matchesCategory && matchesTier && matchesSpecialist;
     })
     .sort((a, b) => {
+      if (state.filters.sort === 'nearest') {
+        if (!state.location) {
+          return a.name.localeCompare(b.name);
+        }
+        return (a.distance ?? Number.POSITIVE_INFINITY) - (b.distance ?? Number.POSITIVE_INFINITY);
+      }
       if (state.filters.sort === 'bed_desc') {
         return (b.bed_count || 0) - (a.bed_count || 0);
       }
@@ -157,7 +188,8 @@ const renderHospitals = () => {
     const node = template.content.cloneNode(true);
     node.querySelector('.card__title').textContent = hospital.name;
     const facilityLabel = hospital.category ? hospital.category : 'hospital';
-    node.querySelector('.card__meta').textContent = `${hospital.city}, ${hospital.province} • ${facilityLabel} • ${hospital.tier}`;
+    const distanceLabel = state.location && hospital.distance !== null ? ` • ${hospital.distance.toFixed(1)} km away` : '';
+    node.querySelector('.card__meta').textContent = `${hospital.city}, ${hospital.province} • ${facilityLabel} • ${hospital.tier}${distanceLabel}`;
     node.querySelector('.card__address').textContent = hospital.address || 'Address coming soon';
     node.querySelector('.card__specialists').textContent = `Specialists: ${formatSpecialists(hospital.specialists)}`;
     node.querySelector('.card__contact').textContent = `Phone: ${hospital.phone || 'N/A'}`;
@@ -169,6 +201,7 @@ const renderHospitals = () => {
       `Beds: ${hospital.bed_count ?? 'Unknown'}`,
       hospital.manager ? `Manager: ${hospital.manager}` : '',
       hospital.website ? `Website: <a href="${hospital.website}" target="_blank" rel="noopener">${hospital.website}</a>` : '',
+      state.location && hospital.distance !== null ? `Distance from you: ${hospital.distance.toFixed(1)} km` : '',
       `Last verified: ${hospital.last_verified || 'TBD'}`,
     ]
       .filter(Boolean)
@@ -196,6 +229,34 @@ const renderHospitals = () => {
   resultsEl.appendChild(fragment);
 };
 
+const updateLocationUI = () => {
+  const nearestOption = sortSelect?.querySelector('option[value="nearest"]');
+  if (!nearestOption || !locationStatus) return;
+
+  if (state.location) {
+    nearestOption.disabled = false;
+    locationStatus.textContent =
+      state.filters.sort === 'nearest'
+        ? 'Location on — sorting by nearest'
+        : 'Location on — switch sort to "Nearest to me" to use distance';
+    locationStatus.classList.remove('error');
+    return;
+  }
+
+  nearestOption.disabled = true;
+  if (state.filters.sort === 'nearest') {
+    state.filters.sort = 'name';
+    sortSelect.value = 'name';
+  }
+  if (state.locationError) {
+    locationStatus.textContent = state.locationError;
+    locationStatus.classList.add('error');
+  } else {
+    locationStatus.textContent = 'Location off';
+    locationStatus.classList.remove('error');
+  }
+};
+
 const attachListeners = () => {
   provinceFilter.addEventListener('change', (event) => {
     state.filters.province = event.target.value;
@@ -220,7 +281,40 @@ const attachListeners = () => {
   sortSelect.addEventListener('change', (event) => {
     state.filters.sort = event.target.value;
     renderHospitals();
+    updateLocationUI();
   });
+
+  locationButton?.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      state.locationError = 'Geolocation not supported in this browser';
+      state.location = null;
+      updateLocationUI();
+      return;
+    }
+
+    locationStatus.textContent = 'Requesting location…';
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        state.location = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        };
+        state.locationError = '';
+        state.filters.sort = 'nearest';
+        sortSelect.value = 'nearest';
+        updateLocationUI();
+        renderHospitals();
+      },
+      (error) => {
+        state.location = null;
+        state.locationError = error.message || 'Unable to retrieve location';
+        updateLocationUI();
+      },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
+    );
+  });
+
+  updateLocationUI();
 };
 
 const loadHospitals = async () => {
