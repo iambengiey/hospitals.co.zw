@@ -65,11 +65,11 @@ The current catalogue mirrors 49 facilities, including 32 hospitals pulled from 
 
 ### Tiering rules
 
-Tiering automatically categorises each facility by capacity and role (aligned with MoHCC 2025 planning notes such as the “Overview of Zim Healthcare System 2025” brief):
+Tiering now follows the “Overview of Zim Healthcare System 2025” thresholds used by MoHCC planning teams:
 
-- **T1** – National/teaching/referral facilities or any site with `bed_count >= 300` (e.g., Harare Central, Mpilo Central).
-- **T2** – Provincial and high-volume district facilities with `100 <= bed_count < 300`, usually offering core specialist cover.
-- **T3** – Community, rural, mission, and private clinics below 100 beds or where capacity is unknown.
+- **T1 (Central / Teaching / Referral):** Central, referral, or teaching/university hospitals; any facility with `bed_count >= 350`; or those providing critical disciplines such as oncology, cardiology, ICU/critical care, trauma, neurosurgery, hematology, or neonatology.
+- **T2 (Provincial / High-Volume District):** Provincial or district general hospitals and multi-specialty facilities with `bed_count` roughly `120–349` or at least two distinct specialist services.
+- **T3 (Primary / Community):** Rural, mission, primary clinics, pharmacies, and small facilities under 120 beds or with unknown capacity.
 
 These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent. The homepage also repeats these definitions in a short “How tiers work” section for visitors at the bottom of the listing.
 

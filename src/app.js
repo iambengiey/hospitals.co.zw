@@ -20,6 +20,17 @@ const DATA_SOURCES = (() => {
   return sources;
 })();
 
+const TIER1_SPECIALISTS = [
+  'oncology',
+  'cardiology',
+  'neurosurgery',
+  'icu',
+  'critical care',
+  'trauma',
+  'hematology',
+  'neonatology',
+];
+
 const state = {
   // Seed with embedded data so filters/cards populate even if fetch fails or hangs.
   hospitals: [...EMBEDDED_HOSPITALS],
@@ -36,17 +47,32 @@ const state = {
 
 const tierHelper = (hospital) => {
   const bedCount = typeof hospital.bed_count === 'number' ? hospital.bed_count : null;
-  const descriptor = (hospital.specialists || []).join(' ').toLowerCase();
-  if (
-    (hospital.type && hospital.type.toLowerCase().includes('referral')) ||
-    descriptor.includes('teaching') ||
-    (bedCount !== null && bedCount >= 300)
-  ) {
+  const descriptor = (hospital.specialists || []).map((spec) => spec.toLowerCase());
+  const typeValue = (hospital.type || '').toLowerCase();
+  const categoryValue = (hospital.category || '').toLowerCase();
+  const hasTier1Discipline = descriptor.some((spec) => TIER1_SPECIALISTS.some((key) => spec.includes(key)));
+  const hasMultipleSpecialists = descriptor.length >= 2;
+
+  // Based on "Overview of Zim Healthcare System 2025":
+  // - Tier 1: central/teaching/referral hospitals or sites with >350 beds or critical disciplines (oncology, ICU, etc.)
+  const isCentral =
+    typeValue.includes('central') ||
+    typeValue.includes('referral') ||
+    typeValue.includes('teaching') ||
+    typeValue.includes('university') ||
+    categoryValue.includes('central');
+  if (isCentral || (bedCount !== null && bedCount >= 350) || hasTier1Discipline) {
     return 'T1';
   }
-  if (bedCount !== null && bedCount >= 100) {
+
+  // - Tier 2: provincial/district general hospitals and high-volume facilities with 120–349 beds or multi-specialty cover.
+  const isProvincialOrDistrict =
+    typeValue.includes('provincial') || typeValue.includes('general') || typeValue.includes('district');
+  if ((bedCount !== null && bedCount >= 120) || isProvincialOrDistrict || hasMultipleSpecialists) {
     return 'T2';
   }
+
+  // - Tier 3: primary/rural/mission clinics and small facilities under 120 beds or with unknown capacity.
   return 'T3';
 };
 

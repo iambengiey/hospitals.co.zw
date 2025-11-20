@@ -202,12 +202,40 @@ SCRAPERS = [scraper_ministry_portal, scraper_private_networks, scraper_gap_fille
 
 def tier_from_record(record: Hospital) -> str:
   bed_count = record.get("bed_count")
-  descriptor = " ".join(record.get("specialists") or []).lower()
+  descriptor = [spec.lower() for spec in (record.get("specialists") or [])]
   type_value = (record.get("type") or "").lower()
-  if "teaching" in descriptor or "referral" in type_value or (isinstance(bed_count, int) and bed_count >= 300):
+  category_value = (record.get("category") or "").lower()
+
+  tier1_specialists = [
+    "oncology",
+    "cardiology",
+    "neurosurgery",
+    "icu",
+    "critical care",
+    "trauma",
+    "hematology",
+    "neonatology",
+  ]
+
+  has_tier1_discipline = any(key in spec for spec in descriptor for key in tier1_specialists)
+  has_multiple_specialists = len(descriptor) >= 2
+
+  is_central = (
+    "central" in type_value
+    or "referral" in type_value
+    or "teaching" in type_value
+    or "university" in type_value
+    or "central" in category_value
+  )
+  if is_central or (isinstance(bed_count, int) and bed_count >= 350) or has_tier1_discipline:
     return "T1"
-  if isinstance(bed_count, int) and bed_count >= 100:
+
+  is_provincial_or_district = (
+    "provincial" in type_value or "general" in type_value or "district" in type_value
+  )
+  if (isinstance(bed_count, int) and bed_count >= 120) or is_provincial_or_district or has_multiple_specialists:
     return "T2"
+
   return "T3"
 
 
