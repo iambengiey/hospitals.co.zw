@@ -28,7 +28,6 @@ TRUSTED_SOURCES = {
   "hpa_registered_facilities",
   "mcaz_pharmacies_2024",
   "mohcc_official",
-  "zach_mission_hospitals",
 }
 
 Hospital = Dict[str, object]
@@ -365,23 +364,8 @@ def merge_field(primary: object, secondary: object) -> object:
   return primary if primary not in (None, "", []) else secondary
 
 
-def normalize_sources(value: object) -> List[str]:
-  """Coerce a source field into a list of non-empty strings."""
-
-  if isinstance(value, list):
-    cleaned = [str(item).strip() for item in value if str(item).strip() and len(str(item).strip()) > 1]
-    # Some legacy records contained exploded character lists; drop them so real sources can merge.
-    if not cleaned and value and all(isinstance(item, str) and len(item.strip()) == 1 for item in value):
-      return []
-    return cleaned
-  if value:
-    text = str(value).strip()
-    return [text] if text else []
-  return []
-
-
 def merge_sources(a: Iterable[str], b: Iterable[str]) -> List[str]:
-  merged = {s for s in normalize_sources(list(a)) if s} | {s for s in normalize_sources(list(b)) if s}
+  merged = {s for s in a if s} | {s for s in b if s}
   return sorted(merged) if merged else []
 
 
@@ -393,7 +377,6 @@ def deduplicate_facilities(facilities: List[Hospital]) -> List[Hospital]:
   """
   canonical: List[Hospital] = []
   for record in facilities:
-    record["source"] = normalize_sources(record.get("source"))
     district = record.get("district") or record.get("city") or ""
     province = record.get("province") or ""
     key = make_key(record.get("name", ""), district, province)
@@ -490,7 +473,7 @@ def map_to_schema(record: Hospital) -> Hospital:
     elif tier_raw in {"Tier 1", "Tier 2", "Tier 3"}:
       tier_value = tier_raw
 
-  sources = normalize_sources(record.get("source"))
+  sources = record.get("source") if isinstance(record.get("source"), list) else ([record.get("source")] if record.get("source") else [])
 
   export: Hospital = {
     "id": record.get("id") or slugify(record.get("name", "facility"), record.get("district") or record.get("city") or "zw"),

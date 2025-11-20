@@ -71,7 +71,7 @@ Each record in `data/hospitals.json` is exported in a compact, structured format
 - `tier` (`Tier 1`, `Tier 2`, `Tier 3` where applicable)
 - `last_verified`, `source`, `confidence`, `verified`
 
-The catalogue currently includes 59 verified and inferred facilities drawn from Wikipedia, provincial/district lists, HPA/MCAZ feeds, ZACH mission sources, and manual seeds (including Hwange and Victoria Falls) so the filters stay populated on first load.
+The catalogue currently mirrors hundreds of facilities drawn from the public Wikipedia list, provincial/district lists, HPA/MCAZ feeds, and manual seeds (including Hwange and Victoria Falls) so the filters stay populated on first load.
 
 ### Tiering rules
 
