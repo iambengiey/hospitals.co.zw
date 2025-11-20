@@ -59,7 +59,7 @@ Tiering automatically categorises each hospital by capacity:
 
 These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent.
 
-The homepage also repeats these definitions in a short “How tiers work” section for visitors.
+The homepage also repeats these definitions in a short “How tiers work” section for visitors at the bottom of the listing.
 
 ## Google AdSense placeholders
 
@@ -71,7 +71,7 @@ The homepage also repeats these definitions in a short “How tiers work” sect
 ## Filters and facility coverage
 
 - The frontend provides facility, specialist, tier, province, and type dropdowns sourced from the dataset so users can quickly filter for hospitals, pharmacies, clinics, dentists, opticians, or disciplines like oncology and trauma.
-- The homepage shows a compact “How tiers work” pill directly under the filters to keep the rules visible without adding clutter.
+- The homepage shows a compact “How tiers work” pill near the bottom of the listing to keep the rules visible without adding clutter.
 
 ## Automation
 
