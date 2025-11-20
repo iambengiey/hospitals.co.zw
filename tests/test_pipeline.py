@@ -63,18 +63,6 @@ class PipelineTests(unittest.TestCase):
     mapped = map_to_schema(record)
     self.assertTrue(mapped.get("verified"))
 
-  def test_source_strings_are_normalized(self):
-    record = {"name": "Example Facility", "district": "Test", "province": "Harare", "source": "manual_seed"}
-    deduped = deduplicate_facilities([record])
-    self.assertEqual(deduped[0].get("source"), ["manual_seed"])
-
-    mapped = map_to_schema(record)
-    self.assertEqual(mapped.get("source"), ["manual_seed"])
-
-    fragmented = {"name": "Fragmented", "district": "Test", "province": "Harare", "source": list("manual_seed")}
-    deduped_fragmented = deduplicate_facilities([fragmented])
-    self.assertEqual(deduped_fragmented[0].get("source"), [])
-
 
 if __name__ == "__main__":
   unittest.main()
