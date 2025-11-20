@@ -1140,4 +1140,4 @@ window.EMBEDDED_HOSPITALS = [
     "last_verified": "2025-11-20",
     "id": "zvishavane-district-hospital-zvishavane"
   }
-]
+];

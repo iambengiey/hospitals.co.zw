@@ -17,7 +17,7 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
    ```bash
    cp data/hospitals.json src/data/hospitals.json
    ```
-   The frontend will try a couple of fallback URLs for `data/hospitals.json`, but copying the file into `src/data/` keeps the primary path healthy and prevents missing-data errors on GitHub Pages.
+   The frontend also fetches the canonical raw file from GitHub (`https://raw.githubusercontent.com/iambengiey/hospitals.co.zw/main/data/hospitals.json`), so new data appears without redeploying the site. Copying into `src/data/` still helps the in-repo preview and the Pages artifact stay in sync.
 2. Regenerate the embedded offline fallback (used when the hosted JSON cannot be fetched):
    ```bash
    python - <<'PY'
@@ -25,7 +25,7 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
    data=json.loads(pathlib.Path('data/hospitals.json').read_text())
    pathlib.Path('src/embedded-data.js').write_text(
      '// Auto-generated fallback copy of data/hospitals.json. Keep in sync when data updates.\n'
-     f"export const EMBEDDED_HOSPITALS = {json.dumps(data, indent=2)};\n"
+     'window.EMBEDDED_HOSPITALS = ' + json.dumps(data, indent=2, ensure_ascii=False) + ';\n'
    )
    PY
    ```
@@ -71,9 +71,7 @@ Tiering automatically categorises each facility by capacity and role (aligned wi
 - **T2** – Provincial and high-volume district facilities with `100 <= bed_count < 300`, usually offering core specialist cover.
 - **T3** – Community, rural, mission, and private clinics below 100 beds or where capacity is unknown.
 
-These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent.
-
-The homepage also repeats these definitions in a short “How tiers work” section for visitors at the bottom of the listing.
+These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent. The homepage also repeats these definitions in a short “How tiers work” section for visitors at the bottom of the listing.
 
 ## Google AdSense placeholders
 
@@ -107,3 +105,9 @@ The homepage also repeats these definitions in a short “How tiers work” sect
 3. Commits any JSON changes to a dated branch such as `auto/scrape-YYYY-MM-DD` and pushes it to the repository. Open a pull request manually from that branch if review is desired.
 
 This keeps the directory fresh while respecting environments where GitHub Actions cannot create pull requests automatically.
+
+### Why not redeploy every time the data changes?
+
+- The frontend now prefers the canonical raw file on the `main` branch, so once the scraper lands updated JSON the live site immediately reflects it—no Pages redeploy needed.
+- We still copy `data/hospitals.json` into `src/data/` during deployments to keep an on-site copy and offline fallback in sync.
+- GitHub Pages does not serve symlinks for security reasons, so `src/data/hospitals.json` must be a real file (or copied during build) rather than a soft link to `data/hospitals.json`.

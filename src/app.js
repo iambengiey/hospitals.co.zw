@@ -1,13 +1,22 @@
 const EMBEDDED_HOSPITALS = window.EMBEDDED_HOSPITALS || [];
 
 const DATA_SOURCES = (() => {
+  const REPO_OWNER = 'iambengiey';
+  const REPO_NAME = 'hospitals.co.zw';
   const sources = ['data/hospitals.json', './data/hospitals.json', '../data/hospitals.json'];
+
+  // Always include the canonical raw URLs so fresh data loads without a site redeploy.
+  sources.push(`https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/data/hospitals.json`);
+  sources.push(`https://cdn.jsdelivr.net/gh/${REPO_OWNER}/${REPO_NAME}@main/data/hospitals.json`);
+
+  // If the site is served from *.github.io, also include the inferred owner for forks.
   const hostParts = window.location.hostname.split('.');
   const owner = window.location.hostname.endsWith('github.io') ? hostParts[0] : null;
-  if (owner) {
-    sources.push(`https://raw.githubusercontent.com/${owner}/hospitals.co.zw/main/data/hospitals.json`);
-    sources.push(`https://cdn.jsdelivr.net/gh/${owner}/hospitals.co.zw@main/data/hospitals.json`);
+  if (owner && owner !== REPO_OWNER) {
+    sources.push(`https://raw.githubusercontent.com/${owner}/${REPO_NAME}/main/data/hospitals.json`);
+    sources.push(`https://cdn.jsdelivr.net/gh/${owner}/${REPO_NAME}@main/data/hospitals.json`);
   }
+
   return sources;
 })();
 
