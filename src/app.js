@@ -1,11 +1,19 @@
-const DATA_SOURCES = [
-  'data/hospitals.json',
-  './data/hospitals.json',
-  '../data/hospitals.json',
-];
+import { EMBEDDED_HOSPITALS } from './embedded-data.js';
+
+const DATA_SOURCES = (() => {
+  const sources = ['data/hospitals.json', './data/hospitals.json', '../data/hospitals.json'];
+  const hostParts = window.location.hostname.split('.');
+  const owner = window.location.hostname.endsWith('github.io') ? hostParts[0] : null;
+  if (owner) {
+    sources.push(`https://raw.githubusercontent.com/${owner}/hospitals.co.zw/main/data/hospitals.json`);
+    sources.push(`https://cdn.jsdelivr.net/gh/${owner}/hospitals.co.zw@main/data/hospitals.json`);
+  }
+  return sources;
+})();
 
 const state = {
   hospitals: [],
+  usedFallback: false,
   filters: {
     province: '',
     type: '',
@@ -39,6 +47,7 @@ const tierFilter = document.getElementById('tier-filter');
 const specialistFilter = document.getElementById('specialist-filter');
 const sortSelect = document.getElementById('sort');
 const resultsEl = document.getElementById('results');
+const fallbackEl = document.getElementById('data-fallback');
 const template = document.getElementById('hospital-card');
 
 const renderFilters = () => {
@@ -184,20 +193,33 @@ const loadHospitals = async () => {
     try {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return await response.json();
+      const data = await response.json();
+      return { data, fromFallback: false, lastError: null };
     } catch (error) {
       lastError = error;
     }
   }
-  throw new Error(
-    `Unable to load hospitals data. Please ensure data/hospitals.json is published with the site. (${lastError?.message})`,
-  );
+  console.warn('Falling back to embedded hospital catalogue', lastError);
+  return { data: EMBEDDED_HOSPITALS, fromFallback: true, lastError };
+};
+
+const toggleFallbackNotice = (usedFallback, lastError) => {
+  if (!fallbackEl) return;
+  if (usedFallback) {
+    fallbackEl.removeAttribute('hidden');
+    fallbackEl.dataset.error = lastError?.message || '';
+  } else {
+    fallbackEl.setAttribute('hidden', '');
+    delete fallbackEl.dataset.error;
+  }
 };
 
 const init = async () => {
   try {
-    const hospitals = await loadHospitals();
-    state.hospitals = hospitals;
+    const { data, fromFallback, lastError } = await loadHospitals();
+    state.hospitals = data;
+    state.usedFallback = fromFallback;
+    toggleFallbackNotice(fromFallback, lastError);
     renderFilters();
     renderHospitals();
   } catch (error) {

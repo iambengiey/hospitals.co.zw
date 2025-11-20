@@ -18,11 +18,22 @@ A lightweight, data-driven directory of public, private, and mission hospitals i
    cp data/hospitals.json src/data/hospitals.json
    ```
    The frontend will try a couple of fallback URLs for `data/hospitals.json`, but copying the file into `src/data/` keeps the primary path healthy and prevents missing-data errors on GitHub Pages.
-2. Serve the site:
+2. Regenerate the embedded offline fallback (used when the hosted JSON cannot be fetched):
+   ```bash
+   python - <<'PY'
+   import json, pathlib
+   data=json.loads(pathlib.Path('data/hospitals.json').read_text())
+   pathlib.Path('src/embedded-data.js').write_text(
+     '// Auto-generated fallback copy of data/hospitals.json. Keep in sync when data updates.\n'
+     f"export const EMBEDDED_HOSPITALS = {json.dumps(data, indent=2)};\n"
+   )
+   PY
+   ```
+3. Serve the site:
    ```bash
    python -m http.server --directory src 8000
    ```
-3. Visit [http://localhost:8000](http://localhost:8000) to interact with the directory.
+4. Visit [http://localhost:8000](http://localhost:8000) to interact with the directory.
 
 > **Tip:** The deploy workflow copies `data/hospitals.json` into `src/data/` automatically. When developing locally just repeat step 1 whenever the data changes.
 
@@ -52,11 +63,11 @@ Each record in `data/hospitals.json` includes:
 
 ### Tiering rules
 
-Tiering automatically categorises each hospital by capacity:
+Tiering automatically categorises each facility by capacity and role (aligned with MoHCC 2025 planning notes such as the “Overview of Zim Healthcare System 2025” brief):
 
-- **T1** – Teaching/referral hospitals or any facility with `bed_count >= 300`.
-- **T2** – Regional and district facilities with `100 <= bed_count < 300`.
-- **T3** – Rural, mission, or small clinics below 100 beds or unknown capacity.
+- **T1** – National/teaching/referral facilities or any site with `bed_count >= 300` (e.g., Harare Central, Mpilo Central).
+- **T2** – Provincial and high-volume district facilities with `100 <= bed_count < 300`, usually offering core specialist cover.
+- **T3** – Community, rural, mission, and private clinics below 100 beds or where capacity is unknown.
 
 These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent.
 

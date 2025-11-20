@@ -67,6 +67,16 @@ body {
   margin: 0 auto 1.5rem;
 }
 
+.data-fallback {
+  margin: -1rem auto 1.5rem;
+  background: #fff7e6;
+  border: 1px solid #f1c27d;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #8a6100;
+  font-size: 0.95rem;
+}
+
 .adsense {
   border: 1px dashed var(--border);
   padding: 1rem;
