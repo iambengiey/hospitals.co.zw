@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Hwange Colliery Hospital",
+    "province": "Matabeleland North",
+    "district": "Hwange",
+    "city": "Hwange",
+    "ownership": "Corporate",
+    "facility_type": "District Hospital",
+    "services": ["ER", "Maternity", "Lab"],
+    "phone": "+263 281 214 1234",
+    "lat": -18.364,
+    "lon": 26.501,
+    "source": "manual_seed"
+  },
+  {
+    "name": "Victoria Falls Hospital",
+    "province": "Matabeleland North",
+    "district": "Victoria Falls",
+    "city": "Victoria Falls",
+    "ownership": "Government",
+    "facility_type": "District Hospital",
+    "services": ["ER", "Maternity", "Lab"],
+    "phone": "+263 213 284 3216",
+    "lat": -17.926,
+    "lon": 25.842,
+    "source": "manual_seed"
+  }
+]

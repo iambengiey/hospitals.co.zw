@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Pending rural clinic import",
+    "province": "",
+    "district": "",
+    "facility_type": "Rural Clinic",
+    "ownership": "",
+    "services": [],
+    "confidence": "low",
+    "source": "doctor4africa_rural_clinics"
+  }
+]

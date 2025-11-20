@@ -1,0 +1,62 @@
+[
+  {
+    "name": "St Albert's Mission Hospital",
+    "province": "Mashonaland Central",
+    "district": "Mt Darwin",
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "services": ["ER", "Maternity", "Lab", "Inpatient"],
+    "open_24h": true,
+    "source": "zach_mission_hospitals",
+    "verified": true
+  },
+  {
+    "name": "Howard Mission Hospital",
+    "province": "Mashonaland Central",
+    "district": "Chiweshe",
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "services": ["ER", "Maternity", "Lab", "Inpatient"],
+    "open_24h": true,
+    "source": "zach_mission_hospitals",
+    "verified": true
+  },
+  {
+    "name": "St Luke's Hospital",
+    "province": "Matabeleland North",
+    "district": "Lupane",
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "services": ["ER", "Maternity", "Lab", "Inpatient"],
+    "open_24h": true,
+    "source": "zach_mission_hospitals",
+    "verified": true
+  },
+  {
+    "name": "All Souls Mission Hospital",
+    "province": "Mashonaland East",
+    "district": "Mutoko",
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "services": ["ER", "Maternity", "Lab", "Inpatient"],
+    "open_24h": true,
+    "source": "zach_mission_hospitals",
+    "verified": true
+  },
+  {
+    "name": "St Theresa's Mission Hospital",
+    "province": "Masvingo",
+    "district": "Chiredzi",
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "services": ["ER", "Maternity", "Lab", "Inpatient"],
+    "open_24h": true,
+    "source": "zach_mission_hospitals",
+    "verified": true
+  }
+]
