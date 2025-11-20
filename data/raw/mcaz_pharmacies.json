@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Premier Pharmacy Harare",
+    "province": "Harare",
+    "district": "Harare",
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "phone": "+263 24 275 1234",
+    "open_24h": false,
+    "services": ["Dispensary"],
+    "source": "mcaz_pharmacies_2024"
+  },
+  {
+    "name": "Green Cross Pharmacy Bulawayo",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "phone": "+263 29 227 111",
+    "open_24h": true,
+    "services": ["Dispensary"],
+    "source": "mcaz_pharmacies_2024"
+  },
+  {
+    "name": "Mutare Central Pharmacy",
+    "province": "Manicaland",
+    "district": "Mutare",
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "open_24h": false,
+    "services": ["Dispensary"],
+    "source": "mcaz_pharmacies_2024"
+  },
+  {
+    "name": "Gweru Community Pharmacy",
+    "province": "Midlands",
+    "district": "Gweru",
+    "facility_type": "Pharmacy",
+    "ownership": "Private",
+    "phone": "+263 54 224 567",
+    "open_24h": true,
+    "services": ["Dispensary"],
+    "source": "mcaz_pharmacies_2024"
+  }
+]
