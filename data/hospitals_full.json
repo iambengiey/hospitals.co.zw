@@ -40,7 +40,9 @@
   {
     "id": "green-cross-pharmacy-bulawayo-bulawayo",
     "name": "Green Cross Pharmacy Bulawayo",
-    "aliases": [],
+    "aliases": [
+      "Green Cross Pharmacy Bulawayo"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -66,9 +68,11 @@
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mater-dei-hospital",
@@ -109,7 +113,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.materdei.co.zw"
+    "website": "https://www.materdei.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mpilo-central-hospital-bulawayo",
@@ -412,7 +418,9 @@
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.traumacentre.co.zw"
+    "website": "https://www.traumacentre.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "city-dental-clinic-harare",
@@ -534,7 +542,9 @@
   {
     "id": "premier-pharmacy-harare-harare",
     "name": "Premier Pharmacy Harare",
-    "aliases": [],
+    "aliases": [
+      "Premier Pharmacy Harare"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -560,9 +570,11 @@
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-annes-hospital-harare",
@@ -642,7 +654,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.avenuesclinic.co.zw"
+    "website": "https://www.avenuesclinic.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "west-end-hospital-harare",
@@ -867,12 +881,16 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-central-pharmacy-mutare",
     "name": "Mutare Central Pharmacy",
-    "aliases": [],
+    "aliases": [
+      "Mutare Central Pharmacy"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -898,9 +916,11 @@
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-provincial-hospital",
@@ -1012,7 +1032,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "rusape-general-hospital-rusape",
@@ -1697,7 +1719,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-lukes-hospital-lupane",
@@ -1731,10 +1755,14 @@
     "lon": null,
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": [
+      "zach_mission_hospitals"
+    ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "victoria-falls-hospital-victoria-falls",
@@ -1789,7 +1817,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "beitbridge-district-hospital-beitbridge",
@@ -1827,7 +1857,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gwanda-provincial-hospital-gwanda",
@@ -1943,7 +1975,9 @@
   {
     "id": "gweru-community-pharmacy-gweru",
     "name": "Gweru Community Pharmacy",
-    "aliases": [],
+    "aliases": [
+      "Gweru Community Pharmacy"
+    ],
     "facility_type": "Pharmacy",
     "ownership": "Private",
     "rural_urban": "Urban",
@@ -1969,9 +2003,11 @@
     "source": [
       "mcaz_pharmacies_2024"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gweru-provincial-hospital-gweru",
@@ -2010,7 +2046,9 @@
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "kwekwe-general-hospital-kwekwe",

@@ -453,7 +453,7 @@ const updateLocationUI = () => {
 };
 
 const injectStructuredData = (hospitals) => {
-  const graph = hospitals.slice(0, 80).map((hospital) => {
+  const graph = hospitals.map((hospital) => {
     const address = {
       '@type': 'PostalAddress',
       streetAddress: hospital.address || '',

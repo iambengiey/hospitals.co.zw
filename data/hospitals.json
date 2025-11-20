@@ -70,7 +70,9 @@
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mater-dei-hospital",
@@ -111,7 +113,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.materdei.co.zw"
+    "website": "https://www.materdei.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mpilo-central-hospital-bulawayo",
@@ -414,7 +418,9 @@
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.traumacentre.co.zw"
+    "website": "https://www.traumacentre.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "city-dental-clinic-harare",
@@ -566,7 +572,9 @@
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-annes-hospital-harare",
@@ -646,7 +654,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.avenuesclinic.co.zw"
+    "website": "https://www.avenuesclinic.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "west-end-hospital-harare",
@@ -871,7 +881,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-central-pharmacy-mutare",
@@ -906,7 +918,9 @@
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-provincial-hospital",
@@ -1018,7 +1032,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "rusape-general-hospital-rusape",
@@ -1703,7 +1719,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-lukes-hospital-lupane",
@@ -1737,10 +1755,14 @@
     "lon": null,
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": [
+      "zach_mission_hospitals"
+    ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "victoria-falls-hospital-victoria-falls",
@@ -1795,7 +1817,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "beitbridge-district-hospital-beitbridge",
@@ -1833,7 +1857,9 @@
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gwanda-provincial-hospital-gwanda",
@@ -1979,7 +2005,9 @@
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gweru-provincial-hospital-gweru",
@@ -2018,7 +2046,9 @@
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "kwekwe-general-hospital-kwekwe",

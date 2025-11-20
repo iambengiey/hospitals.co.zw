@@ -72,7 +72,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mater-dei-hospital",
@@ -113,7 +115,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.materdei.co.zw"
+    "website": "https://www.materdei.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mpilo-central-hospital-bulawayo",
@@ -416,7 +420,9 @@ export const hospitalsData = [
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.traumacentre.co.zw"
+    "website": "https://www.traumacentre.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "city-dental-clinic-harare",
@@ -568,7 +574,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-annes-hospital-harare",
@@ -648,7 +656,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.avenuesclinic.co.zw"
+    "website": "https://www.avenuesclinic.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "west-end-hospital-harare",
@@ -873,7 +883,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-central-pharmacy-mutare",
@@ -908,7 +920,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-provincial-hospital",
@@ -1020,7 +1034,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "rusape-general-hospital-rusape",
@@ -1705,7 +1721,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-lukes-hospital-lupane",
@@ -1739,10 +1757,14 @@ export const hospitalsData = [
     "lon": null,
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": [
+      "zach_mission_hospitals"
+    ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "victoria-falls-hospital-victoria-falls",
@@ -1797,7 +1819,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "beitbridge-district-hospital-beitbridge",
@@ -1835,7 +1859,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gwanda-provincial-hospital-gwanda",
@@ -1981,7 +2007,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gweru-provincial-hospital-gweru",
@@ -2020,7 +2048,9 @@ export const hospitalsData = [
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "kwekwe-general-hospital-kwekwe",
