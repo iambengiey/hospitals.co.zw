@@ -56,6 +56,27 @@ body {
   font-size: 1rem;
 }
 
+.control--location {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.control--location button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}
+
+.location-status {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
 .adsense {
   border: 1px dashed var(--border);
   padding: 1rem;
@@ -118,6 +139,18 @@ body {
   padding: 1rem;
   text-align: center;
   margin-top: 2rem;
+}
+
+.tiers {
+  margin-top: 2rem;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+}
+
+.tiers h2 {
+  margin-top: 0;
 }
 
 @media (max-width: 600px) {

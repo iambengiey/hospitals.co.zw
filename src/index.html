@@ -40,6 +40,12 @@
           </select>
         </div>
         <div class="control">
+          <label for="specialist-filter">Specialist</label>
+          <select id="specialist-filter">
+            <option value="">All specialists</option>
+          </select>
+        </div>
+        <div class="control">
           <label for="tier-filter">Tier</label>
           <select id="tier-filter">
             <option value="">All tiers</option>
@@ -53,7 +59,13 @@
           <select id="sort">
             <option value="name">Name (A-Z)</option>
             <option value="bed_desc">Bed count (high-low)</option>
+            <option value="nearest">Nearest to me</option>
           </select>
+        </div>
+        <div class="control control--location">
+          <label for="location-button">Find nearby</label>
+          <button id="location-button" type="button">Enable location</button>
+          <p id="location-status" class="location-status"></p>
         </div>
       </section>
 
@@ -66,6 +78,15 @@
       </section>
 
       <section id="results" class="results" aria-live="polite"></section>
+
+      <section class="tiers" aria-label="Tier definitions">
+        <h2>How tiers work</h2>
+        <ul>
+          <li><strong>T1</strong>: Teaching/referral hospitals or facilities with 300+ beds.</li>
+          <li><strong>T2</strong>: Regional and district hospitals with 100–299 beds.</li>
+          <li><strong>T3</strong>: Smaller or unverified facilities below 100 beds.</li>
+        </ul>
+      </section>
     </main>
 
     <template id="hospital-card">
@@ -86,7 +107,7 @@
       <p>
         Support our initiative by donating to
         <a href="https://paypal.me/globalpayload" target="_blank" rel="noopener">paypal.me/globalpayload</a>
-        so we can pay for GitHub Enterprise.
+        so we can pay for our engineers.
       </p>
     </footer>
 

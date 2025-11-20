@@ -14,6 +14,8 @@
     "tier": "T3",
     "phone": "+263-24-274-8471",
     "website": "https://www.bainesimaginggroup.com",
+    "latitude": -17.8267,
+    "longitude": 31.0526,
     "id": "baines-imaging-group-harare",
     "last_verified": "2025-11-20"
   },
@@ -32,6 +34,8 @@
     "tier": "T3",
     "phone": "+263-4-870-000",
     "website": "https://www.traumacentre.co.zw",
+    "latitude": -17.7645,
+    "longitude": 31.0987,
     "id": "borrowdale-trauma-centre-harare",
     "last_verified": "2025-11-20"
   },
@@ -51,6 +55,8 @@
     "tier": "T2",
     "phone": "+263-67-212-3456",
     "website": "",
+    "latitude": -17.3669,
+    "longitude": 30.2007,
     "last_verified": "2025-11-20"
   },
   {
@@ -68,6 +74,8 @@
     "tier": "T1",
     "phone": "+263-54-222-333",
     "website": "",
+    "latitude": -19.454,
+    "longitude": 29.819,
     "id": "gweru-provincial-hospital-gweru",
     "last_verified": "2025-11-20"
   },
@@ -88,6 +96,8 @@
     "tier": "T1",
     "phone": "+263-4-291-7000",
     "website": "https://health.gov.zw/harare-hospital",
+    "latitude": -17.8298,
+    "longitude": 31.053,
     "last_verified": "2024-04-01"
   },
   {
@@ -107,6 +117,8 @@
     "tier": "T2",
     "phone": "+263-271-2020",
     "website": "https://www.karanda.org",
+    "latitude": -16.7586,
+    "longitude": 31.5686,
     "last_verified": "2024-04-01"
   },
   {
@@ -124,6 +136,8 @@
     "tier": "T2",
     "phone": "",
     "website": "",
+    "latitude": -19.325,
+    "longitude": 31.427,
     "id": "makumbe-mission-hospital-buhera",
     "last_verified": "2025-11-20"
   },
@@ -142,6 +156,8 @@
     "tier": "T3",
     "phone": "",
     "website": "",
+    "latitude": -17.603,
+    "longitude": 31.17,
     "id": "makumbi-mission-hospital-domboshava",
     "last_verified": "2025-11-20"
   },
@@ -161,6 +177,8 @@
     "tier": "T2",
     "phone": "+263-9-202-940",
     "website": "https://www.materdei.co.zw",
+    "latitude": -20.1604,
+    "longitude": 28.5887,
     "last_verified": "2024-04-01"
   },
   {
@@ -177,6 +195,8 @@
     "tier": "T2",
     "phone": "",
     "website": "",
+    "latitude": -17.476,
+    "longitude": 30.98,
     "id": "mazowe-district-hospital-mazowe",
     "last_verified": "2025-11-20"
   },
@@ -196,6 +216,8 @@
     "tier": "T2",
     "phone": "+263-20-60800",
     "website": "https://health.gov.zw/mutare-hospital",
+    "latitude": -18.965,
+    "longitude": 32.674,
     "last_verified": "2024-04-01"
   },
   {
@@ -210,11 +232,14 @@
     "specialists": [
       "cardiology",
       "surgery",
-      "obstetrics"
+      "obstetrics",
+      "oncology"
     ],
     "tier": "T1",
     "phone": "+263-4-703-000",
     "website": "https://www.parihosp.org.zw",
+    "latitude": -17.815,
+    "longitude": 31.0534,
     "last_verified": "2024-04-01"
   },
   {
@@ -228,11 +253,14 @@
     "specialists": [
       "general",
       "maternity",
-      "icu"
+      "icu",
+      "oncology"
     ],
     "tier": "T2",
     "phone": "+263-4-707-861",
     "website": "https://www.avenuesclinic.co.zw",
+    "latitude": -17.8213,
+    "longitude": 31.0445,
     "id": "the-avenues-clinic-harare",
     "last_verified": "2025-11-20"
   }

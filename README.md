@@ -46,12 +46,20 @@ Tiering automatically categorises each hospital by capacity:
 
 These rules are implemented both in the frontend (`src/app.js`) and in the scraper (`scripts/scrape_hospitals.py`) so that any ingestion path remains consistent.
 
+The homepage also repeats these definitions in a short “How tiers work” section for visitors.
+
 ## Google AdSense placeholders
 
 `src/index.html` contains a dedicated `<section class="adsense">` that includes:
 
 - An empty `<script>` tag where the official AdSense script should be pasted.
 - An `<ins class="adsbygoogle">` element with `data-ad-client` and `data-ad-slot` attributes set to `TODO-*`. Replace both with your real AdSense IDs during production deployment.
+
+## Location sorting and specialist filters
+
+- The frontend now provides a specialist dropdown sourced from the dataset so users can quickly filter for services like oncology or trauma.
+- If visitors enable geolocation, they can sort results by “Nearest to me.” Hospitals without coordinates will remain in the list but are placed after those with distances.
+- Records can include optional `latitude` and `longitude` fields; the sample catalogue demonstrates this so the nearest-sort works out of the box.
 
 ## Automation
 
