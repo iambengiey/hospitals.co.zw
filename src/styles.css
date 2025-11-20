@@ -110,7 +110,8 @@ body {
 
 .card__address,
 .card__specialists,
-.card__contact {
+.card__contact,
+.card__hours {
   margin: 0;
   font-size: 0.95rem;
 }

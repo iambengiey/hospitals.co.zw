@@ -1,5 +1,28 @@
 [
   {
+    "name": "Avondale Pharmacy",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "Avondale Shopping Centre, King George Rd, Harare",
+    "type": "private",
+    "ownership": "independent",
+    "bed_count": null,
+    "specialists": [
+      "pharmacy",
+      "over-the-counter"
+    ],
+    "tier": "T3",
+    "phone": "+263 24 230 4455",
+    "website": "",
+    "latitude": -17.789,
+    "longitude": 31.034,
+    "category": "pharmacy",
+    "operating_hours": "Mon-Sat 08:00-21:00; Sun 09:00-18:00",
+    "manager": "Pharmacy manager: L. Chikandiwa",
+    "last_verified": "2025-11-20",
+    "id": "avondale-pharmacy-harare"
+  },
+  {
     "name": "Baines Imaging Group",
     "province": "Harare",
     "city": "Harare",
@@ -17,7 +40,10 @@
     "latitude": -17.8267,
     "longitude": 31.0526,
     "id": "baines-imaging-group-harare",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "imaging_centre",
+    "operating_hours": "Mon-Fri 07:30-17:00; Sat 08:00-12:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "name": "Borrowdale Trauma Centre",
@@ -37,7 +63,10 @@
     "latitude": -17.7645,
     "longitude": 31.0987,
     "id": "borrowdale-trauma-centre-harare",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "id": "chinoyi-provincial-hospital",
@@ -57,7 +86,33 @@
     "website": "",
     "latitude": -17.3669,
     "longitude": 30.2007,
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
+  },
+  {
+    "name": "City Dental Clinic",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "58 Jason Moyo Ave, Harare",
+    "type": "private",
+    "ownership": "independent",
+    "bed_count": null,
+    "specialists": [
+      "dentistry",
+      "oral_surgery"
+    ],
+    "tier": "T3",
+    "phone": "+263 24 252 1199",
+    "website": "",
+    "latitude": -17.8293,
+    "longitude": 31.0535,
+    "category": "dental_clinic",
+    "operating_hours": "Mon-Fri 08:00-17:30; Sat 08:00-13:00",
+    "manager": "Clinic manager: Dr. T. Moyo",
+    "last_verified": "2025-11-20",
+    "id": "city-dental-clinic-harare"
   },
   {
     "name": "Gweru Provincial Hospital",
@@ -77,14 +132,17 @@
     "latitude": -19.454,
     "longitude": 29.819,
     "id": "gweru-provincial-hospital-gweru",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "id": "harare-central-hospital",
     "name": "Harare Central Hospital",
     "province": "Harare",
     "city": "Harare",
-    "address": "Mazowe Street, Harare",
+    "address": "42Q7+P55, Talbot Rd, Harare, Zimbabwe",
     "type": "public",
     "ownership": "government",
     "bed_count": 1000,
@@ -94,11 +152,14 @@
       "pediatrics"
     ],
     "tier": "T1",
-    "phone": "+263-4-291-7000",
+    "phone": "+263 24 2621100 ext. 19",
     "website": "https://health.gov.zw/harare-hospital",
     "latitude": -17.8298,
     "longitude": 31.053,
-    "last_verified": "2024-04-01"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "id": "karanda-mission-hospital",
@@ -119,7 +180,10 @@
     "website": "https://www.karanda.org",
     "latitude": -16.7586,
     "longitude": 31.5686,
-    "last_verified": "2024-04-01"
+    "last_verified": "2024-04-01",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "name": "Makumbe Mission Hospital",
@@ -139,7 +203,10 @@
     "latitude": -19.325,
     "longitude": 31.427,
     "id": "makumbe-mission-hospital-buhera",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "name": "Makumbi Mission Hospital",
@@ -159,7 +226,10 @@
     "latitude": -17.603,
     "longitude": 31.17,
     "id": "makumbi-mission-hospital-domboshava",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "id": "mater-dei-hospital",
@@ -179,7 +249,10 @@
     "website": "https://www.materdei.co.zw",
     "latitude": -20.1604,
     "longitude": 28.5887,
-    "last_verified": "2024-04-01"
+    "last_verified": "2024-04-01",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "name": "Mazowe District Hospital",
@@ -198,7 +271,10 @@
     "latitude": -17.476,
     "longitude": 30.98,
     "id": "mazowe-district-hospital-mazowe",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "id": "mutare-provincial-hospital",
@@ -218,7 +294,33 @@
     "website": "https://health.gov.zw/mutare-hospital",
     "latitude": -18.965,
     "longitude": 32.674,
-    "last_verified": "2024-04-01"
+    "last_verified": "2024-04-01",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
+  },
+  {
+    "name": "Opticare Opticians Bulawayo",
+    "province": "Bulawayo",
+    "city": "Bulawayo",
+    "address": "93 Fife Street, Bulawayo",
+    "type": "private",
+    "ownership": "independent",
+    "bed_count": null,
+    "specialists": [
+      "optometry",
+      "eyewear"
+    ],
+    "tier": "T3",
+    "phone": "+263 29 226 2213",
+    "website": "",
+    "latitude": -20.158,
+    "longitude": 28.588,
+    "category": "optician",
+    "operating_hours": "Mon-Sat 08:00-17:00",
+    "manager": "Store manager: S. Ndlovu",
+    "last_verified": "2025-11-20",
+    "id": "opticare-opticians-bulawayo-bulawayo"
   },
   {
     "id": "parirenyatwa-group-hospitals",
@@ -240,7 +342,10 @@
     "website": "https://www.parihosp.org.zw",
     "latitude": -17.815,
     "longitude": 31.0534,
-    "last_verified": "2024-04-01"
+    "last_verified": "2024-04-01",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
   },
   {
     "name": "The Avenues Clinic",
@@ -262,6 +367,33 @@
     "latitude": -17.8213,
     "longitude": 31.0445,
     "id": "the-avenues-clinic-harare",
-    "last_verified": "2025-11-20"
+    "last_verified": "2025-11-20",
+    "category": "hospital",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Operations manager: TBD"
+  },
+  {
+    "name": "Westend Clinic",
+    "province": "Harare",
+    "city": "Harare",
+    "address": "71 Baines Ave, Harare",
+    "type": "private",
+    "ownership": "corporate",
+    "bed_count": 40,
+    "specialists": [
+      "general",
+      "maternity",
+      "trauma"
+    ],
+    "tier": "T3",
+    "phone": "+263 24 252 0452",
+    "website": "",
+    "latitude": -17.8245,
+    "longitude": 31.0541,
+    "category": "clinic",
+    "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+    "manager": "Clinic administrator: P. Nyathi",
+    "last_verified": "2025-11-20",
+    "id": "westend-clinic-harare"
   }
 ]

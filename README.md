@@ -1,6 +1,6 @@
 # hospitals-co-zw
 
-A lightweight, data-driven directory of public, private, and mission hospitals in Zimbabwe. The site is designed for GitHub Pages and backed by a simple JSON catalogue plus a monthly scraper workflow.
+A lightweight, data-driven directory of public, private, and mission hospitals in Zimbabwe &mdash; plus nearby clinics, pharmacies, opticians, and dental practices. The site is designed for GitHub Pages and backed by a simple JSON catalogue plus a monthly scraper workflow.
 
 ## Repository layout
 
@@ -36,7 +36,20 @@ python scripts/scrape_hospitals.py
 
 The script loads the existing catalogue, normalises names/cities for resilient matching, runs each configured scraper stub (including a "gap filler" list for hard-to-source facilities such as Makumbe, Makumbi, Avenues, Baines, Mazowe, and Chinhoyi), merges results by `(name, city)`, recalculates tiers via the helper, stamps `last_verified` with the current date, and rewrites `data/hospitals.json` in a stable order.
 
-## Tiering rules
+## Data shape and tiering rules
+
+Each record in `data/hospitals.json` includes:
+
+- `id`, `name`, `province`, `city`, `address`
+- `type` (public/private/mission/etc) and `ownership`
+- `category` (hospital, clinic, pharmacy, optician, dental_clinic, etc.)
+- `bed_count` (integer or null)
+- `specialists` (array of strings like `oncology`, `trauma`, `optometry`)
+- `tier` (T1/T2/T3), `phone`, `website`
+- `operating_hours` and `manager`
+- optional `latitude`/`longitude` to enable nearest-to-me sorting
+
+### Tiering rules
 
 Tiering automatically categorises each hospital by capacity:
 
@@ -55,9 +68,9 @@ The homepage also repeats these definitions in a short “How tiers work” sect
 - An empty `<script>` tag where the official AdSense script should be pasted.
 - An `<ins class="adsbygoogle">` element with `data-ad-client` and `data-ad-slot` attributes set to `TODO-*`. Replace both with your real AdSense IDs during production deployment.
 
-## Location sorting and specialist filters
+## Filters, facility coverage, and location sorting
 
-- The frontend now provides a specialist dropdown sourced from the dataset so users can quickly filter for services like oncology or trauma.
+- The frontend provides facility and specialist dropdowns sourced from the dataset so users can quickly filter for hospitals, pharmacies, clinics, dentists, opticians, or disciplines like oncology and trauma.
 - If visitors enable geolocation, they can sort results by “Nearest to me.” Hospitals without coordinates will remain in the list but are placed after those with distances.
 - Records can include optional `latitude` and `longitude` fields; the sample catalogue demonstrates this so the nearest-sort works out of the box.
 

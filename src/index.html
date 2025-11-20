@@ -11,8 +11,9 @@
       <div class="hero__content">
         <h1>Zimbabwe Hospital Directory</h1>
         <p>
-          Discover public, private, and mission hospitals across Zimbabwe. Filter by
-          location, size tier, or specialist coverage to find the care you need.
+          Discover public, private, and mission hospitals across Zimbabwe &mdash; plus
+          clinics, pharmacies, opticians, and dental practices. Filter by location, size
+          tier, specialist coverage, or facility type to find the care you need.
         </p>
       </div>
     </header>
@@ -37,6 +38,12 @@
           <label for="type-filter">Type</label>
           <select id="type-filter">
             <option value="">All types</option>
+          </select>
+        </div>
+        <div class="control">
+          <label for="category-filter">Facility</label>
+          <select id="category-filter">
+            <option value="">All facilities</option>
           </select>
         </div>
         <div class="control">
@@ -98,6 +105,7 @@
         <p class="card__address"></p>
         <p class="card__specialists"></p>
         <p class="card__contact"></p>
+        <p class="card__hours"></p>
         <button class="card__toggle" type="button">More details</button>
         <div class="card__details" hidden></div>
       </article>

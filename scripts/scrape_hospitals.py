@@ -31,6 +31,13 @@ def slugify(name: str, city: str) -> str:
   return slug or f"hospital-{int(dt.datetime.now().timestamp())}"
 
 
+def apply_defaults(record: Hospital) -> Hospital:
+  record.setdefault("category", "hospital")
+  record.setdefault("operating_hours", "24/7 for emergencies; outpatient 08:00-17:00")
+  record.setdefault("manager", "Operations manager: TBD")
+  return record
+
+
 def load_existing() -> Dict[str, Hospital]:
   if not DATA_PATH.exists():
     return {}
@@ -59,6 +66,9 @@ def scraper_ministry_portal() -> List[Hospital]:
       "tier": None,
       "phone": "+263-54-222-333",
       "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "Provincial medical director: TBD",
     }
   ]
 
@@ -78,6 +88,9 @@ def scraper_private_networks() -> List[Hospital]:
       "tier": None,
       "phone": "+263-4-870-000",
       "website": "https://www.traumacentre.co.zw",
+      "category": "hospital",
+      "operating_hours": "24/7",
+      "manager": "Medical director: TBD",
     }
   ]
 
@@ -97,6 +110,9 @@ def scraper_gap_filler() -> List[Hospital]:
       "tier": None,
       "phone": "+263-67-212-3456",
       "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "Hospital superintendent: TBD",
     },
     {
       "name": "Makumbe Mission Hospital",
@@ -110,6 +126,9 @@ def scraper_gap_filler() -> List[Hospital]:
       "tier": None,
       "phone": "",
       "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "Mission administrator: TBD",
     },
     {
       "name": "Makumbi Mission Hospital",
@@ -123,6 +142,9 @@ def scraper_gap_filler() -> List[Hospital]:
       "tier": None,
       "phone": "",
       "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "Mission administrator: TBD",
     },
     {
       "name": "The Avenues Clinic",
@@ -136,6 +158,9 @@ def scraper_gap_filler() -> List[Hospital]:
       "tier": None,
       "phone": "+263-4-707-861",
       "website": "https://www.avenuesclinic.co.zw",
+      "category": "hospital",
+      "operating_hours": "24/7",
+      "manager": "Hospital administrator: TBD",
     },
     {
       "name": "Baines Imaging Group",
@@ -149,6 +174,9 @@ def scraper_gap_filler() -> List[Hospital]:
       "tier": None,
       "phone": "+263-24-274-8471",
       "website": "https://www.bainesimaginggroup.com",
+      "category": "imaging_centre",
+      "operating_hours": "Mon-Fri 07:30-17:00; Sat 08:00-12:00",
+      "manager": "Operations manager: TBD",
     },
     {
       "name": "Mazowe District Hospital",
@@ -162,6 +190,9 @@ def scraper_gap_filler() -> List[Hospital]:
       "tier": None,
       "phone": "",
       "website": "",
+      "category": "hospital",
+      "operating_hours": "24/7 for emergencies; outpatient 08:00-17:00",
+      "manager": "Hospital superintendent: TBD",
     },
   ]
 
@@ -182,6 +213,7 @@ def tier_from_record(record: Hospital) -> str:
 
 def merge_records(existing: Dict[str, Hospital], new_records: List[Hospital]) -> Dict[str, Hospital]:
   for record in new_records:
+    apply_defaults(record)
     key = make_key(record["name"], record["city"])
     base = existing.get(key)
     if not base:
@@ -191,6 +223,7 @@ def merge_records(existing: Dict[str, Hospital], new_records: List[Hospital]) ->
       existing[key] = record
       continue
 
+    base = apply_defaults(base)
     updated = False
     for field, value in record.items():
       if value in (None, ""):
