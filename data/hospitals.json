@@ -430,7 +430,10 @@
     "address": "58 Jason Moyo Ave, Harare",
     "services": [
       "dentistry",
-      "oral_surgery"
+      "oral_surgery",
+      "orthodontist",
+      "orthodontics",
+      "dental surgery"
     ],
     "open_24h": false,
     "emergency_level": "Basic",
@@ -2087,6 +2090,117 @@
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
     "source": [],
+    "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "lancet-clinical-laboratories-harare",
+    "name": "Lancet Clinical Laboratories Harare",
+    "aliases": [
+      "Lancet Labs Harare"
+    ],
+    "facility_type": "Lab",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Harare",
+    "district": "Harare",
+    "ward": "",
+    "city": "Harare",
+    "address": "",
+    "services": [
+      "Lab",
+      "Diagnostics",
+      "Pathology"
+    ],
+    "open_24h": false,
+    "emergency_level": "",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "",
+    "source": [
+      "manual_lab_entry_2025"
+    ],
+    "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "lancet-clinical-laboratories-bulawayo",
+    "name": "Lancet Clinical Laboratories Bulawayo",
+    "aliases": [
+      "Lancet Labs Bulawayo"
+    ],
+    "facility_type": "Lab",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "ward": "",
+    "city": "Bulawayo",
+    "address": "",
+    "services": [
+      "Lab",
+      "Diagnostics",
+      "Pathology"
+    ],
+    "open_24h": false,
+    "emergency_level": "",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "",
+    "source": [
+      "manual_lab_entry_2025"
+    ],
+    "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "cimas-medlab-harare",
+    "name": "Cimas Medlab Harare",
+    "aliases": [
+      "Cimas Laboratories"
+    ],
+    "facility_type": "Lab",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Harare",
+    "district": "Harare",
+    "ward": "",
+    "city": "Harare",
+    "address": "",
+    "services": [
+      "Lab",
+      "Diagnostics",
+      "Pathology"
+    ],
+    "open_24h": false,
+    "emergency_level": "",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "",
+    "source": [
+      "manual_lab_entry_2025"
+    ],
     "confidence": "medium",
     "verified": false,
     "website": ""
