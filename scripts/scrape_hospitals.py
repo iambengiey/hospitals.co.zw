@@ -353,26 +353,6 @@ def load_raw_sources() -> List[Hospital]:
   return facilities
 
 
-def fetch_remote_sources() -> None:
-  """Download trusted remote attachments into the raw directory for parsing."""
-
-  import requests
-
-  RAW_DIR.mkdir(parents=True, exist_ok=True)
-  for meta in REMOTE_RAW_SOURCES.values():
-    dest = RAW_DIR / meta["filename"]
-    if dest.exists():
-      continue
-    url = meta["url"]
-    try:
-      resp = requests.get(url, timeout=60)
-      resp.raise_for_status()
-      dest.write_bytes(resp.content)
-      print(f"Downloaded {url} -> {dest}")
-    except Exception as exc:  # noqa: BLE001
-      print(f"Could not download {url}: {exc}")
-
-
 def scraper_ministry_portal() -> List[Hospital]:
   """TODO: real MoHCC ingestion. Currently seeds known provincial hospitals."""
   return [

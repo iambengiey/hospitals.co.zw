@@ -46,30 +46,6 @@ def has_value(value: Any) -> bool:
   return True
 
 
-def remove_suggest_correction(record: Hospital) -> None:
-  """Drop "Suggest correction" links for verified records.
-
-  Some scraped records carry a ``links`` array and a human-friendly
-  ``verified_text`` label. If that text already contains the word
-  "verified" we should hide the "Suggest correction" link to avoid
-  inviting edits on confirmed listings.
-  """
-
-  verified_text = str(record.get("verified_text", ""))
-  if "verified" not in verified_text.lower():
-    return
-
-  links = record.get("links")
-  if not isinstance(links, list):
-    return
-
-  filtered = [link for link in links if "suggest correction" not in str(link).lower()]
-  if filtered:
-    record["links"] = filtered
-  else:
-    record.pop("links", None)
-
-
 def update_record(existing: Hospital, incoming: Hospital) -> None:
   for key, new_value in incoming.items():
     if key in {"first_seen", "last_seen"}:
@@ -92,8 +68,6 @@ def update_record(existing: Hospital, incoming: Hospital) -> None:
   existing["last_seen"] = TODAY
   if "first_seen" not in existing:
     existing["first_seen"] = TODAY
-
-  remove_suggest_correction(existing)
 
 
 def load_json(path: pathlib.Path) -> list[Hospital]:
@@ -130,13 +104,10 @@ def main() -> None:
       record = dict(record)
       record.setdefault("first_seen", TODAY)
       record["last_seen"] = TODAY
-      remove_suggest_correction(record)
       existing_map[key] = record
       new_count += 1
 
   merged_records = list(existing_map.values())
-  for record in merged_records:
-    remove_suggest_correction(record)
   save_json(CURRENT_PATH, merged_records)
   save_json(FULL_PATH, merged_records)
 
