@@ -1,0 +1,314 @@
+[
+  {
+    "name": "Ingutsheni Central Hospital",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "city": "Bulawayo",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "St Giles Rehabilitation Centre",
+    "province": "Harare",
+    "district": "Harare",
+    "city": "Harare",
+    "facility_type": "Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Mount Darwin District Hospital",
+    "province": "Mashonaland Central",
+    "district": "Mount Darwin",
+    "city": "Mount Darwin",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Shamva District Hospital",
+    "province": "Mashonaland Central",
+    "district": "Shamva",
+    "city": "Shamva",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Guruve District Hospital",
+    "province": "Mashonaland Central",
+    "district": "Guruve",
+    "city": "Guruve",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Rushinga District Hospital",
+    "province": "Mashonaland Central",
+    "district": "Rushinga",
+    "city": "Rushinga",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Mudzi District Hospital",
+    "province": "Mashonaland East",
+    "district": "Mudzi",
+    "city": "Mudzi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Wedza District Hospital",
+    "province": "Mashonaland East",
+    "district": "Wedza",
+    "city": "Wedza",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Chivhu District Hospital",
+    "province": "Mashonaland East",
+    "district": "Chikomba",
+    "city": "Chikomba",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Seke District Hospital",
+    "province": "Mashonaland East",
+    "district": "Seke",
+    "city": "Seke",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Uzumba Maramba Pfungwe District Hospital",
+    "province": "Mashonaland East",
+    "district": "UMP",
+    "city": "UMP",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Goromonzi District Hospital",
+    "province": "Mashonaland East",
+    "district": "Goromonzi",
+    "city": "Goromonzi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Chegutu District Hospital",
+    "province": "Mashonaland West",
+    "district": "Chegutu",
+    "city": "Chegutu",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Mhondoro Ngezi District Hospital",
+    "province": "Mashonaland West",
+    "district": "Mhondoro-Ngezi",
+    "city": "Mhondoro-Ngezi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Zvimba District Hospital",
+    "province": "Mashonaland West",
+    "district": "Zvimba",
+    "city": "Zvimba",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Karoi District Hospital",
+    "province": "Mashonaland West",
+    "district": "Karoi",
+    "city": "Karoi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Bikita District Hospital",
+    "province": "Masvingo",
+    "district": "Bikita",
+    "city": "Bikita",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Gutu District Hospital",
+    "province": "Masvingo",
+    "district": "Gutu",
+    "city": "Gutu",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Zaka District Hospital",
+    "province": "Masvingo",
+    "district": "Zaka",
+    "city": "Zaka",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Mwenezi District Hospital",
+    "province": "Masvingo",
+    "district": "Mwenezi",
+    "city": "Mwenezi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Silveira Mission Hospital",
+    "province": "Masvingo",
+    "district": "Bikita",
+    "city": "Bikita",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "St Anthony's Musiso Hospital",
+    "province": "Masvingo",
+    "district": "Zaka",
+    "city": "Zaka",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Binga District Hospital",
+    "province": "Matabeleland North",
+    "district": "Binga",
+    "city": "Binga",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Lupane Provincial Hospital",
+    "province": "Matabeleland North",
+    "district": "Lupane",
+    "city": "Lupane",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Nkayi District Hospital",
+    "province": "Matabeleland North",
+    "district": "Nkayi",
+    "city": "Nkayi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Tsholotsho District Hospital",
+    "province": "Matabeleland North",
+    "district": "Tsholotsho",
+    "city": "Tsholotsho",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Filabusi District Hospital",
+    "province": "Matabeleland South",
+    "district": "Insiza",
+    "city": "Insiza",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Kezi District Hospital",
+    "province": "Matabeleland South",
+    "district": "Matobo",
+    "city": "Matobo",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Esigodini District Hospital",
+    "province": "Matabeleland South",
+    "district": "Umzingwane",
+    "city": "Umzingwane",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Maphisa District Hospital",
+    "province": "Matabeleland South",
+    "district": "Matobo",
+    "city": "Matobo",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Shurugwi District Hospital",
+    "province": "Midlands",
+    "district": "Shurugwi",
+    "city": "Shurugwi",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Chirumanzu District Hospital",
+    "province": "Midlands",
+    "district": "Chirumanzu",
+    "city": "Chirumanzu",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Mberengwa District Hospital",
+    "province": "Midlands",
+    "district": "Mberengwa",
+    "city": "Mberengwa",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Gokwe North District Hospital",
+    "province": "Midlands",
+    "district": "Gokwe North",
+    "city": "Gokwe North",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Gokwe South District Hospital",
+    "province": "Midlands",
+    "district": "Gokwe South",
+    "city": "Gokwe South",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Buhera District Hospital",
+    "province": "Manicaland",
+    "district": "Buhera",
+    "city": "Buhera",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Chimanimani District Hospital",
+    "province": "Manicaland",
+    "district": "Chimanimani",
+    "city": "Chimanimani",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Birchenough Bridge Hospital",
+    "province": "Manicaland",
+    "district": "Chimanimani",
+    "city": "Chimanimani",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  },
+  {
+    "name": "Norton Hospital",
+    "province": "Mashonaland West",
+    "district": "Norton",
+    "city": "Norton",
+    "facility_type": "District Hospital",
+    "source": "wikipedia_stub"
+  }
+]
