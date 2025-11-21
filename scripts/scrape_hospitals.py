@@ -14,11 +14,31 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import importlib.util
 import json
 import pathlib
 import re
 from difflib import SequenceMatcher
 from typing import Dict, Iterable, List, Optional, Tuple
+
+OPENPYXL_AVAILABLE = importlib.util.find_spec("openpyxl") is not None
+PDFPLUMBER_AVAILABLE = importlib.util.find_spec("pdfplumber") is not None
+XLRD_AVAILABLE = importlib.util.find_spec("xlrd") is not None
+
+if OPENPYXL_AVAILABLE:
+  import openpyxl  # type: ignore
+else:
+  openpyxl = None  # type: ignore
+
+if PDFPLUMBER_AVAILABLE:
+  import pdfplumber  # type: ignore
+else:
+  pdfplumber = None  # type: ignore
+
+if XLRD_AVAILABLE:
+  import xlrd  # type: ignore
+else:
+  xlrd = None  # type: ignore
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRAPED_OUTPUT = ROOT / "data" / "hospitals_scraped_new.json"
@@ -203,11 +223,9 @@ def load_csv(path: pathlib.Path) -> List[Hospital]:
 
 
 def load_xlsx(path: pathlib.Path) -> List[Hospital]:
-  """Load rows from an XLSX file when openpyxl is available."""
+  """Load rows from an XLSX file."""
 
-  try:
-    import openpyxl  # type: ignore
-  except ImportError:
+  if not OPENPYXL_AVAILABLE or openpyxl is None:
     print(f"Skipping {path.name} (openpyxl not installed)")
     return []
 
@@ -341,7 +359,7 @@ def load_raw_sources() -> List[Hospital]:
       raw_records = load_json(file)
     elif file.suffix.lower() == ".csv":
       raw_records = load_csv(file)
-    elif file.suffix.lower() in {".xlsx", ".xls"}:
+    elif file.suffix.lower() == ".xlsx":
       raw_records = load_xlsx(file)
     elif file.suffix.lower() == ".pdf":
       raw_records = load_pdf_tables(file)
