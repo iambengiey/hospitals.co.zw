@@ -90,16 +90,23 @@ const haversineDistance = (lat1, lon1, lat2, lon2) => {
   return R * c;
 };
 
-const formatDate = (value) => {
-  if (!value) return 'Verification pending';
+const formatMonthYear = (value) => {
+  if (!value) return '';
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return `Verified ${date.toLocaleString('en-GB', { month: 'short', year: 'numeric' })}`;
+  return date.toLocaleString('en-GB', { month: 'short', year: 'numeric' });
 };
 
 const formatVerification = (hospital) => {
-  const base = formatDate(hospital.last_verified);
-  return hospital.verified ? `${base} • Verified source` : base;
+  const formattedDate = formatMonthYear(hospital.last_verified);
+
+  if (hospital.verified) {
+    return formattedDate ? `Verified ${formattedDate} • Verified source` : 'Verified source';
+  }
+
+  if (formattedDate) return `Updated ${formattedDate}`;
+
+  return 'Verification pending';
 };
 
 const renderFilters = () => {
