@@ -72,7 +72,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mater-dei-hospital",
@@ -113,7 +115,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.materdei.co.zw"
+    "website": "https://www.materdei.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mpilo-central-hospital-bulawayo",
@@ -416,7 +420,9 @@ export const hospitalsData = [
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.traumacentre.co.zw"
+    "website": "https://www.traumacentre.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "city-dental-clinic-harare",
@@ -432,7 +438,10 @@ export const hospitalsData = [
     "address": "58 Jason Moyo Ave, Harare",
     "services": [
       "dentistry",
-      "oral_surgery"
+      "oral_surgery",
+      "orthodontist",
+      "orthodontics",
+      "dental surgery"
     ],
     "open_24h": false,
     "emergency_level": "Basic",
@@ -565,7 +574,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-annes-hospital-harare",
@@ -645,7 +656,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": "https://www.avenuesclinic.co.zw"
+    "website": "https://www.avenuesclinic.co.zw",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "west-end-hospital-harare",
@@ -870,7 +883,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-central-pharmacy-mutare",
@@ -905,7 +920,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "mutare-provincial-hospital",
@@ -1017,7 +1034,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "rusape-general-hospital-rusape",
@@ -1702,7 +1721,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "st-lukes-hospital-lupane",
@@ -1736,10 +1757,14 @@ export const hospitalsData = [
     "lon": null,
     "tier": "Tier 2",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": [
+      "zach_mission_hospitals"
+    ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "victoria-falls-hospital-victoria-falls",
@@ -1794,7 +1819,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "beitbridge-district-hospital-beitbridge",
@@ -1832,7 +1859,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gwanda-provincial-hospital-gwanda",
@@ -1978,7 +2007,9 @@ export const hospitalsData = [
     ],
     "confidence": "high",
     "verified": true,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "gweru-provincial-hospital-gweru",
@@ -2017,7 +2048,9 @@ export const hospitalsData = [
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "last_seen": "2025-11-20",
+    "first_seen": "2025-11-20"
   },
   {
     "id": "kwekwe-general-hospital-kwekwe",
@@ -2092,6 +2125,269 @@ export const hospitalsData = [
     "confidence": "medium",
     "verified": false,
     "website": ""
+  },
+  {
+    "id": "lancet-clinical-laboratories-harare",
+    "name": "Lancet Clinical Laboratories Harare",
+    "aliases": [
+      "Lancet Labs Harare"
+    ],
+    "facility_type": "Lab",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Harare",
+    "district": "Harare",
+    "ward": "",
+    "city": "Harare",
+    "address": "",
+    "services": [
+      "Lab",
+      "Diagnostics",
+      "Pathology"
+    ],
+    "open_24h": false,
+    "emergency_level": "",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "",
+    "source": [
+      "manual_lab_entry_2025"
+    ],
+    "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "lancet-clinical-laboratories-bulawayo",
+    "name": "Lancet Clinical Laboratories Bulawayo",
+    "aliases": [
+      "Lancet Labs Bulawayo"
+    ],
+    "facility_type": "Lab",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "ward": "",
+    "city": "Bulawayo",
+    "address": "",
+    "services": [
+      "Lab",
+      "Diagnostics",
+      "Pathology"
+    ],
+    "open_24h": false,
+    "emergency_level": "",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "",
+    "source": [
+      "manual_lab_entry_2025"
+    ],
+    "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "cimas-medlab-harare",
+    "name": "Cimas Medlab Harare",
+    "aliases": [
+      "Cimas Laboratories"
+    ],
+    "facility_type": "Lab",
+    "ownership": "Private",
+    "rural_urban": "Urban",
+    "province": "Harare",
+    "district": "Harare",
+    "ward": "",
+    "city": "Harare",
+    "address": "",
+    "services": [
+      "Lab",
+      "Diagnostics",
+      "Pathology"
+    ],
+    "open_24h": false,
+    "emergency_level": "",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "",
+    "source": [
+      "manual_lab_entry_2025"
+    ],
+    "confidence": "medium",
+    "verified": false,
+    "website": ""
+  },
+  {
+    "id": "howard-mission-hospital-chiweshe",
+    "name": "Howard Mission Hospital",
+    "aliases": [],
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "province": "Mashonaland Central",
+    "district": "Chiweshe",
+    "ward": "",
+    "city": "Chiweshe",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": true,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "zach_mission_hospitals"
+    ],
+    "confidence": "medium",
+    "verified": true,
+    "website": "",
+    "first_seen": "2025-11-20",
+    "last_seen": "2025-11-20"
+  },
+  {
+    "id": "st-albert-s-mission-hospital-mt-darwin",
+    "name": "St Albert's Mission Hospital",
+    "aliases": [],
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "province": "Mashonaland Central",
+    "district": "Mt Darwin",
+    "ward": "",
+    "city": "Mt Darwin",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": true,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "zach_mission_hospitals"
+    ],
+    "confidence": "medium",
+    "verified": true,
+    "website": "",
+    "first_seen": "2025-11-20",
+    "last_seen": "2025-11-20"
+  },
+  {
+    "id": "all-souls-mission-hospital-mutoko",
+    "name": "All Souls Mission Hospital",
+    "aliases": [],
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "province": "Mashonaland East",
+    "district": "Mutoko",
+    "ward": "",
+    "city": "Mutoko",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": true,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "zach_mission_hospitals"
+    ],
+    "confidence": "medium",
+    "verified": true,
+    "website": "",
+    "first_seen": "2025-11-20",
+    "last_seen": "2025-11-20"
+  },
+  {
+    "id": "st-theresa-s-mission-hospital-chiredzi",
+    "name": "St Theresa's Mission Hospital",
+    "aliases": [],
+    "facility_type": "Mission Hospital",
+    "ownership": "Mission",
+    "rural_urban": "Rural",
+    "province": "Masvingo",
+    "district": "Chiredzi",
+    "ward": "",
+    "city": "Chiredzi",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": true,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 3",
+    "last_verified": "2025-11-20",
+    "source": [
+      "zach_mission_hospitals"
+    ],
+    "confidence": "medium",
+    "verified": true,
+    "website": "",
+    "first_seen": "2025-11-20",
+    "last_seen": "2025-11-20"
   }
 ];
 export default hospitalsData;

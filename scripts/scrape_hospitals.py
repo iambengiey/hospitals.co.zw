@@ -21,9 +21,19 @@ from difflib import SequenceMatcher
 from typing import Dict, Iterable, List, Optional, Tuple
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "data" / "hospitals.json"
+SCRAPED_OUTPUT = ROOT / "data" / "hospitals_scraped_new.json"
 RAW_DIR = ROOT / "data" / "raw"
 TODAY = dt.date.today().isoformat()
+REMOTE_RAW_SOURCES = {
+  "alliance_providers_pdf": {
+    "url": "https://www.alliancehealth.co.zw/sites/default/files/attachments/Service%20Provider%20List%202020.pdf",
+    "filename": "alliance_provider_list_2020.pdf",
+  },
+  "mcaz_premises_html": {
+    "url": "https://onlineservices.mcaz.co.zw/onlineregister/frmPremisesRegister.aspx",
+    "filename": "mcaz_premises_register.html",
+  },
+}
 TRUSTED_SOURCES = {
   "hpa_registered_facilities",
   "mcaz_pharmacies_2024",
@@ -211,6 +221,57 @@ def load_xlsx(path: pathlib.Path) -> List[Hospital]:
   return facilities
 
 
+def load_pdf_tables(path: pathlib.Path) -> List[Hospital]:
+  """Load tabular data from a PDF when pdfplumber is available."""
+
+  try:
+    import pdfplumber  # type: ignore
+  except ImportError:
+    print(f"Skipping {path.name} (pdfplumber not installed)")
+    return []
+
+  facilities: List[Hospital] = []
+  with pdfplumber.open(path) as pdf:
+    for page in pdf.pages:
+      for table in page.extract_tables() or []:
+        if not table or len(table) < 2:
+          continue
+        headers = [str(cell).strip() if cell else "" for cell in table[0]]
+        for row in table[1:]:
+          record: Hospital = {}
+          for idx, cell in enumerate(row):
+            header = headers[idx] if idx < len(headers) else f"column_{idx}"
+            if header:
+              record[header] = str(cell).strip() if cell else ""
+          if record:
+            facilities.append(record)
+  return facilities
+
+
+def load_html_tables(path: pathlib.Path) -> List[Hospital]:
+  """Parse HTML tables into row dicts."""
+
+  from bs4 import BeautifulSoup  # type: ignore
+
+  facilities: List[Hospital] = []
+  soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="ignore"), "html.parser")
+  for table in soup.find_all("table"):
+    headers: List[str] = []
+    header_row = table.find("tr")
+    if header_row:
+      headers = [th.get_text(strip=True) for th in header_row.find_all(["th", "td"])]
+    for row in table.find_all("tr")[1:]:
+      cells = [cell.get_text(strip=True) for cell in row.find_all(["td", "th"])]
+      if not cells:
+        continue
+      record: Hospital = {}
+      for idx, cell in enumerate(cells):
+        header = headers[idx] if idx < len(headers) and headers[idx] else f"column_{idx}"
+        record[header] = cell
+      facilities.append(record)
+  return facilities
+
+
 def coerce_bool(value: object) -> bool:
   if isinstance(value, bool):
     return value
@@ -238,6 +299,21 @@ def normalize_raw_record(record: Hospital, source_label: str = "") -> Hospital:
   """Coerce loose raw fields and tag their source label for provenance."""
 
   normalised: Hospital = dict(record)
+  field_aliases = {
+    "provider": "name",
+    "service provider": "name",
+    "premises name": "name",
+    "provider name": "name",
+    "town": "city",
+    "city/town": "city",
+    "location": "city",
+    "province/state": "province",
+    "tel": "phone",
+    "telephone": "phone",
+  }
+  for alias, target in field_aliases.items():
+    if alias in normalised and target not in normalised:
+      normalised[target] = normalised.pop(alias)
   if source_label and not normalised.get("source"):
     normalised["source"] = [source_label]
   elif isinstance(normalised.get("source"), str):
@@ -254,6 +330,7 @@ def normalize_raw_record(record: Hospital, source_label: str = "") -> Hospital:
 
 def load_raw_sources() -> List[Hospital]:
   facilities: List[Hospital] = []
+  fetch_remote_sources()
   if not RAW_DIR.exists():
     return facilities
 
@@ -266,16 +343,34 @@ def load_raw_sources() -> List[Hospital]:
       raw_records = load_csv(file)
     elif file.suffix.lower() in {".xlsx", ".xls"}:
       raw_records = load_xlsx(file)
+    elif file.suffix.lower() == ".pdf":
+      raw_records = load_pdf_tables(file)
+    elif file.suffix.lower() in {".htm", ".html"}:
+      raw_records = load_html_tables(file)
 
     for record in raw_records:
       facilities.append(normalize_raw_record(record, source_label))
   return facilities
 
 
-def load_existing() -> List[Hospital]:
-  if not DATA_PATH.exists():
-    return []
-  return load_json(DATA_PATH)
+def fetch_remote_sources() -> None:
+  """Download trusted remote attachments into the raw directory for parsing."""
+
+  import requests
+
+  RAW_DIR.mkdir(parents=True, exist_ok=True)
+  for meta in REMOTE_RAW_SOURCES.values():
+    dest = RAW_DIR / meta["filename"]
+    if dest.exists():
+      continue
+    url = meta["url"]
+    try:
+      resp = requests.get(url, timeout=60)
+      resp.raise_for_status()
+      dest.write_bytes(resp.content)
+      print(f"Downloaded {url} -> {dest}")
+    except Exception as exc:  # noqa: BLE001
+      print(f"Could not download {url}: {exc}")
 
 
 def scraper_ministry_portal() -> List[Hospital]:
@@ -518,7 +613,6 @@ def validate_facilities(facilities: List[Hospital]) -> List[Hospital]:
 
 def run_pipeline() -> List[Hospital]:
   raw_records: List[Hospital] = []
-  raw_records.extend(load_existing())
   raw_records.extend(load_raw_sources())
   for scraper in SCRAPERS:
     raw_records.extend(scraper())
@@ -538,15 +632,15 @@ def run_pipeline() -> List[Hospital]:
 
 
 def save_records(records: List[Hospital]) -> None:
-  DATA_PATH.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
-  full_path = DATA_PATH.with_name("hospitals_full.json")
+  SCRAPED_OUTPUT.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
+  full_path = SCRAPED_OUTPUT.with_name("hospitals_scraped_full.json")
   full_path.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
 
 
 def main() -> None:
   records = run_pipeline()
   save_records(records)
-  print(f"Wrote {len(records)} facilities to {DATA_PATH}")
+  print(f"Wrote {len(records)} facilities to {SCRAPED_OUTPUT}")
 
 
 if __name__ == "__main__":
