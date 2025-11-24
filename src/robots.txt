@@ -4,3 +4,5 @@ Allow: /
 # Keep the JSON data crawlable for search and indexing.
 Disallow:
 
+Sitemap: https://hospitals.co.zw/sitemap.xml
+
