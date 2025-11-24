@@ -36,6 +36,66 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
+.emergency-banner {
+  background: #fff5f5;
+  color: #6b1111;
+  border-bottom: 1px solid #f3c7c7;
+}
+
+.emergency-banner__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 600;
+}
+
+.emergency-banner__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #ffe0e0;
+  color: inherit;
+}
+
+.emergency-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: #c62828;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(198, 40, 40, 0.15);
+}
+
+.emergency-banner__cta:hover {
+  filter: brightness(0.95);
+}
+
+.emergency-banner__cta--desktop {
+  display: none;
+}
+
+.emergency-banner__hint {
+  color: #7c2b2b;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.emergency-banner a:focus-visible {
+  outline: 3px solid #ffb703;
+  outline-offset: 3px;
+}
+
 .topbar {
   background: #ffffff;
   border-bottom: 1px solid var(--border);
@@ -374,6 +434,20 @@ input:focus-visible {
 .footer a {
   color: #e3f7f2;
   font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .emergency-banner__inner {
+    padding: 0.65rem 1.5rem;
+  }
+
+  .emergency-banner__cta--mobile {
+    display: none;
+  }
+
+  .emergency-banner__cta--desktop {
+    display: inline-flex;
+  }
 }
 
 @media (max-width: 720px) {
