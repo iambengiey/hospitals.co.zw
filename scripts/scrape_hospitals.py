@@ -53,6 +53,17 @@ REMOTE_RAW_SOURCES = {
     "url": "https://onlineservices.mcaz.co.zw/onlineregister/frmPremisesRegister.aspx",
     "filename": "mcaz_premises_register.html",
   },
+  "hpa_registered_facilities_html": {
+    "url": "https://hpa.co.zw/registered-facilities/",
+    "filename": "hpa_registered_facilities.html",
+  },
+}
+REQUEST_HEADERS = {
+  "User-Agent": (
+    "Mozilla/5.0 (X11; Linux x86_64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/129.0 Safari/537.36"
+  )
 }
 TRUSTED_SOURCES = {
   "hpa_registered_facilities",
@@ -239,12 +250,28 @@ def load_xlsx(path: pathlib.Path) -> List[Hospital]:
   return facilities
 
 
-def load_pdf_tables(path: pathlib.Path) -> List[Hospital]:
-  """Load tabular data from a PDF when pdfplumber is available."""
+def load_xls(path: pathlib.Path) -> List[Hospital]:
+  """Load rows from an XLS file."""
 
-  try:
-    import pdfplumber  # type: ignore
-  except ImportError:
+  if not XLRD_AVAILABLE or xlrd is None:
+    print(f"Skipping {path.name} (xlrd not installed)")
+    return []
+
+  workbook = xlrd.open_workbook(path)
+  sheet = workbook.sheet_by_index(0)
+  headers = [str(value).strip() if value is not None else "" for value in sheet.row_values(0)]
+  facilities: List[Hospital] = []
+  for row_idx in range(1, sheet.nrows):
+    values = sheet.row_values(row_idx)
+    record = {headers[idx]: values[idx] for idx in range(len(headers)) if headers[idx]}
+    facilities.append(record)
+  return facilities
+
+
+def load_pdf_tables(path: pathlib.Path) -> List[Hospital]:
+  """Load tabular data from a PDF."""
+
+  if not PDFPLUMBER_AVAILABLE or pdfplumber is None:
     print(f"Skipping {path.name} (pdfplumber not installed)")
     return []
 
@@ -275,10 +302,14 @@ def load_html_tables(path: pathlib.Path) -> List[Hospital]:
   soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="ignore"), "html.parser")
   for table in soup.find_all("table"):
     headers: List[str] = []
-    header_row = table.find("tr")
-    if header_row:
-      headers = [th.get_text(strip=True) for th in header_row.find_all(["th", "td"])]
-    for row in table.find_all("tr")[1:]:
+    all_rows = table.find_all("tr")
+    if not all_rows:
+      continue
+
+    header_cells = all_rows[0].find_all(["th", "td"])
+    headers = [cell.get_text(strip=True) for cell in header_cells]
+
+    for row in all_rows[1:]:
       cells = [cell.get_text(strip=True) for cell in row.find_all(["td", "th"])]
       if not cells:
         continue
@@ -361,6 +392,8 @@ def load_raw_sources() -> List[Hospital]:
       raw_records = load_csv(file)
     elif file.suffix.lower() == ".xlsx":
       raw_records = load_xlsx(file)
+    elif file.suffix.lower() == ".xls":
+      raw_records = load_xls(file)
     elif file.suffix.lower() == ".pdf":
       raw_records = load_pdf_tables(file)
     elif file.suffix.lower() in {".htm", ".html"}:
@@ -369,6 +402,52 @@ def load_raw_sources() -> List[Hospital]:
     for record in raw_records:
       facilities.append(normalize_raw_record(record, source_label))
   return facilities
+
+
+def fetch_remote_sources() -> None:
+  """Download trusted remote attachments into the raw directory for parsing.
+
+  If a download fails and no cached copy exists locally, we raise so the
+  pipeline does not silently proceed with partial data (e.g., missing
+  facilities such as Totonga Clinic). Set ``ALLOW_REMOTE_FAILURES=1`` to
+  continue despite missing attachments when running locally without
+  internet; cached files will still be reused when present.
+  """
+
+  import os
+  import requests
+
+  allow_failures = os.getenv("ALLOW_REMOTE_FAILURES", "").strip() in {"1", "true", "yes"}
+  require_remote = os.getenv("REQUIRE_REMOTE_ATTACHMENTS", "").strip() in {"1", "true", "yes"}
+  RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+  failures: list[str] = []
+  for meta in REMOTE_RAW_SOURCES.values():
+    dest = RAW_DIR / meta["filename"]
+    if dest.exists():
+      continue
+    url = meta["url"]
+    try:
+      resp = requests.get(url, timeout=60, headers=REQUEST_HEADERS)
+      resp.raise_for_status()
+      dest.write_bytes(resp.content)
+      print(f"Downloaded {url} -> {dest}")
+    except Exception as exc:  # noqa: BLE001
+      note = f"{url} ({exc})"
+      manual = f"Manual fix: download and place at {dest}"
+      failures.append(f"{note}; {manual}")
+
+  if failures:
+    joined = "; ".join(failures)
+    prefix = "Skipping remote attachments" if allow_failures or not require_remote else "Missing remote attachments"
+    print(f"{prefix} due to download errors:")
+    for failure in failures:
+      print(f"  - {failure}")
+    if require_remote and not allow_failures:
+      raise RuntimeError(
+        "Unable to download required remote attachments; set ALLOW_REMOTE_FAILURES=1 to skip. "
+        f"Failures: {joined}",
+      )
 
 
 def scraper_ministry_portal() -> List[Hospital]:

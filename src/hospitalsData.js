@@ -73,7 +73,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": true,
     "website": "",
-    "last_seen": "2025-11-20",
+    "last_seen": "2025-11-21",
     "first_seen": "2025-11-20"
   },
   {
@@ -116,7 +116,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "https://www.materdei.co.zw",
-    "last_seen": "2025-11-20",
+    "last_seen": "2025-11-21",
     "first_seen": "2025-11-20"
   },
   {
@@ -421,7 +421,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "https://www.traumacentre.co.zw",
-    "last_seen": "2025-11-20",
+    "last_seen": "2025-11-21",
     "first_seen": "2025-11-20"
   },
   {
@@ -575,7 +575,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": true,
     "website": "",
-    "last_seen": "2025-11-20",
+    "last_seen": "2025-11-21",
     "first_seen": "2025-11-20"
   },
   {

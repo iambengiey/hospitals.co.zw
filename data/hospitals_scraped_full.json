@@ -24,12 +24,48 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-20",
+    "last_verified": "2025-11-21",
     "source": [
       "mcaz_pharmacies_2024"
     ],
     "confidence": "medium",
     "verified": true,
+    "website": ""
+  },
+  {
+    "id": "ingutsheni-central-hospital-bulawayo",
+    "name": "Ingutsheni Central Hospital",
+    "aliases": [],
+    "facility_type": "District Hospital",
+    "ownership": null,
+    "rural_urban": "Urban",
+    "province": "Bulawayo",
+    "district": "Bulawayo",
+    "ward": "",
+    "city": "Bulawayo",
+    "address": "",
+    "services": [
+      "ER",
+      "Maternity",
+      "Lab",
+      "Inpatient"
+    ],
+    "open_24h": false,
+    "emergency_level": "Full",
+    "cost_band": null,
+    "medical_aids": [],
+    "phone": null,
+    "whatsapp": null,
+    "email": null,
+    "lat": null,
+    "lon": null,
+    "tier": "Tier 2",
+    "last_verified": "2025-11-21",
+    "source": [
+      "wikipedia_stub"
+    ],
+    "confidence": "medium",
+    "verified": false,
     "website": ""
   },
   {
@@ -55,7 +91,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-20",
+    "last_verified": "2025-11-21",
     "source": [
       "hpa_registry"
     ],
