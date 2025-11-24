@@ -155,7 +155,7 @@ const renderFilters = () => {
       .map((service) => `<option value="${service}">${formatServiceLabel(service)}</option>`)
       .join('');
   ruralFilter.innerHTML =
-    '<option value="">Rural & urban</option>' +
+    '<option value="">Any location</option>' +
     Array.from(ruralOptions)
       .sort()
       .map((value) => `<option value="${value}">${value}</option>`)
