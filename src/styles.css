@@ -351,6 +351,18 @@ input:focus-visible {
   line-height: 1.4;
 }
 
+.mohcc-disclaimer {
+  margin: -0.4rem auto 2rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: #f7f2ff;
+  border-left: 4px solid #7b61ff;
+  color: #2b2452;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+ }
+
 .footer {
   background: #0b5f5b;
   color: #fff;
