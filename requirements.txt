@@ -3,4 +3,3 @@ beautifulsoup4
 python-slugify
 openpyxl
 pdfplumber
-xlrd
