@@ -14,16 +14,57 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import importlib.util
 import json
 import pathlib
 import re
 from difflib import SequenceMatcher
 from typing import Dict, Iterable, List, Optional, Tuple
 
+OPENPYXL_AVAILABLE = importlib.util.find_spec("openpyxl") is not None
+PDFPLUMBER_AVAILABLE = importlib.util.find_spec("pdfplumber") is not None
+XLRD_AVAILABLE = importlib.util.find_spec("xlrd") is not None
+
+if OPENPYXL_AVAILABLE:
+  import openpyxl  # type: ignore
+else:
+  openpyxl = None  # type: ignore
+
+if PDFPLUMBER_AVAILABLE:
+  import pdfplumber  # type: ignore
+else:
+  pdfplumber = None  # type: ignore
+
+if XLRD_AVAILABLE:
+  import xlrd  # type: ignore
+else:
+  xlrd = None  # type: ignore
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "data" / "hospitals.json"
+SCRAPED_OUTPUT = ROOT / "data" / "hospitals_scraped_new.json"
 RAW_DIR = ROOT / "data" / "raw"
 TODAY = dt.date.today().isoformat()
+REMOTE_RAW_SOURCES = {
+  "alliance_providers_pdf": {
+    "url": "https://www.alliancehealth.co.zw/sites/default/files/attachments/Service%20Provider%20List%202020.pdf",
+    "filename": "alliance_provider_list_2020.pdf",
+  },
+  "mcaz_premises_html": {
+    "url": "https://onlineservices.mcaz.co.zw/onlineregister/frmPremisesRegister.aspx",
+    "filename": "mcaz_premises_register.html",
+  },
+  "hpa_registered_facilities_html": {
+    "url": "https://hpa.co.zw/registered-facilities/",
+    "filename": "hpa_registered_facilities.html",
+  },
+}
+REQUEST_HEADERS = {
+  "User-Agent": (
+    "Mozilla/5.0 (X11; Linux x86_64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/129.0 Safari/537.36"
+  )
+}
 TRUSTED_SOURCES = {
   "hpa_registered_facilities",
   "mcaz_pharmacies_2024",
@@ -193,11 +234,9 @@ def load_csv(path: pathlib.Path) -> List[Hospital]:
 
 
 def load_xlsx(path: pathlib.Path) -> List[Hospital]:
-  """Load rows from an XLSX file when openpyxl is available."""
+  """Load rows from an XLSX file."""
 
-  try:
-    import openpyxl  # type: ignore
-  except ImportError:
+  if not OPENPYXL_AVAILABLE or openpyxl is None:
     print(f"Skipping {path.name} (openpyxl not installed)")
     return []
 
@@ -208,6 +247,77 @@ def load_xlsx(path: pathlib.Path) -> List[Hospital]:
   for row in sheet.iter_rows(min_row=2, values_only=True):
     record = {headers[idx]: value for idx, value in enumerate(row) if headers[idx]}
     facilities.append(record)
+  return facilities
+
+
+def load_xls(path: pathlib.Path) -> List[Hospital]:
+  """Load rows from an XLS file."""
+
+  if not XLRD_AVAILABLE or xlrd is None:
+    print(f"Skipping {path.name} (xlrd not installed)")
+    return []
+
+  workbook = xlrd.open_workbook(path)
+  sheet = workbook.sheet_by_index(0)
+  headers = [str(value).strip() if value is not None else "" for value in sheet.row_values(0)]
+  facilities: List[Hospital] = []
+  for row_idx in range(1, sheet.nrows):
+    values = sheet.row_values(row_idx)
+    record = {headers[idx]: values[idx] for idx in range(len(headers)) if headers[idx]}
+    facilities.append(record)
+  return facilities
+
+
+def load_pdf_tables(path: pathlib.Path) -> List[Hospital]:
+  """Load tabular data from a PDF."""
+
+  if not PDFPLUMBER_AVAILABLE or pdfplumber is None:
+    print(f"Skipping {path.name} (pdfplumber not installed)")
+    return []
+
+  facilities: List[Hospital] = []
+  with pdfplumber.open(path) as pdf:
+    for page in pdf.pages:
+      for table in page.extract_tables() or []:
+        if not table or len(table) < 2:
+          continue
+        headers = [str(cell).strip() if cell else "" for cell in table[0]]
+        for row in table[1:]:
+          record: Hospital = {}
+          for idx, cell in enumerate(row):
+            header = headers[idx] if idx < len(headers) else f"column_{idx}"
+            if header:
+              record[header] = str(cell).strip() if cell else ""
+          if record:
+            facilities.append(record)
+  return facilities
+
+
+def load_html_tables(path: pathlib.Path) -> List[Hospital]:
+  """Parse HTML tables into row dicts."""
+
+  from bs4 import BeautifulSoup  # type: ignore
+
+  facilities: List[Hospital] = []
+  soup = BeautifulSoup(path.read_text(encoding="utf-8", errors="ignore"), "html.parser")
+  for table in soup.find_all("table"):
+    headers: List[str] = []
+    all_rows = table.find_all("tr")
+    if not all_rows:
+      continue
+
+    header_cells = all_rows[0].find_all(["th", "td"])
+    headers = [cell.get_text(strip=True) for cell in header_cells]
+
+    for row in all_rows[1:]:
+      cells = [cell.get_text(strip=True) for cell in row.find_all(["td", "th"])]
+      if not cells:
+        continue
+      record: Hospital = {}
+      for idx, cell in enumerate(cells):
+        header = headers[idx] if idx < len(headers) and headers[idx] else f"column_{idx}"
+        record[header] = cell
+      facilities.append(record)
   return facilities
 
 
@@ -238,6 +348,21 @@ def normalize_raw_record(record: Hospital, source_label: str = "") -> Hospital:
   """Coerce loose raw fields and tag their source label for provenance."""
 
   normalised: Hospital = dict(record)
+  field_aliases = {
+    "provider": "name",
+    "service provider": "name",
+    "premises name": "name",
+    "provider name": "name",
+    "town": "city",
+    "city/town": "city",
+    "location": "city",
+    "province/state": "province",
+    "tel": "phone",
+    "telephone": "phone",
+  }
+  for alias, target in field_aliases.items():
+    if alias in normalised and target not in normalised:
+      normalised[target] = normalised.pop(alias)
   if source_label and not normalised.get("source"):
     normalised["source"] = [source_label]
   elif isinstance(normalised.get("source"), str):
@@ -254,6 +379,7 @@ def normalize_raw_record(record: Hospital, source_label: str = "") -> Hospital:
 
 def load_raw_sources() -> List[Hospital]:
   facilities: List[Hospital] = []
+  fetch_remote_sources()
   if not RAW_DIR.exists():
     return facilities
 
@@ -264,18 +390,64 @@ def load_raw_sources() -> List[Hospital]:
       raw_records = load_json(file)
     elif file.suffix.lower() == ".csv":
       raw_records = load_csv(file)
-    elif file.suffix.lower() in {".xlsx", ".xls"}:
+    elif file.suffix.lower() == ".xlsx":
       raw_records = load_xlsx(file)
+    elif file.suffix.lower() == ".xls":
+      raw_records = load_xls(file)
+    elif file.suffix.lower() == ".pdf":
+      raw_records = load_pdf_tables(file)
+    elif file.suffix.lower() in {".htm", ".html"}:
+      raw_records = load_html_tables(file)
 
     for record in raw_records:
       facilities.append(normalize_raw_record(record, source_label))
   return facilities
 
 
-def load_existing() -> List[Hospital]:
-  if not DATA_PATH.exists():
-    return []
-  return load_json(DATA_PATH)
+def fetch_remote_sources() -> None:
+  """Download trusted remote attachments into the raw directory for parsing.
+
+  If a download fails and no cached copy exists locally, we raise so the
+  pipeline does not silently proceed with partial data (e.g., missing
+  facilities such as Totonga Clinic). Set ``ALLOW_REMOTE_FAILURES=1`` to
+  continue despite missing attachments when running locally without
+  internet; cached files will still be reused when present.
+  """
+
+  import os
+  import requests
+
+  allow_failures = os.getenv("ALLOW_REMOTE_FAILURES", "").strip() in {"1", "true", "yes"}
+  require_remote = os.getenv("REQUIRE_REMOTE_ATTACHMENTS", "").strip() in {"1", "true", "yes"}
+  RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+  failures: list[str] = []
+  for meta in REMOTE_RAW_SOURCES.values():
+    dest = RAW_DIR / meta["filename"]
+    if dest.exists():
+      continue
+    url = meta["url"]
+    try:
+      resp = requests.get(url, timeout=60, headers=REQUEST_HEADERS)
+      resp.raise_for_status()
+      dest.write_bytes(resp.content)
+      print(f"Downloaded {url} -> {dest}")
+    except Exception as exc:  # noqa: BLE001
+      note = f"{url} ({exc})"
+      manual = f"Manual fix: download and place at {dest}"
+      failures.append(f"{note}; {manual}")
+
+  if failures:
+    joined = "; ".join(failures)
+    prefix = "Skipping remote attachments" if allow_failures or not require_remote else "Missing remote attachments"
+    print(f"{prefix} due to download errors:")
+    for failure in failures:
+      print(f"  - {failure}")
+    if require_remote and not allow_failures:
+      raise RuntimeError(
+        "Unable to download required remote attachments; set ALLOW_REMOTE_FAILURES=1 to skip. "
+        f"Failures: {joined}",
+      )
 
 
 def scraper_ministry_portal() -> List[Hospital]:
@@ -518,7 +690,6 @@ def validate_facilities(facilities: List[Hospital]) -> List[Hospital]:
 
 def run_pipeline() -> List[Hospital]:
   raw_records: List[Hospital] = []
-  raw_records.extend(load_existing())
   raw_records.extend(load_raw_sources())
   for scraper in SCRAPERS:
     raw_records.extend(scraper())
@@ -538,15 +709,15 @@ def run_pipeline() -> List[Hospital]:
 
 
 def save_records(records: List[Hospital]) -> None:
-  DATA_PATH.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
-  full_path = DATA_PATH.with_name("hospitals_full.json")
+  SCRAPED_OUTPUT.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
+  full_path = SCRAPED_OUTPUT.with_name("hospitals_scraped_full.json")
   full_path.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n")
 
 
 def main() -> None:
   records = run_pipeline()
   save_records(records)
-  print(f"Wrote {len(records)} facilities to {DATA_PATH}")
+  print(f"Wrote {len(records)} facilities to {SCRAPED_OUTPUT}")
 
 
 if __name__ == "__main__":
