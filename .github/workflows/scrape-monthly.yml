@@ -24,6 +24,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run scraper
         run: python scripts/scrape_hospitals.py
+      - name: Merge scraped data into canonical dataset
+        run: python scripts/update_hospitals.py
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
@@ -44,7 +46,7 @@ jobs:
             exit 0
           fi
           git checkout -B "$BRANCH"
-          git add data/hospitals.json src/hospitalsData.js src/data/hospitals.json
+          git add data/hospitals.json data/hospitals_scraped_new.json data/hospitals_scraped_full.json src/hospitalsData.js src/data/hospitals.json
           git commit -m "chore: monthly hospitals data refresh"
           git push origin "$BRANCH"
           echo "Updates pushed to $BRANCH; open a PR manually if needed."
