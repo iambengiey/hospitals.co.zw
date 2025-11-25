@@ -29,6 +29,7 @@ const state = {
   view: 'list',
   location: null,
   locationError: '',
+  activeQuickFilter: null,
 };
 
 let renderQueued = false;
@@ -89,16 +90,23 @@ const haversineDistance = (lat1, lon1, lat2, lon2) => {
   return R * c;
 };
 
-const formatDate = (value) => {
-  if (!value) return 'Verification pending';
+const formatMonthYear = (value) => {
+  if (!value) return '';
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return `Verified ${date.toLocaleString('en-GB', { month: 'short', year: 'numeric' })}`;
+  return date.toLocaleString('en-GB', { month: 'short', year: 'numeric' });
 };
 
 const formatVerification = (hospital) => {
-  const base = formatDate(hospital.last_verified);
-  return hospital.verified ? `${base} • Verified source` : base;
+  const formattedDate = formatMonthYear(hospital.last_verified);
+
+  if (hospital.verified) {
+    return formattedDate ? `Verified ${formattedDate} • Verified source` : 'Verified source';
+  }
+
+  if (formattedDate) return `Updated ${formattedDate}`;
+
+  return 'Verification pending';
 };
 
 const renderFilters = () => {
@@ -144,17 +152,34 @@ const renderFilters = () => {
     '<option value="">All services</option>' +
     Array.from(services)
       .sort()
-      .map((service) => `<option value="${service}">${service}</option>`)
+      .map((service) => `<option value="${service}">${formatServiceLabel(service)}</option>`)
       .join('');
   ruralFilter.innerHTML =
-    '<option value="">Rural & urban</option>' +
+    '<option value="">Any location</option>' +
     Array.from(ruralOptions)
       .sort()
       .map((value) => `<option value="${value}">${value}</option>`)
       .join('');
 };
 
-const formatServices = (services = []) => (services.length ? services.join(' • ') : 'Services coming soon');
+const formatServiceLabel = (service = '') => {
+  const trimmed = service.trim();
+  if (!trimmed) return '';
+  const normalizeWord = (word) => {
+    if (word.length <= 4) return word.toUpperCase();
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  };
+
+  if (!trimmed.includes(' ') && trimmed.length <= 4) return trimmed.toUpperCase();
+
+  return trimmed
+    .split(/\s+/)
+    .map((word) => normalizeWord(word))
+    .join(' ');
+};
+
+const formatServices = (services = []) =>
+  services.length ? services.map((service) => formatServiceLabel(service)).join(' • ') : 'Services coming soon';
 
 const highlightCard = (id) => {
   if (!id) return;
@@ -435,7 +460,7 @@ const updateLocationUI = () => {
 };
 
 const injectStructuredData = (hospitals) => {
-  const graph = hospitals.slice(0, 80).map((hospital) => {
+  const graph = hospitals.map((hospital) => {
     const address = {
       '@type': 'PostalAddress',
       streetAddress: hospital.address || '',
@@ -470,11 +495,12 @@ const injectStructuredData = (hospitals) => {
   structuredDataInjected = true;
 };
 
-const applyQuickFilter = (config) => {
+const applyQuickFilter = (config, index = null) => {
   state.filters.facilityType = config.facilityType || '';
   state.filters.service = config.service || '';
   state.filters.ruralUrban = config.ruralUrban || '';
   state.filters.open24 = Boolean(config.open24);
+  state.activeQuickFilter = typeof index === 'number' ? index : null;
   if (config.facilityType || config.ruralUrban || config.service || config.open24) {
     trackEvent('quick_filter', config);
   }
@@ -482,6 +508,7 @@ const applyQuickFilter = (config) => {
   serviceFilter.value = state.filters.service;
   ruralFilter.value = state.filters.ruralUrban;
   open24Filter.checked = state.filters.open24;
+  updateQuickFilterUI();
   scheduleRender();
 };
 
@@ -497,6 +524,8 @@ const scheduleRender = () => {
 const attachListeners = () => {
   const onFilterChange = (key, value) => {
     state.filters[key] = value;
+    state.activeQuickFilter = null;
+    updateQuickFilterUI();
     trackEvent('filter_change', { [key]: value });
     scheduleRender();
   };
@@ -575,7 +604,7 @@ const attachListeners = () => {
     if (!button) return;
     const index = Number(button.dataset.quickIndex);
     const config = QUICK_FILTERS[index];
-    applyQuickFilter(config);
+    applyQuickFilter(config, index);
   });
 
   updateLocationUI();
@@ -586,6 +615,17 @@ const renderQuickFilters = () => {
   quickFilterBar.innerHTML = QUICK_FILTERS.map(
     (filter, index) => `<button type="button" data-quick-index="${index}" class="quick-button">${filter.label}</button>`,
   ).join('');
+  updateQuickFilterUI();
+};
+
+const updateQuickFilterUI = () => {
+  if (!quickFilterBar) return;
+  const buttons = quickFilterBar.querySelectorAll('button[data-quick-index]');
+  buttons.forEach((btn) => {
+    const isActive = state.activeQuickFilter === Number(btn.dataset.quickIndex);
+    btn.classList.toggle('is-active', isActive);
+    btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
 };
 
 const init = () => {
