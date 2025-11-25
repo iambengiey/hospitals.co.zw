@@ -8,6 +8,25 @@
       name="description"
       content="Fast, mobile-friendly directory to find hospitals in Zimbabwe by location, ownership, specialist coverage, and tier."
     />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://hospitals.co.zw/" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link rel="alternate" type="application/json" href="/data/hospitals.json" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hospitals.co.zw" />
+    <meta property="og:title" content="Hospitals.co.zw — Zimbabwe Hospital Directory" />
+    <meta
+      property="og:description"
+      content="Search and filter hospitals in Zimbabwe by province, ownership, specialist services, and tier with fast list and map views."
+    />
+    <meta property="og:url" content="https://hospitals.co.zw/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Hospitals.co.zw — Zimbabwe Hospital Directory" />
+    <meta
+      name="twitter:description"
+      content="Search and filter hospitals in Zimbabwe by province, ownership, specialist services, and tier with fast list and map views."
+    />
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MS8295XMP"></script>
     <script>
@@ -22,6 +41,14 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="emergency-banner" role="note">
+      <div class="emergency-banner__inner">
+        <span class="emergency-banner__label">Need urgent help?</span>
+        <a class="emergency-banner__cta emergency-banner__cta--mobile" href="tel:112">Tap to call 112</a>
+        <a class="emergency-banner__cta emergency-banner__cta--desktop" href="tel:999">Call 999</a>
+        <span class="emergency-banner__hint">If you can, head to the nearest health facility while help is on the way.</span>
+      </div>
+    </div>
     <header class="topbar" role="banner">
       <div class="topbar__inner">
         <div class="brand" aria-label="Hospitals.co.zw home">
@@ -86,7 +113,7 @@
         <div class="control">
           <label for="rural-filter">Rural/urban</label>
           <select id="rural-filter">
-            <option value="">Rural &amp; urban</option>
+            <option value="">Any location</option>
           </select>
         </div>
         <div class="control">
@@ -147,6 +174,15 @@
           Official Ministry of Health &amp; Child Care updates are published at
           <a href="https://www.mohcc.gov.zw/" target="_blank" rel="noopener">mohcc.gov.zw</a>.
           Check their bulletins for policy notices, referral pathways, and emergency guidance that complement this directory.
+        </p>
+
+        <p class="adsense-note" aria-label="ads.txt entry">
+          google.com, pub-4897449217795516, DIRECT, f08c47fec0942fa0
+        </p>
+
+        <p class="mohcc-disclaimer" aria-label="Friendly disclaimer">
+          This little directory is here to help, not diagnose—please lean on your care team for urgent needs and sprinkle kindness
+          everywhere you go. 💚
         </p>
 
     </main>
