@@ -73,7 +73,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": true,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -116,7 +116,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "https://www.materdei.co.zw",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -421,7 +421,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "https://www.traumacentre.co.zw",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -575,7 +575,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": true,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -657,7 +657,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "https://www.avenuesclinic.co.zw",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -884,7 +884,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -921,7 +921,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": true,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -1035,7 +1035,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -1722,7 +1722,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -1763,7 +1763,7 @@ export const hospitalsData = [
     "confidence": "medium",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -1820,7 +1820,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -1860,7 +1860,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -2008,7 +2008,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": true,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -2049,7 +2049,7 @@ export const hospitalsData = [
     "confidence": "high",
     "verified": false,
     "website": "",
-    "last_seen": "2025-11-21",
+    "last_seen": "2025-11-29",
     "first_seen": "2025-11-20"
   },
   {
@@ -2273,7 +2273,7 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "st-albert-s-mission-hospital-mt-darwin",
@@ -2311,7 +2311,7 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "all-souls-mission-hospital-mutoko",
@@ -2349,7 +2349,7 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "st-theresa-s-mission-hospital-chiredzi",
@@ -2387,7 +2387,7 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "ingutsheni-central-hospital-bulawayo",
@@ -2425,7 +2425,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "st-giles-rehabilitation-centre-harare",
@@ -2458,7 +2458,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "buhera-district-hospital-buhera",
@@ -2496,7 +2496,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "birchenough-bridge-hospital-chimanimani",
@@ -2534,7 +2534,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "chimanimani-district-hospital-chimanimani",
@@ -2572,7 +2572,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "guruve-district-hospital-guruve",
@@ -2610,7 +2610,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "mount-darwin-district-hospital-mount-darwin",
@@ -2648,7 +2648,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "rushinga-district-hospital-rushinga",
@@ -2686,7 +2686,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "shamva-district-hospital-shamva",
@@ -2724,7 +2724,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "chivhu-district-hospital-chikomba",
@@ -2762,7 +2762,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "goromonzi-district-hospital-goromonzi",
@@ -2800,7 +2800,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "mudzi-district-hospital-mudzi",
@@ -2838,7 +2838,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "seke-district-hospital-seke",
@@ -2876,7 +2876,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "uzumba-maramba-pfungwe-district-hospital-ump",
@@ -2914,7 +2914,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "wedza-district-hospital-wedza",
@@ -2952,7 +2952,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "chegutu-district-hospital-chegutu",
@@ -2990,7 +2990,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "karoi-district-hospital-karoi",
@@ -3028,7 +3028,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "mhondoro-ngezi-district-hospital-mhondoro-ngezi",
@@ -3066,7 +3066,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "zvimba-district-hospital-zvimba",
@@ -3104,7 +3104,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "bikita-district-hospital-bikita",
@@ -3142,7 +3142,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "silveira-mission-hospital-bikita",
@@ -3180,7 +3180,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "gutu-district-hospital-gutu",
@@ -3218,7 +3218,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "mwenezi-district-hospital-mwenezi",
@@ -3256,7 +3256,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "st-anthony-s-musiso-hospital-zaka",
@@ -3294,7 +3294,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "zaka-district-hospital-zaka",
@@ -3332,7 +3332,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "binga-district-hospital-binga",
@@ -3370,7 +3370,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "lupane-provincial-hospital-lupane",
@@ -3408,7 +3408,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "nkayi-district-hospital-nkayi",
@@ -3446,7 +3446,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "tsholotsho-district-hospital-tsholotsho",
@@ -3484,7 +3484,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "filabusi-district-hospital-insiza",
@@ -3522,7 +3522,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "kezi-district-hospital-matobo",
@@ -3560,7 +3560,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "maphisa-district-hospital-matobo",
@@ -3598,7 +3598,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "esigodini-district-hospital-umzingwane",
@@ -3636,7 +3636,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "chirumanzu-district-hospital-chirumanzu",
@@ -3674,7 +3674,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "gokwe-north-district-hospital-gokwe-north",
@@ -3714,7 +3714,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "mberengwa-district-hospital-mberengwa",
@@ -3752,7 +3752,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "shurugwi-district-hospital-shurugwi",
@@ -3790,7 +3790,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   },
   {
     "id": "norton-hospital-norton",
@@ -3828,7 +3828,7 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-29"
   }
 ];
 export default hospitalsData;
