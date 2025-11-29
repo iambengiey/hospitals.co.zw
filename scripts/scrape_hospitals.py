@@ -37,8 +37,10 @@ else:
 
 if XLRD_AVAILABLE:
   import xlrd  # type: ignore
+  from xlrd.biffh import XLRDError  # type: ignore
 else:
   xlrd = None  # type: ignore
+  XLRDError = Exception  # type: ignore[misc,assignment]
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCRAPED_OUTPUT = ROOT / "data" / "hospitals_scraped_new.json"
@@ -257,7 +259,15 @@ def load_xls(path: pathlib.Path) -> List[Hospital]:
     print(f"Skipping {path.name} (xlrd not installed)")
     return []
 
-  workbook = xlrd.open_workbook(path)
+  try:
+    workbook = xlrd.open_workbook(path)
+  except XLRDError:
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    if "<html" in text.lower():
+      print(f"{path.name} is HTML mislabeled as XLS; parsing tables instead")
+      return load_html_tables(path)
+    raise
+
   sheet = workbook.sheet_by_index(0)
   headers = [str(value).strip() if value is not None else "" for value in sheet.row_values(0)]
   facilities: List[Hospital] = []
