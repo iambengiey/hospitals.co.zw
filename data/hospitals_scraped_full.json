@@ -24,7 +24,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "mcaz_pharmacies_2024"
     ],
@@ -60,7 +60,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -91,7 +91,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "hpa_registry"
     ],
@@ -125,7 +125,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 1",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [],
     "confidence": "medium",
     "verified": false,
@@ -156,7 +156,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "mcaz_pharmacies_2024"
     ],
@@ -187,7 +187,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -218,7 +218,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "hpa_registry"
     ],
@@ -254,7 +254,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -290,7 +290,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -326,7 +326,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -362,7 +362,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "scribd_provincial_district_hospitals"
     ],
@@ -395,7 +395,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "mcaz_pharmacies_2024"
     ],
@@ -431,7 +431,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "scribd_provincial_district_hospitals"
     ],
@@ -467,7 +467,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "zach_mission_hospitals"
     ],
@@ -503,7 +503,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -539,7 +539,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -575,7 +575,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "zach_mission_hospitals"
     ],
@@ -611,7 +611,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -647,7 +647,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -683,7 +683,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -719,7 +719,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -755,7 +755,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -791,7 +791,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "zach_mission_hospitals"
     ],
@@ -827,7 +827,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -863,7 +863,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -899,7 +899,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -935,7 +935,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -971,7 +971,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1007,7 +1007,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1043,7 +1043,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1079,7 +1079,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1115,7 +1115,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1151,7 +1151,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1187,7 +1187,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "zach_mission_hospitals"
     ],
@@ -1223,7 +1223,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1259,7 +1259,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1295,7 +1295,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1331,7 +1331,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1367,7 +1367,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1404,7 +1404,7 @@
     "lat": -18.364,
     "lon": 26.501,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "_",
       "b",
@@ -1449,7 +1449,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1485,7 +1485,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "zach_mission_hospitals"
     ],
@@ -1521,7 +1521,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1557,7 +1557,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1594,7 +1594,7 @@
     "lat": -17.926,
     "lon": 25.842,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "_",
       "b",
@@ -1639,7 +1639,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "scribd_provincial_district_hospitals"
     ],
@@ -1675,7 +1675,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1711,7 +1711,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1747,7 +1747,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1783,7 +1783,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1819,7 +1819,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1857,7 +1857,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1890,7 +1890,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 3",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "mcaz_pharmacies_2024"
     ],
@@ -1924,7 +1924,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [],
     "confidence": "medium",
     "verified": false,
@@ -1958,7 +1958,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
@@ -1994,7 +1994,7 @@
     "lat": null,
     "lon": null,
     "tier": "Tier 2",
-    "last_verified": "2025-11-21",
+    "last_verified": "2025-12-01",
     "source": [
       "wikipedia_stub"
     ],
