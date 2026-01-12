@@ -75,6 +75,45 @@
     </header>
 
     <main class="container">
+      <section id="city-sponsor" class="city-sponsor" aria-live="polite" hidden></section>
+
+      <section id="admin-panel" class="admin-panel" hidden>
+        <div class="admin-panel__header">
+          <h2>Featured placement admin</h2>
+          <p>Internal tools to manage featured listings (visible with <code>?admin=1</code>).</p>
+        </div>
+        <form id="featured-admin-form" class="admin-panel__form">
+          <label>
+            Listing
+            <select id="admin-listing"></select>
+          </label>
+          <label class="admin-panel__toggle">
+            <input type="checkbox" id="admin-featured-toggle" />
+            Featured placement
+          </label>
+          <label>
+            Featured scope
+            <select id="admin-featured-scope"></select>
+          </label>
+          <label>
+            Sponsor label
+            <select id="admin-sponsor-label">
+              <option value="Featured">Featured</option>
+              <option value="Sponsored">Sponsored</option>
+            </select>
+          </label>
+          <label>
+            Featured rank
+            <input type="number" id="admin-featured-rank" min="1" step="1" />
+          </label>
+          <label>
+            Featured until
+            <input type="date" id="admin-featured-until" />
+          </label>
+          <button type="submit" class="admin-panel__save">Save placement</button>
+        </form>
+      </section>
+
       <section class="controls" aria-label="Search and filters">
         <div class="control control--search">
           <label for="search">Search</label>
@@ -165,6 +204,14 @@
         </script>
       </section>
 
+        <section id="featured-section" class="featured-section" hidden>
+          <div class="featured-section__header">
+            <h2>Featured listings</h2>
+            <p>Sponsored placements are clearly labelled and appear above regular results.</p>
+          </div>
+          <section id="featured-results" class="results results--featured" aria-live="polite"></section>
+        </section>
+
         <section id="results" class="results" aria-live="polite"></section>
 
         <section id="map-panel" class="map-panel" hidden>
@@ -200,7 +247,10 @@
       <template id="hospital-card">
         <article class="card">
           <header>
-            <h2 class="card__title"></h2>
+            <div class="card__title-row">
+              <h2 class="card__title"></h2>
+              <span class="card__verification" aria-label="Verification status"></span>
+            </div>
             <div class="card__badges" aria-label="Facility tags"></div>
             <p class="card__meta"></p>
           </header>
@@ -209,6 +259,7 @@
           <p class="card__contact"></p>
           <p class="card__hours"></p>
           <p class="card__verified"></p>
+          <p class="card__updated"></p>
           <p class="card__actions"></p>
           <button class="card__toggle" type="button" aria-expanded="false">More details</button>
           <div class="card__details" hidden></div>
