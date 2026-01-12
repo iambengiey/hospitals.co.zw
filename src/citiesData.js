@@ -1,0 +1,18 @@
+export const citiesData = [
+  {
+    city: 'Harare',
+    city_sponsor_name: 'Avenues Clinic',
+    city_sponsor_logo: '',
+    city_sponsor_link: 'https://www.avenuesclinic.co.zw',
+    city_sponsor_label: 'Supported by',
+  },
+  {
+    city: 'Bulawayo',
+    city_sponsor_name: 'Mater Dei Hospital',
+    city_sponsor_logo: '',
+    city_sponsor_link: 'https://www.materdei.co.zw',
+    city_sponsor_label: 'Supported by',
+  },
+];
+
+export default citiesData;

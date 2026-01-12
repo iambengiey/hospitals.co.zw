@@ -1,4 +1,5 @@
 import hospitalsData from './hospitalsData.js';
+import citiesData from './citiesData.js';
 
 const QUICK_FILTERS = [
   { label: 'Emergency', service: 'er' },
@@ -40,6 +41,14 @@ let mapInstance = null;
 let mapLayerGroup = null;
 
 const TIER1_SPECIALISTS = ['oncology', 'cardiology', 'neurosurgery', 'icu', 'critical care', 'trauma', 'hematology', 'neonatology'];
+const SPONSOR_LABELS = ['Featured', 'Sponsored'];
+const VERIFICATION_LABELS = {
+  unverified: { label: 'Unverified', className: 'badge--unverified' },
+  verified: { label: 'Verified', className: 'badge--verified' },
+  claimed: { label: 'Claimed', className: 'badge--claimed' },
+};
+const LEAD_STORAGE_KEY = 'lead_events';
+const ADMIN_STORAGE_KEY = 'featured_admin_overrides';
 
 const tierHelper = (hospital) => {
   if (hospital.tier) return hospital.tier;
@@ -58,6 +67,210 @@ const trackEvent = (eventName, payload = {}) => {
   void payload;
 };
 
+const getStorageEvents = () => {
+  const raw = window.localStorage.getItem(LEAD_STORAGE_KEY);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    void error;
+    return [];
+  }
+};
+
+const storeLeadEvent = (event) => {
+  const events = getStorageEvents();
+  events.push(event);
+  window.localStorage.setItem(LEAD_STORAGE_KEY, JSON.stringify(events));
+};
+
+const getAdminOverrides = () => {
+  const raw = window.localStorage.getItem(ADMIN_STORAGE_KEY);
+  if (!raw) return {};
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch (error) {
+    void error;
+    return {};
+  }
+};
+
+const saveAdminOverrides = (overrides) => {
+  window.localStorage.setItem(ADMIN_STORAGE_KEY, JSON.stringify(overrides));
+};
+
+const applyAdminOverrides = (records) => {
+  const overrides = getAdminOverrides();
+  return records.map((record) => {
+    const override = record.id ? overrides[record.id] : null;
+    return override ? { ...record, ...override } : record;
+  });
+};
+
+const resolveVerificationStatus = (hospital) => {
+  const status = hospital.verification_status;
+  if (status && VERIFICATION_LABELS[status]) return status;
+  if (hospital.verified) return 'verified';
+  return 'unverified';
+};
+
+const formatDate = (value) => {
+  if (!value) return '';
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return date.toISOString().split('T')[0];
+};
+
+const getLastUpdated = (hospital) =>
+  hospital.last_updated_at || hospital.last_seen || hospital.last_verified || hospital.verified_at || '';
+
+const getVerificationMeta = (hospital) => {
+  const status = resolveVerificationStatus(hospital);
+  const sourceValue = hospital.source;
+  const sourceLabel = Array.isArray(sourceValue) ? sourceValue.filter(Boolean).join(', ') : sourceValue;
+  const verifiedDate = formatDate(hospital.verified_at || hospital.last_verified);
+
+  if (status === 'verified') {
+    if (verifiedDate && sourceLabel) return `Verified ${verifiedDate} • ${sourceLabel}`;
+    if (verifiedDate) return `Verified ${verifiedDate}`;
+    if (sourceLabel) return `Verified source: ${sourceLabel}`;
+    return 'Verified source';
+  }
+
+  if (status === 'claimed') {
+    if (sourceLabel) return `Claimed listing • Source: ${sourceLabel}`;
+    return 'Claimed listing';
+  }
+
+  if (sourceLabel) return `Unverified • Source: ${sourceLabel}`;
+  return 'Verification pending';
+};
+
+const getActiveCity = () => {
+  const query = state.filters.search.trim();
+  if (!query) return '';
+  const match = state.hospitals.find(
+    (hospital) => (hospital.city || '').toLowerCase() === query.toLowerCase() || (hospital.district || '').toLowerCase() === query.toLowerCase(),
+  );
+  return match ? match.city || match.district || '' : '';
+};
+
+const getPageContext = () => {
+  if (getActiveCity()) return 'city';
+  if (state.filters.facilityType) return 'type';
+  return 'listing';
+};
+
+const getFeaturedScope = () => {
+  const activeCity = getActiveCity();
+  if (activeCity) return `city:${activeCity}`;
+  if (state.filters.province) return `province:${state.filters.province}`;
+  if (state.filters.facilityType) return `type:${state.filters.facilityType}`;
+  return 'homepage';
+};
+
+const isFeaturedActive = (hospital, scope) => {
+  if (!hospital.is_featured) return false;
+  const until = hospital.featured_until ? new Date(hospital.featured_until) : null;
+  if (until && until < new Date()) return false;
+  if (!hospital.featured_scope) return scope === 'homepage';
+  return hospital.featured_scope === scope;
+};
+
+const renderCitySponsor = () => {
+  if (!citySponsor) return;
+  const activeCity = getActiveCity();
+  if (!activeCity) {
+    citySponsor.hidden = true;
+    citySponsor.innerHTML = '';
+    return;
+  }
+  const sponsor = citiesData.find((item) => item.city.toLowerCase() === activeCity.toLowerCase());
+  if (!sponsor) {
+    citySponsor.hidden = true;
+    citySponsor.innerHTML = '';
+    return;
+  }
+
+  const label = sponsor.city_sponsor_label || 'Supported by';
+  const logo = sponsor.city_sponsor_logo
+    ? `<img src="${sponsor.city_sponsor_logo}" alt="${sponsor.city_sponsor_name} logo" class="city-sponsor__logo" />`
+    : '';
+  const linkOpen = sponsor.city_sponsor_link
+    ? `<a href="${sponsor.city_sponsor_link}" target="_blank" rel="noopener" class="city-sponsor__link">`
+    : '<div class="city-sponsor__link">';
+  const linkClose = sponsor.city_sponsor_link ? '</a>' : '</div>';
+
+  citySponsor.innerHTML = `
+    <div class="city-sponsor__label">${label}</div>
+    ${linkOpen}
+      ${logo}
+      <span class="city-sponsor__name">${sponsor.city_sponsor_name}</span>
+    ${linkClose}
+  `;
+  citySponsor.hidden = false;
+};
+
+const initAdminPanel = () => {
+  if (!adminPanel || !adminForm || !adminListingSelect) return;
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('admin') !== '1') return;
+
+  adminPanel.hidden = false;
+  const scopeOptions = ['homepage'];
+  const cityOptions = new Set(state.hospitals.map((hospital) => hospital.city).filter(Boolean));
+  const provinceOptions = new Set(state.hospitals.map((hospital) => hospital.province).filter(Boolean));
+  const typeOptions = new Set(state.hospitals.map((hospital) => hospital.facility_type).filter(Boolean));
+
+  cityOptions.forEach((city) => scopeOptions.push(`city:${city}`));
+  provinceOptions.forEach((province) => scopeOptions.push(`province:${province}`));
+  typeOptions.forEach((type) => scopeOptions.push(`type:${type}`));
+
+  adminFeaturedScope.innerHTML = scopeOptions
+    .sort()
+    .map((option) => `<option value="${option}">${option}</option>`)
+    .join('');
+
+  adminListingSelect.innerHTML = state.hospitals
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((hospital) => `<option value="${hospital.id}">${hospital.name}</option>`)
+    .join('');
+
+  const syncAdminFields = () => {
+    const selectedId = adminListingSelect.value;
+    const hospital = state.hospitals.find((entry) => entry.id === selectedId);
+    if (!hospital) return;
+    adminFeaturedToggle.checked = !!hospital.is_featured;
+    adminFeaturedScope.value = hospital.featured_scope || 'homepage';
+    adminSponsorLabel.value = SPONSOR_LABELS.includes(hospital.sponsor_label) ? hospital.sponsor_label : 'Featured';
+    adminFeaturedRank.value = hospital.featured_rank || '';
+    adminFeaturedUntil.value = hospital.featured_until ? formatDate(hospital.featured_until) : '';
+  };
+
+  adminListingSelect.addEventListener('change', syncAdminFields);
+  syncAdminFields();
+
+  adminForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const selectedId = adminListingSelect.value;
+    if (!selectedId) return;
+    const overrides = getAdminOverrides();
+    overrides[selectedId] = {
+      is_featured: adminFeaturedToggle.checked,
+      featured_scope: adminFeaturedScope.value,
+      sponsor_label: adminSponsorLabel.value,
+      featured_rank: adminFeaturedRank.value ? Number(adminFeaturedRank.value) : 999,
+      featured_until: adminFeaturedUntil.value || '',
+    };
+    saveAdminOverrides(overrides);
+    state.hospitals = applyAdminOverrides(state.hospitals);
+    scheduleRender();
+  });
+};
+
 const provinceFilter = document.getElementById('province-filter');
 const ownershipFilter = document.getElementById('ownership-filter');
 const facilityFilter = document.getElementById('facility-filter');
@@ -69,7 +282,10 @@ const sortSelect = document.getElementById('sort');
 const searchInput = document.getElementById('search');
 const locationButton = document.getElementById('enable-location');
 const locationStatus = document.getElementById('location-status');
+const citySponsor = document.getElementById('city-sponsor');
 const resultsEl = document.getElementById('results');
+const featuredSection = document.getElementById('featured-section');
+const featuredResultsEl = document.getElementById('featured-results');
 const resultsSummary = document.getElementById('results-summary');
 const template = document.getElementById('hospital-card');
 const listViewBtn = document.getElementById('list-view');
@@ -77,6 +293,14 @@ const mapViewBtn = document.getElementById('map-view');
 const mapPanel = document.getElementById('map-panel');
 const mapContainer = document.getElementById('map');
 const quickFilterBar = document.getElementById('quick-filters');
+const adminPanel = document.getElementById('admin-panel');
+const adminForm = document.getElementById('featured-admin-form');
+const adminListingSelect = document.getElementById('admin-listing');
+const adminFeaturedToggle = document.getElementById('admin-featured-toggle');
+const adminFeaturedScope = document.getElementById('admin-featured-scope');
+const adminSponsorLabel = document.getElementById('admin-sponsor-label');
+const adminFeaturedRank = document.getElementById('admin-featured-rank');
+const adminFeaturedUntil = document.getElementById('admin-featured-until');
 
 const haversineDistance = (lat1, lon1, lat2, lon2) => {
   const toRad = (deg) => (deg * Math.PI) / 180;
@@ -90,24 +314,7 @@ const haversineDistance = (lat1, lon1, lat2, lon2) => {
   return R * c;
 };
 
-const formatMonthYear = (value) => {
-  if (!value) return '';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleString('en-GB', { month: 'short', year: 'numeric' });
-};
-
-const formatVerification = (hospital) => {
-  const formattedDate = formatMonthYear(hospital.last_verified);
-
-  if (hospital.verified) {
-    return formattedDate ? `Verified ${formattedDate} • Verified source` : 'Verified source';
-  }
-
-  if (formattedDate) return `Updated ${formattedDate}`;
-
-  return 'Verification pending';
-};
+const formatVerification = (hospital) => getVerificationMeta(hospital);
 
 const renderFilters = () => {
   const provinces = new Set();
@@ -206,8 +413,19 @@ const buildActionLinks = (hospital) => {
     typeof hospital.lat === 'number' && typeof hospital.lon === 'number'
       ? `https://www.google.com/maps/search/?api=1&query=${hospital.lat},${hospital.lon}`
       : '';
-  if (phone) actions.push(`<a href="tel:${phone}">Call</a>`);
-  if (whatsapp) actions.push(`<a href="https://wa.me/${whatsapp.replace(/\D/g, '')}">WhatsApp</a>`);
+  const pageContext = getPageContext();
+  const listingId = hospital.id || hospital.name;
+  if (phone) actions.push(`<a href="tel:${phone}" data-track-event="call click" data-listing-id="${listingId}" data-page-context="${pageContext}">Call</a>`);
+  if (whatsapp) {
+    actions.push(
+      `<a href="https://wa.me/${whatsapp.replace(/\D/g, '')}" data-track-event="WhatsApp click" data-listing-id="${listingId}" data-page-context="${pageContext}">WhatsApp</a>`,
+    );
+  }
+  if (mapsLink) {
+    actions.push(
+      `<a href="${mapsLink}" target="_blank" rel="noopener" data-track-event="directions click" data-listing-id="${listingId}" data-page-context="${pageContext}">Directions</a>`,
+    );
+  }
 
   const shareText = encodeURIComponent(
     `Name: ${hospital.name}\nType: ${hospital.facility_type}, ${hospital.rural_urban}\nLocation: ${hospital.district}, ${hospital.province}\nServices: ${formatServices(hospital.services)}\nPhone: ${phone || 'N/A'}\nDirections: ${mapsLink || 'Add coordinates to show directions'}`,
@@ -223,15 +441,15 @@ const buildActionLinks = (hospital) => {
   return actions.join(' · ');
 };
 
-const renderList = (filtered) => {
+const renderList = (filtered, targetEl, { featured = false } = {}) => {
   const signature = filtered
-    .map((h) => `${h.id || h.name}:${state.filters.sort}:${h.distance ? h.distance.toFixed(1) : ''}`)
+    .map((h) => `${h.id || h.name}:${state.filters.sort}:${featured ? 'featured' : 'regular'}:${h.distance ? h.distance.toFixed(1) : ''}`)
     .join('|');
-  if (signature === lastListSignature && state.view === 'list') return;
-  lastListSignature = signature;
+  if (signature === lastListSignature && state.view === 'list' && targetEl === resultsEl) return;
+  if (targetEl === resultsEl) lastListSignature = signature;
 
   if (!filtered.length) {
-    resultsEl.innerHTML = '<p>No facilities match those filters yet.</p>';
+    targetEl.innerHTML = featured ? '<p>No featured placements for this view yet.</p>' : '<p>No facilities match those filters yet.</p>';
     return;
   }
 
@@ -240,15 +458,30 @@ const renderList = (filtered) => {
     const node = template.content.cloneNode(true);
     const article = node.querySelector('article');
     article.dataset.hospitalId = hospital.id || hospital.name;
-    if (hospital.verified) {
+    if (hospital.verified || resolveVerificationStatus(hospital) === 'verified') {
       article.classList.add('card--verified');
     }
+    if (featured) {
+      article.classList.add('card--featured');
+    }
     node.querySelector('.card__title').textContent = hospital.name;
+
+    const status = resolveVerificationStatus(hospital);
+    const statusBadge = node.querySelector('.card__verification');
+    if (statusBadge) {
+      const badgeConfig = VERIFICATION_LABELS[status] || VERIFICATION_LABELS.unverified;
+      statusBadge.className = `badge ${badgeConfig.className}`;
+      statusBadge.textContent = badgeConfig.label;
+    }
 
     const badgesEl = node.querySelector('.card__badges');
     badgesEl.appendChild(buildBadge(tierHelper(hospital), 'badge--tier'));
     if (hospital.ownership) badgesEl.appendChild(buildBadge(hospital.ownership, 'badge--ownership'));
     if (hospital.rural_urban) badgesEl.appendChild(buildBadge(hospital.rural_urban, ''));
+    if (featured || hospital.is_featured) {
+      const sponsorLabel = SPONSOR_LABELS.includes(hospital.sponsor_label) ? hospital.sponsor_label : 'Featured';
+      badgesEl.appendChild(buildBadge(sponsorLabel, 'badge--sponsor'));
+    }
 
     const distanceLabel =
       state.location && hospital.distance !== null ? ` · ${hospital.distance.toFixed(1)} km away` : '';
@@ -262,12 +495,16 @@ const renderList = (filtered) => {
     node.querySelector('.card__contact').textContent = hospital.phone ? `Phone: ${hospital.phone}` : 'Phone: N/A';
     node.querySelector('.card__hours').textContent = hospital.open_24h ? 'Open 24 hours' : 'Check operating hours with facility';
     node.querySelector('.card__verified').textContent = formatVerification(hospital);
+    const updatedDate = formatDate(getLastUpdated(hospital));
+    node.querySelector('.card__updated').textContent = updatedDate ? `Last updated: ${updatedDate}` : '';
     node.querySelector('.card__actions').innerHTML = buildActionLinks(hospital);
 
     const details = [
       hospital.address ? `Address: ${hospital.address}` : '',
       hospital.website ? `Website: <a href="${hospital.website}" target="_blank" rel="noopener">${hospital.website}</a>` : '',
       hospital.emergency_level ? `Emergency level: ${hospital.emergency_level}` : '',
+      hospital.source ? `Source: ${Array.isArray(hospital.source) ? hospital.source.join(', ') : hospital.source}` : '',
+      hospital.featured_until ? `Featured until: ${formatDate(hospital.featured_until)}` : '',
     ]
       .filter(Boolean)
       .map((line) => `<p>${line}</p>`)
@@ -298,8 +535,8 @@ const renderList = (filtered) => {
     fragment.appendChild(node);
   });
 
-  resultsEl.innerHTML = '';
-  resultsEl.appendChild(fragment);
+  targetEl.innerHTML = '';
+  targetEl.appendChild(fragment);
 };
 
 const loadLeaflet = () => {
@@ -412,13 +649,23 @@ const renderHospitals = () => {
     });
 
   if (resultsSummary) {
-    const verifiedCount = filtered.filter((h) => h.verified).length;
+    const verifiedCount = filtered.filter((h) => resolveVerificationStatus(h) === 'verified').length;
     resultsSummary.textContent = `${filtered.length} facilities • ${verifiedCount} verified`;
   }
+
+  renderCitySponsor();
+
+  const featuredScope = getFeaturedScope();
+  const featured = filtered
+    .filter((hospital) => isFeaturedActive(hospital, featuredScope))
+    .sort((a, b) => (a.featured_rank ?? 999) - (b.featured_rank ?? 999));
+  const featuredIds = new Set(featured.map((hospital) => hospital.id || hospital.name));
+  const regular = filtered.filter((hospital) => !featuredIds.has(hospital.id || hospital.name));
 
   if (state.view === 'map') {
     resultsEl.hidden = true;
     mapPanel.hidden = false;
+    if (featuredSection) featuredSection.hidden = true;
     renderMap(filtered).catch((error) => {
       mapContainer.innerHTML = `<p class="map-hint">${error.message}</p>`;
       console.error(error);
@@ -428,7 +675,16 @@ const renderHospitals = () => {
 
   resultsEl.hidden = false;
   mapPanel.hidden = true;
-  renderList(filtered);
+  if (featuredSection && featuredResultsEl) {
+    if (featured.length) {
+      featuredSection.hidden = false;
+      renderList(featured, featuredResultsEl, { featured: true });
+    } else {
+      featuredSection.hidden = true;
+      featuredResultsEl.innerHTML = '';
+    }
+  }
+  renderList(regular, resultsEl);
 };
 
 const updateLocationUI = () => {
@@ -607,6 +863,39 @@ const attachListeners = () => {
     applyQuickFilter(config, index);
   });
 
+  const handleLeadClick = (event) => {
+    const link = event.target.closest('a[data-track-event]');
+    if (!link) return;
+    const listingId = link.dataset.listingId || '';
+    const eventType = link.dataset.trackEvent || '';
+    const pageContext = link.dataset.pageContext || getPageContext();
+    if (!eventType) return;
+    storeLeadEvent({
+      listing_id: listingId,
+      event_type: eventType,
+      timestamp: new Date().toISOString(),
+      page: pageContext,
+    });
+    trackEvent('lead_click', { listing_id: listingId, event_type: eventType, page: pageContext });
+  };
+
+  resultsEl?.addEventListener('click', handleLeadClick);
+  featuredResultsEl?.addEventListener('click', handleLeadClick);
+
+  document.addEventListener('submit', (event) => {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    if (!form.matches('[data-booking-form]')) return;
+    const listingId = form.dataset.listingId || '';
+    storeLeadEvent({
+      listing_id: listingId,
+      event_type: 'booking form submit',
+      timestamp: new Date().toISOString(),
+      page: getPageContext(),
+    });
+    trackEvent('booking_submit', { listing_id: listingId });
+  });
+
   updateLocationUI();
 };
 
@@ -629,9 +918,11 @@ const updateQuickFilterUI = () => {
 };
 
 const init = () => {
+  state.hospitals = applyAdminOverrides(state.hospitals);
   renderFilters();
   renderQuickFilters();
   renderHospitals();
+  initAdminPanel();
   if (!structuredDataInjected) {
     injectStructuredData(state.hospitals);
   }

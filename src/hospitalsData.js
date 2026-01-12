@@ -37,7 +37,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "green-cross-pharmacy-bulawayo-bulawayo",
@@ -74,7 +82,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mater-dei-hospital",
@@ -110,14 +126,20 @@ export const hospitalsData = [
     "lon": 28.5887,
     "tier": "Tier 2",
     "last_verified": "2024-04-01",
-    "source": [
-      "hpa_registry"
-    ],
+    "source": "facility call",
     "confidence": "high",
     "verified": false,
     "website": "https://www.materdei.co.zw",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": true,
+    "featured_scope": "city:Bulawayo",
+    "sponsor_label": "Sponsored",
+    "featured_rank": 1,
+    "featured_until": "2026-12-31",
+    "verification_status": "claimed",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "mpilo-central-hospital-bulawayo",
@@ -156,7 +178,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "opticare-opticians-bulawayo-bulawayo",
@@ -193,7 +223,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "united-bulawayo-hospitals-bulawayo",
@@ -232,7 +270,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "chitungwiza-central-hospital-chitungwiza",
@@ -271,7 +317,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "avondale-pharmacy-harare",
@@ -305,10 +359,18 @@ export const hospitalsData = [
     "lon": 31.034,
     "tier": "Tier 3",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": "facility call",
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": ""
   },
   {
     "id": "baines-imaging-group-harare",
@@ -345,7 +407,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": "https://www.bainesimaginggroup.com"
+    "website": "https://www.bainesimaginggroup.com",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "beatrice-road-infectious-diseases-hospital-harare",
@@ -381,7 +451,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "borrowdale-trauma-centre-harare",
@@ -417,12 +495,20 @@ export const hospitalsData = [
     "lon": 31.0987,
     "tier": "Tier 1",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": "official website",
     "confidence": "high",
     "verified": false,
     "website": "https://www.traumacentre.co.zw",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": true,
+    "featured_scope": "city:Harare",
+    "sponsor_label": "Featured",
+    "featured_rank": 2,
+    "featured_until": "2026-06-30",
+    "verification_status": "verified",
+    "verified_at": "2024-04-01",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "city-dental-clinic-harare",
@@ -462,7 +548,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "harare-central-hospital",
@@ -497,10 +591,18 @@ export const hospitalsData = [
     "lon": 31.053,
     "tier": "Tier 1",
     "last_verified": "2025-11-20",
-    "source": [],
+    "source": "ministry dataset",
     "confidence": "medium",
     "verified": false,
-    "website": "https://health.gov.zw/harare-hospital"
+    "website": "https://health.gov.zw/harare-hospital",
+    "is_featured": true,
+    "featured_scope": "province:Harare",
+    "sponsor_label": "Featured",
+    "featured_rank": 3,
+    "featured_until": "2026-03-31",
+    "verification_status": "verified",
+    "verified_at": "2024-05-12",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "parirenyatwa-group-hospitals",
@@ -539,7 +641,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": "https://www.parihosp.org.zw"
+    "website": "https://www.parihosp.org.zw",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2024-04-01"
   },
   {
     "id": "premier-pharmacy-harare-harare",
@@ -576,7 +686,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "st-annes-hospital-harare",
@@ -614,7 +732,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "the-avenues-clinic-harare",
@@ -658,7 +784,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "https://www.avenuesclinic.co.zw",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "west-end-hospital-harare",
@@ -695,7 +829,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "westend-clinic-harare",
@@ -733,7 +875,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "wilkins-infectious-diseases-hospital-harare",
@@ -771,7 +921,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": "https://en.wikipedia.org/wiki/Wilkins_Infectious_Diseases_Hospital"
+    "website": "https://en.wikipedia.org/wiki/Wilkins_Infectious_Diseases_Hospital",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "makumbe-mission-hospital-buhera",
@@ -808,7 +966,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "murambinda-mission-hospital-buhera",
@@ -845,7 +1011,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "chipinge-district-hospital-chipinge",
@@ -885,7 +1059,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mutare-central-pharmacy-mutare",
@@ -922,7 +1104,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mutare-provincial-hospital",
@@ -959,7 +1149,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": "https://health.gov.zw/mutare-hospital"
+    "website": "https://health.gov.zw/mutare-hospital",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2024-04-01"
   },
   {
     "id": "st-josephs-mission-hospital-mutasa",
@@ -996,7 +1194,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "nyanga-district-hospital-nyanga",
@@ -1036,7 +1242,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "rusape-general-hospital-rusape",
@@ -1073,7 +1287,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "bindura-provincial-hospital-bindura",
@@ -1110,7 +1332,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "concession-district-hospital-concession",
@@ -1147,7 +1377,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "makumbi-mission-hospital-domboshava",
@@ -1184,7 +1422,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "mazowe-district-hospital-mazowe",
@@ -1220,7 +1466,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "karanda-mission-hospital",
@@ -1258,7 +1512,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": "https://www.karanda.org"
+    "website": "https://www.karanda.org",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2024-04-01"
   },
   {
     "id": "mvurwi-hospital-mvurwi",
@@ -1294,7 +1556,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "marondera-provincial-hospital-marondera",
@@ -1331,7 +1601,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "murewa-district-hospital-murewa",
@@ -1368,7 +1646,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "mutoko-district-hospital-mutoko",
@@ -1405,7 +1691,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "chinoyi-provincial-hospital",
@@ -1442,7 +1736,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "kadoma-general-hospital-kadoma",
@@ -1479,7 +1781,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "kariba-district-hospital-kariba",
@@ -1518,7 +1828,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "high",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "chiredzi-district-hospital-chiredzi",
@@ -1555,7 +1873,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "masvingo-provincial-hospital-masvingo",
@@ -1592,7 +1918,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "morgenster-mission-hospital-masvingo",
@@ -1629,7 +1963,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "ndanga-district-hospital-ndanga",
@@ -1666,7 +2008,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "hwange-colliery-hospital-hwange",
@@ -1723,7 +2073,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "st-lukes-hospital-lupane",
@@ -1764,7 +2122,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "victoria-falls-hospital-victoria-falls",
@@ -1821,7 +2187,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "beitbridge-district-hospital-beitbridge",
@@ -1861,7 +2235,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "gwanda-provincial-hospital-gwanda",
@@ -1898,7 +2280,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "plumtree-district-hospital-plumtree",
@@ -1935,7 +2325,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "claybank-private-hospital-gweru",
@@ -1972,7 +2370,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "gweru-community-pharmacy-gweru",
@@ -2009,7 +2415,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "gweru-provincial-hospital-gweru",
@@ -2050,7 +2464,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "last_seen": "2025-11-21",
-    "first_seen": "2025-11-20"
+    "first_seen": "2025-11-20",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "kwekwe-general-hospital-kwekwe",
@@ -2087,7 +2509,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "zvishavane-district-hospital-zvishavane",
@@ -2124,7 +2554,15 @@ export const hospitalsData = [
     "source": [],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-20"
   },
   {
     "id": "lancet-clinical-laboratories-harare",
@@ -2161,7 +2599,15 @@ export const hospitalsData = [
     ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": ""
   },
   {
     "id": "lancet-clinical-laboratories-bulawayo",
@@ -2198,7 +2644,15 @@ export const hospitalsData = [
     ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": ""
   },
   {
     "id": "cimas-medlab-harare",
@@ -2235,7 +2689,15 @@ export const hospitalsData = [
     ],
     "confidence": "medium",
     "verified": false,
-    "website": ""
+    "website": "",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": ""
   },
   {
     "id": "howard-mission-hospital-chiweshe",
@@ -2273,7 +2735,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "st-albert-s-mission-hospital-mt-darwin",
@@ -2311,7 +2781,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "all-souls-mission-hospital-mutoko",
@@ -2349,7 +2827,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "st-theresa-s-mission-hospital-chiredzi",
@@ -2387,7 +2873,15 @@ export const hospitalsData = [
     "verified": true,
     "website": "",
     "first_seen": "2025-11-20",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "ingutsheni-central-hospital-bulawayo",
@@ -2425,7 +2919,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "st-giles-rehabilitation-centre-harare",
@@ -2458,7 +2960,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "buhera-district-hospital-buhera",
@@ -2496,7 +3006,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "birchenough-bridge-hospital-chimanimani",
@@ -2534,7 +3052,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "chimanimani-district-hospital-chimanimani",
@@ -2572,7 +3098,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "guruve-district-hospital-guruve",
@@ -2610,7 +3144,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mount-darwin-district-hospital-mount-darwin",
@@ -2648,7 +3190,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "rushinga-district-hospital-rushinga",
@@ -2686,7 +3236,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "shamva-district-hospital-shamva",
@@ -2724,7 +3282,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "chivhu-district-hospital-chikomba",
@@ -2762,7 +3328,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "goromonzi-district-hospital-goromonzi",
@@ -2800,7 +3374,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mudzi-district-hospital-mudzi",
@@ -2838,7 +3420,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "seke-district-hospital-seke",
@@ -2876,7 +3466,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "uzumba-maramba-pfungwe-district-hospital-ump",
@@ -2914,7 +3512,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "wedza-district-hospital-wedza",
@@ -2952,7 +3558,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "chegutu-district-hospital-chegutu",
@@ -2990,7 +3604,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "karoi-district-hospital-karoi",
@@ -3028,7 +3650,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mhondoro-ngezi-district-hospital-mhondoro-ngezi",
@@ -3066,7 +3696,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "zvimba-district-hospital-zvimba",
@@ -3104,7 +3742,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "bikita-district-hospital-bikita",
@@ -3142,7 +3788,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "silveira-mission-hospital-bikita",
@@ -3180,7 +3834,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "gutu-district-hospital-gutu",
@@ -3218,7 +3880,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mwenezi-district-hospital-mwenezi",
@@ -3256,7 +3926,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "st-anthony-s-musiso-hospital-zaka",
@@ -3294,7 +3972,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "zaka-district-hospital-zaka",
@@ -3332,7 +4018,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "binga-district-hospital-binga",
@@ -3370,7 +4064,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "lupane-provincial-hospital-lupane",
@@ -3408,7 +4110,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "nkayi-district-hospital-nkayi",
@@ -3446,7 +4156,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "tsholotsho-district-hospital-tsholotsho",
@@ -3484,7 +4202,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "filabusi-district-hospital-insiza",
@@ -3522,7 +4248,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "kezi-district-hospital-matobo",
@@ -3560,7 +4294,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "maphisa-district-hospital-matobo",
@@ -3598,7 +4340,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "esigodini-district-hospital-umzingwane",
@@ -3636,7 +4386,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "chirumanzu-district-hospital-chirumanzu",
@@ -3674,7 +4432,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "gokwe-north-district-hospital-gokwe-north",
@@ -3714,7 +4480,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "mberengwa-district-hospital-mberengwa",
@@ -3752,7 +4526,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "shurugwi-district-hospital-shurugwi",
@@ -3790,7 +4572,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   },
   {
     "id": "norton-hospital-norton",
@@ -3828,7 +4618,15 @@ export const hospitalsData = [
     "verified": false,
     "website": "",
     "first_seen": "2025-11-21",
-    "last_seen": "2025-11-21"
+    "last_seen": "2025-11-21",
+    "is_featured": false,
+    "featured_scope": "",
+    "sponsor_label": "Featured",
+    "featured_rank": 999,
+    "featured_until": "",
+    "verification_status": "unverified",
+    "verified_at": "",
+    "last_updated_at": "2025-11-21"
   }
 ];
 export default hospitalsData;
